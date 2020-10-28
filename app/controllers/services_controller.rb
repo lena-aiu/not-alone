@@ -1,40 +1,39 @@
-class CustomersController < ApplicationController
+class ServicesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-    layout 'customer_layout'
-    before_action :set_customer, only: [:show, :edit, :update, :destroy]
+    layout 'service_layout'
+    before_action :set_service, only: [:show, :edit, :update, :destroy]
   
-    # GET /customers
-    # GET /customers.json
+    # GET /services
+    # GET /services.json
     def index
-      @customers = Customer.all
+      @services = Service.all
     end
   
-    # GET /customers/1
-    # GET /customers/1.json
+    # GET /services/1
+    # GET /services/1.json
     def show
     end
   
-    # GET /customers/new
+    # GET /serivices/new
     def new
-      @customer = Customer.new
+      @service = Service.new
     end
   
-    # GET /customers/1/edit
+    # GET /services/1/edit
     def edit
     end
   
-    # POST /customers
-    # POST /customers.json
+    # POST /services
+    # POST /services.json
     def create
-      @customer = Customer.new(customer_params)
-      if @customer.save
-        flash.notice = "The customer record was created successfully."
-        redirect_to @customer
+      @service = Service.new(service_params)
+      if @service.save
+        flash.notice = "The service record was created successfully."
+        redirect_to @service
       else
-        flash.now.alert = @customer.errors.full_messages.to_sentence
+        flash.now.alert = @service.errors.full_messages.to_sentence
         render :new  
       end
-    
       # @customer = Customer.new(customer_params)
       # respond_to do |format|
       #   if @customer.save
@@ -50,11 +49,11 @@ class CustomersController < ApplicationController
     # PATCH/PUT /customers/1
     # PATCH/PUT /customers/1.json
     def update
-      if @customer.update(customer_params)
-        flash.notice = "The customer record was updated successfully."
-        redirect_to @customer
+      if @service.update(service_params)
+        flash.notice = "The service record was updated successfully."
+        redirect_to @service
       else
-        flash.now.alert = @customer.errors.full_messages.to_sentence
+        flash.now.alert = @service.errors.full_messages.to_sentence
         render :edit
       end
       # respond_to do |format|
@@ -73,26 +72,25 @@ class CustomersController < ApplicationController
     def destroy
       @customer.destroy
       respond_to do |format|
-        format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
+        format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
   
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_customer 
-        @customer = Customer.find(params[:id])
+      def set_service 
+        @service = Service.find(params[:id])
       end
   
       # Only allow a list of trusted parameters through.
-      def customer_params
-        params.require(:customer).permit(:first_name, :last_name, :phone, :email)
+      def service_params
+        params.require(:service).permit(:name, :description, :type, :phone_number, :url, :picture)
       end
       def catch_not_found(e)
         Rails.logger.debug("We had a not found exception.")
         flash.alert = e.to_s
-        redirect_to customers_path
+        redirect_to services_path
       end
-end  
+end
 
-  

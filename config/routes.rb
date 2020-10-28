@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'customer/index'
+  get 'service/index'
   #get 'order/index'
   #get '/orders', to: 'orders#index'
 
   root to: 'customer#index'
   resources :customers
+  resources :services
   #root to: 'order#index'
   #resources :orders
 
