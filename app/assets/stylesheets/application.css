@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require social-share-button
  */
 /* ================================= 
   Element Styles
@@ -128,7 +129,4 @@ textarea:focus {
   outline: none;
   border-color: #0099ff;
 }
-
-
-
 

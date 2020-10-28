@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'social-share-button'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
