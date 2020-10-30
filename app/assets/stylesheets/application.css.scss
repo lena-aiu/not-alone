@@ -17,19 +17,6 @@
 /* ================================= 
   Element Styles
 ==================================== */
-header {
-  text-align: center;
-  background: linear-gradient(90deg, #d4eece, #55b3d0, #1e7eb7),
-              url('../images/header-bg.jpg') no-repeat;
-              background-blend-mode: multiply;    
-              background-size: cover;   
-}
-header input {
-  padding: 12px;
-  font-size: 1.15em;
-  width: 100%;
-}
-
 body {
   background-color: #edeff0;
   font-family: "Helvetica", Arial, sans-serif;
@@ -90,7 +77,7 @@ p + div {
 
 div {
   text-align: left;
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   background-color: #fff;
   padding: 50px;

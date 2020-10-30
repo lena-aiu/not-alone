@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div>
+    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>
+    </button> <%= link_to "DV Project", root_path, class: 'navbar-brand' %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav mr-auto">
+      <li class='nav-item'><%= link_to 'Home', home_index_path, class: 'nav-link' %></li>
+      <li class='nav-item'><%= link_to 'Customer', customers_path, class: 'nav-link' %></li>
+      <li class='nav-item'><%= link_to 'Services', services_path, class: 'nav-link' %></li>
+    </ul>
+    </div>
+  </div>
+</nav>
