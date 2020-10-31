@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get 'service/index'
   #get 'order/index'
   #get '/orders', to: 'orders#index'
+  #get 'home/index'
 
   root to: 'customer#index'
-  resources :customers
+  resources :customers do
+    resources :orders, shallow: true
+  end
   resources :services
   #root to: 'order#index'
   #resources :orders
