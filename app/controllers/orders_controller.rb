@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
     layout 'order_layout'
     before_action :set_order, only: [:show, :edit, :update, :destroy]
 #ORDER1
+    rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found1
     layout 'order_layout1'
     before_action :set_order1, only: [:show1, :edit1, :update1, :destroy1]
 
@@ -171,6 +172,7 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order1 
       @order = Order.find(params[:id])
+      
     end
 
     # Only allow a list of trusted parameters through.

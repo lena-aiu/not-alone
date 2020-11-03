@@ -5,22 +5,24 @@ Rails.application.routes.draw do
   #get 'order/index'
   #get '/orders', to: 'orders#index'
   #get 'home/index'
-
   root to: 'customer#index'
   resources :customers do
     resources :orders, shallow: false
   end
+  #get '/order/:id', to: 'orders#show1'
+  post '/orders', to: 'orders#create1', as: 'orders'
   get '/orders', to: 'orders#index1'
-  get '/order', to: 'orders#show1'
-  put '/order', to: 'orders#update1'
-  patch '/order', to: 'orders#update1'
-  delete '/order', to: 'orders#destroy1'
-  get '/order/new', to: 'orders#new1'
-  get '/order/edit', to: 'orders#edit1'
-   
+  #get '/order/:id', to: 'orders#show1'
+  get '/order/new', to: 'orders#new1', as: 'new_order'
+  get '/order/:id', to: 'orders#show1', as:'order'
+  put '/order/:id', to: 'orders#update1'
+  patch '/order/:id', to: 'orders#update1'
+  delete '/order/:id', to: 'orders#destroy1'
+  get '/order/edit/:id', to: 'orders#edit1', as: 'edit_order'
+  
+  #post '/order/create/:id', to: 'orders#create1'
   resources :services
   #root to: 'order#index'
   #resources :orders
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
