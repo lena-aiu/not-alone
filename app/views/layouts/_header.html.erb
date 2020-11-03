@@ -1,5 +1,46 @@
-<% if user_signed_in? %>
-  <%= current_user.email %>  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Log in", new_user_session_path %>
-<% end %>
+
+
+   <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand order-1 mr-0" href="https://www.codethedream.org/" target="_blank">Presented by Adriana Code The Dream Student</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="customers">Customer</a>
+            <a class="nav-item nav-link" href="services">Services</a>
+            <a class="nav-item nav-link" href="orders">Orders</a>
+            <a class="nav-item nav-link" href="videos">Videos</a>
+          </div>
+        </div>
+      </div>
+    </nav><!-- /navbar -->
+
+    
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid bg-info text-white">
+      <div class="container text-sm-center pt-5">
+        <h1 class="display-2">Domestic Violence Project</h1>
+        <p class="blockquote">YOU ARE NOT ALONE!!!</p>
+        <p clasS="lead">Application created to help Domestic Violence survivors with available resources in the Bay Area</p>
+        <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+          <a class="btn btn-light btn-lg" href="customers">Register as a Survivor</a>
+          <a class="btn btn-light btn-lg" href="services">Register as a Volunteer</a>
+          <a class="btn btn-light btn-lg" href="orders">Orders</a>
+          <a class="btn btn-light btn-lg" href="videos">DV Videos</a>
+        </div>
+      </div>
+    </div><!-- /jumbotron -->
+    <div>
+      <% if user_signed_in? %>
+        <p><%= current_user.email %>  <%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+      <% else %>
+        <p><%= link_to "Log in", new_user_session_path %></p>
+      <% end %>
+   </div>
+  </body>
+
