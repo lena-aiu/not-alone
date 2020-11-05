@@ -10,12 +10,16 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+      <label for="customer">Customer:</label>
+      <%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
+  </div>
 
-  <div><%= f.collection_select :service_id, Service.all, :id, :name, include_blank: true %> 
+  <div class="form-group">
+      <label for="service">Service:</label>
+      <%= f.collection_select :service_id, Service.all, :id, :name, include_blank: true %> 
   </div>
-  <div><%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
-  </div>
-  <p>FORM1 ORDERS</p>
+  
   <div class="field">
     <%= f.label :description %>
     <%= f.text_field :description %>
