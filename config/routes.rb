@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users   
-  root to: 'home#index'
+  root to: 'customer#index'
+
+  #cambie home for customer 
   get 'home/index'
  
   #root to: 'customer/index'
