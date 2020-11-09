@@ -20,13 +20,15 @@
 .my_alert {color: red;}
 .fondo {
   text-align: center;
-  background: linear-gradient(90deg, #d4eece, #55b3d0, #1e7eb7),
+  background: linear-gradient(90deg, #ae91c7, #9674b1, #7d7ee6),
               image-url("estados.jpeg") no-repeat;
               background-blend-mode: multiply;    
               background-size: auto; 
               background-position: center;
               margin-top: 70px;  
 }
+// linear-gradient(90deg, #d4eece, #55b3d0, #1e7eb7),
+
 
 body {
   background: #3d72b4;
