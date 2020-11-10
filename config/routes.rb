@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users   
   root to: 'customer#index'
-
   #cambie home for customer 
   get 'home/index'
- 
   #root to: 'customer/index'
-
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
   # end
-
-  
   get 'customer/index'
-  get 'service/index'
+  #get 'service/index'
   #get 'order/index'
   #get '/orders', to: 'orders#index'
   #get 'home/index'

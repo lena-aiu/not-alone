@@ -38,7 +38,20 @@
         <td><%= service.kind %></td>
         <td><%= service.phone_number %></td>
         <td><%= service.url %></td>
-        <td><%= service.picture %></td>
+        <td>
+          <figure class="picture is-128x128">
+          <% if service.picture.attached? %>
+          <%= image_tag(url_for(service.picture), size: 50) %>  
+          <% end %>
+          </figure>
+        </td>
+
+        <%# <%= image_tag(url_for(@service.picture)) %>   
+        <%# <td><figure class="picture is-128x128"> %>
+        <%# <%= image_tag(url_for(@service.picture)) %> %>
+        <%# </figure></td>  %>
+        <%# <td><%= service.picture %>
+        <%# </td>  %>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>

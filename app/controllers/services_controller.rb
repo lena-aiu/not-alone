@@ -12,6 +12,8 @@ class ServicesController < ApplicationController
     # GET /services/1
     # GET /services/1.json
     def show
+      @picture = Service.find(params[:picture])
+      #@picture = Service.find.params[:picture]
     end
   
     # GET /serivices/new
@@ -21,6 +23,8 @@ class ServicesController < ApplicationController
   
     # GET /services/1/edit
     def edit
+      byebug
+      @picture = Service.find(params[:picture])
     end
   
     # POST /services
@@ -28,6 +32,11 @@ class ServicesController < ApplicationController
     def create
       @service = Service.new(service_params)
       if @service.save
+        if params[:service][:picture].present?
+          byebug 
+          @service.picture.attach(params[:post][:picture])
+          #@service.picture.attach(@picture)
+        end
         flash.notice = "The service record was created successfully."
         redirect_to @service
       else
@@ -50,12 +59,21 @@ class ServicesController < ApplicationController
     # PATCH/PUT /customers/1.json
     def update
       if @service.update(service_params)
+        # byebug
+        if params[:service][:picture].present?
+          # byebug 
+          @service.picture.attach(params[:post][:picture])
+          #@service.picture.attach(@picture)
+
+        end
         flash.notice = "The service record was updated successfully."
         redirect_to @service
       else
+        # byebug
         flash.now.alert = @service.errors.full_messages.to_sentence
         render :edit
       end
+      #params[:service][:pictures].each do |picture| more than one
       # respond_to do |format|
       #   if @customer.update(customer_params)
       #     format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
@@ -79,8 +97,10 @@ class ServicesController < ApplicationController
   
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_service 
+      def set_service
         @service = Service.find(params[:id])
+        @picture = Service.find(params[:picture])
+         
       end
   
       # Only allow a list of trusted parameters through.
