@@ -12,7 +12,7 @@ class ServicesController < ApplicationController
     # GET /services/1
     # GET /services/1.json
     def show
-      @picture = Service.find(params[:picture])
+      #@picture = Service.find(params[:picture])
       #@picture = Service.find.params[:picture]
     end
   
@@ -23,8 +23,8 @@ class ServicesController < ApplicationController
   
     # GET /services/1/edit
     def edit
-      byebug
-      @picture = Service.find(params[:picture])
+      #byebug
+      #@picture = Service.find(params[:picture])
     end
   
     # POST /services
@@ -32,9 +32,8 @@ class ServicesController < ApplicationController
     def create
       @service = Service.new(service_params)
       if @service.save
-        if params[:service][:picture].present?
-          byebug 
-          @service.picture.attach(params[:post][:picture])
+        if params[:service][:picture].present? 
+          @service.picture.attach(params[:service][:picture])
           #@service.picture.attach(@picture)
         end
         flash.notice = "The service record was created successfully."
@@ -62,7 +61,7 @@ class ServicesController < ApplicationController
         # byebug
         if params[:service][:picture].present?
           # byebug 
-          @service.picture.attach(params[:post][:picture])
+          @service.picture.attach(params[:service][:picture])
           #@service.picture.attach(@picture)
         end
         flash.notice = "The service record was updated successfully."
@@ -87,7 +86,7 @@ class ServicesController < ApplicationController
     # DELETE /customers/1
     # DELETE /customers/1.json
     def destroy
-      @customer.destroy
+      @service.destroy
       respond_to do |format|
         format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
         format.json { head :no_content }
@@ -98,8 +97,7 @@ class ServicesController < ApplicationController
       # Use callbacks to share common setup or constraints between actions.
       def set_service
         @service = Service.find(params[:id])
-        @picture = Service.find(params[:picture])
-         
+        #@picture = Service.find(params[:picture])        
       end
   
       # Only allow a list of trusted parameters through.
