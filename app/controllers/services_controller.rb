@@ -64,7 +64,6 @@ class ServicesController < ApplicationController
           # byebug 
           @service.picture.attach(params[:post][:picture])
           #@service.picture.attach(@picture)
-
         end
         flash.notice = "The service record was updated successfully."
         redirect_to @service
