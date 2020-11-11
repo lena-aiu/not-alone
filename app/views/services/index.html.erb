@@ -13,7 +13,7 @@
   <div class="container pt-4">
       <!-- about -->
       <div id="about" class="row">
-        <div class="col-lg order-lg-1">
+        <div class="col-lg container">
           <h3 class="mb-4">Who offers services?</h3> 
           <p></p>
           <p></p>
@@ -65,13 +65,6 @@
           <% end %>
           </figure>
         </td>
-
-        <%# <%= image_tag(url_for(@service.picture)) %>   
-        <%# <td><figure class="picture is-128x128"> %>
-        <%# <%= image_tag(url_for(@service.picture)) %> 
-        <%# </figure></td>  %>
-        <%# <td><%= service.picture %>
-        <%# </td>  %>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
