@@ -12,19 +12,17 @@
   </head>
 
   <body>
-    <% if !flash[:alert].nil? %>
-    <p class="my_alert"><%= flash[:alert] %></p>
-    <% end %>
     
     <div class="nav_container">
       <%= render 'layouts/header' %>
     </div>
+
     <div>
       <%= yield %>
     </div>
     <div>
       <%= render 'layouts/footer' %>
     </div>
-    <%# <%= yield %> 
+    
   
 </html>
