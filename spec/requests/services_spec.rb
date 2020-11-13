@@ -13,7 +13,6 @@ RSpec.describe "Services", type: :request do
       sign_in user
       get root_path
       #expect(page).to include('adi_111@icloud.com')
-      byebug
       expect(response).to render_template(:index)    
     # sign_out (:user, email: 'adi_111@icloud.com') #user
     # get root_path
@@ -22,35 +21,68 @@ RSpec.describe "Services", type: :request do
     end
   end
 
+  describe "get service_path" do
+    it "renders the :show template" do
+      service = FactoryBot.create(:service)
+      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password")
+      sign_in user
+      get service_path(id: service.id)
+      expect(response.status).to eq(200)
+    end
+    it "redirects to the index path if the service id is invalid" do
+      get service_path(id: 5000) #an ID that doesn't exist
+      expect(response).to be_redirect
+    end
+  end
 
-    # def login_user
-    #   before(:each) do
-    #     @request.env["devise.mapping"] = Devise.mappings[:user]
-    #     sign_in FactoryBot.create(:user)
-    #   end
-    # end
-  
   describe "get services_path" do  
     it "renders the index view" do
-      FactoryBot.create_list(:service, 10)
+      service = FactoryBot.create_list(:service, 10)
+      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password") 
+      sign_in user 
       get services_path
-      byebug
       expect(response.status).to eq(200)
-      
     end
   end 
-  describe "get service_path" do
-     it "renders the :show template" do
-       service = FactoryBot.create(:service)
-       get service_path(id: service.id)
-       expect(response.status).to eq(200)
-     end
-     it "redirects to the index path if the service id is invalid" do
-       get service_path(id: 5000) #an ID that doesn't exist
-       expect(response).to be_redirect
-     end
-  end
-end
+
+end #FINAL END 
+
+
+  
+  
+
+
+  # describe "get service_path" do
+  #   it "renders the :show template" do
+  #     service = FactoryBot.create(:service)
+  #     user = User.create(email: "test@icloud.com", password: "password", password_confirmation: "password")
+  #     #byebug
+  #     sign_in user    
+  #     get service_path(id: service.id)
+  #     #byebug
+  #     expect(response.status).to eq(200)
+  #   end
+  #   it "redirects to the index path if the service id is invalid" do
+  #     get service_path(id: 5000) #an ID that doesn't exist
+  #     expect(response).to be_redirect
+  #   end
+  # end
+    
+
+#   describe "get service_path" do
+#      it "renders the :show template" do
+#        service = FactoryBot.create(:service)
+#        get service_path(id: service.id)
+#        expect(response.status).to eq(200)
+#      end
+#      it "redirects to the index path if the service id is invalid" do
+#        get service_path(id: 5000) #an ID that doesn't exist
+#        expect(response).to be_redirect
+#      end
+#   end
+# end
+
+
   ###ERROR THAT I DO NOT KNOW
 # describe "get new_service_path" do
 #      it "renders the :new template" do
