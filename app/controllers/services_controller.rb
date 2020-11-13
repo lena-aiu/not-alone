@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
     # GET /services
     # GET /services.json
     def index
+      #byebug
       @services = Service.all
     end
   
