@@ -26,6 +26,7 @@
 
 
   <div class="form-group col">
+  <%= f.label :services %>
   <%= f.collection_select :service_id, Service.all, :id, :name, include_blank: true, class: 'form-control' %>
   </div>
   
