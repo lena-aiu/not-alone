@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Domestic Violence Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body>
+<div class= "container-fluid">
+<%= form_for(service) do |f| %>
+  
+  <% if service.errors.any? %>
+    <div id="error_explanation" class="my_alert">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <ul>
+      <% service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group col">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>  
+  </div>
+  
+  <div class="form-group col">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group col">
+    <%= f.label :type %>
+    <%= f.text_field :kind, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :url %>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
+  </div>
+ 
+  <div class="form-group col">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+  
+<% end %>
+</div>
+</body>
+</html>
+
+

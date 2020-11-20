@@ -93,5 +93,6 @@ class CustomersController < ApplicationController
         flash.alert = e.to_s
         redirect_to customers_path
       end
-  end
+end  
+
   

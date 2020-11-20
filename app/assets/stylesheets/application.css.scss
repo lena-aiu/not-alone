@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require social-share-button
+ */
+/* ================================= 
+  Element Styles
+==================================== */
+.my_alert {color: red;}
+.fondo {
+  text-align: center;
+  background: linear-gradient(90deg, #ae91c7, #9674b1, #7d7ee6),
+              image-url("estados.jpeg") no-repeat;
+              background-blend-mode: multiply;    
+              background-size: auto; 
+              background-position: center;
+              margin-top: 85px;  
+}
+// linear-gradient(90deg, #d4eece, #55b3d0, #1e7eb7),
+
+a, input[type="submit"] {
+  display: inline-block;
+  background-color: #aaaaaa;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 100px;
+  transition: background-color 200ms ease-in-out;
+  letter-spacing: 0.05em;
+  border: none;
+}
+a:hover,
+a:focus,
+a:active,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="submit"]:active {
+  background-color: #aaaaaa;
+}
+
+div + a,
+div a {
+  background-color: #aaa;
+}
+div + a:hover,
+div a:hover {
+  background-color: rgb(229, 226, 226);
+}
+div a { margin-right: 10px; }
+div a + form { display: inline-block; }
+
+
+
+
+// body {
+//   background: #3d72b4;
+// }
+
+// body {
+//   background-color: #d4eece;// #edeff0;
+//   background-size: auto; 
+//   background-position: center;
+//   font-family: "Helvetica", Arial, sans-serif;
+//   text-align: center;
+//   color: #333;
+//   font-size: 18px;
+// }

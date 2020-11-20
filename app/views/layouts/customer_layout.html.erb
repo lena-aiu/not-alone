@@ -6,12 +6,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
   </head>
 
   <body>
-    <% if !flash[:alert].nil? %>
-    <p class="my_alert"><%= flash[:alert] %></p>
-    <% end %>
-    <%= yield %>
-  </body>
+    
+    <div class="nav_container">
+      <%= render 'layouts/header' %>
+    </div>
+
+    <div>
+      <%= yield %>
+    </div>
+    <div>
+      <%= render 'layouts/footer' %>
+    </div>
+    
+  
 </html>

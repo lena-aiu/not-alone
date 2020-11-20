@@ -1,8 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Domestic Violence Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <div class="container pt-4">
+      <!-- about -->
+      <div id="about" class="row">
+        <div class="col-lg order-lg-1">
+          <h3 class="mb-4">What is Domestic Violence</h3> 
+          <p>If you are experiencing domestic violence... you are not alone, you are not to blame, you do not deserve to be treated this way. </p>
+          <p>Domestic violence is a pattern of coercive behaviors that involves physical abuse or the threat of physical abuse. </p>
+          <p>It also may include repeated psychological abuse, assault, progressive social isolation, deprivation, intimidation or economic coercion. </p>
+          <p>Domestic violence is perpetrated by adults or adolescents against their intimate partners in current or former dating, married or cohabiting relationships of heterosexuals, gay men and lesbians, bisexuals and transgendered people.</p>
+          <img class="mb-4 img-fluid rounded d-none d-sm-block" src="/assets/loveisnotabusive.jpeg" alt="Stages of DV" >
+        </div>
+        <div class="col-lg order-lg-2">
+          <h3 class="mb-4">Purpose of this App</h3>
+          <img class="mb-4 img-fluid rounded d-none d-sm-block" src="/assets/loveshoulnothurt.jpg" alt="YOU ARE NOT ALONE" >
+          <%# <%= image_tag ('/assets/header-bg.jpg' ), class: 'product-image__img' %>
+          <p>Domestic violence cases have been experienced an increase rate with the shelter in place.</p>
+          <p>In this app you will be able to find some resources available. You can discover new resources and volunteers of people from the community that want help you with any situation you could be facing.</p>
+           <p>You are not alone. You will be able to find resources from agencies and some good samaritans in the society will be able to register as volunteers.</p>
+        </div>
+        <div class="col-lg order-lg-3">
+          <h3 class="mb-4">Services that we offer</h3>
+          <div class="list-group">
+            <a href="https://www.corasupport.org/" class="list-group-item list-group-item-action"><strong>CORA</strong>: CORA</a>
+            <a href="https://communitysolutions.org/" class="list-group-item list-group-item-action"><strong>Community Solutions</strong>: Community Solutions</a>
+            <a href="https://www.nextdoorsolutions.org/" class="list-group-item list-group-item-action"><strong>Nextdoor Solutions</strong>: Nextdoor Solutions</a>
+            <a href="https://www.scscourt.org/general_info/contact/courthouses/fjcc.shtml" class="list-group-item list-group-item-action"><strong>Family Justice Center Courthouse</strong>: Family Justice Center Courthouse</a>
+            <a href="https://thealessandrafoundation.org/" class="list-group-item list-group-item-action"><strong>Alessandra Foundation</strong>: Alessandra Foundation</a>
+          </div>
+        </div>
+      </div><!-- /about -->
+
+  <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Customers</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th> Full name</th>
@@ -10,7 +54,7 @@
       <th>Last name</th>-->
       <th>Phone</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -25,6 +69,7 @@
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'New Customer Order', new_customer_order_path(customer.id)  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,5 +78,13 @@
 <br>
 
 <%= link_to 'New Customer', new_customer_path %>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>
 
 

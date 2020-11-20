@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Domestic Violence Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  
+  <div class="container">
+      <!-- about -->
+      <div id="about" class="row">
+        <div class="col-lg container">
+          <p style="text-align:center; color: #385DB8; " class="blockquote">"Domestic Violence impacts everyone, not just survivors. We need to operate as a community to address systemic issues that allow domestic violence to thrive", Virginia Hedrick</p>
+          <img class="rounded mx-auto d-sm-block" alt="Responsive image" src="/assets/loveisservice.jpeg" alt="Service" > 
+        </div>
+      </div>
+  </div>
+
+  <body>
+
+<p id="notice"><%= notice %></p>
+
+<%# <h1>Services</h1> %>
+
+<table class="table table-hover">
+  <thead>
+    <div class="row">
+    <tr>
+      <th> Service Name</th>
+      <!--<th>First name</th>
+      <th>Last name</th>-->
+      <th>Description</th>
+      <th>Type</th>
+      <th>Phone</th>
+      <th>Url</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+    </div>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <div class="row">
+      <tr>
+        <td><%= service.name %></td>
+        <td><%= service.description %></td>
+        <td><%= service.kind %></td>
+        <td><%= service.phone_number %></td>
+        <td><%= service.url %></td>
+        <td>
+          <figure class="picture is-128x128">
+          <% if service.picture.attached? %>
+          <%= image_tag(url_for(service.picture), size: 50) %>  
+          <%# <% else%>
+          <%# <%  %> 
+          <% end %>
+          </figure>
+        </td>
+        <td><%= link_to 'Show', service %></td>
+        <td><%= link_to 'Edit', edit_service_path(service) %></td>
+        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service', new_service_path %>
+
+</body>
+</html>
