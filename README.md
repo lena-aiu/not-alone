@@ -32,17 +32,17 @@ Do:
 
 `sudo apt-get update`  
 `sudo apt-get install postgresql`    
-`sudo apt-get install postgresql-contrib`
-`sudo apt-get install libpq-dev`
-`sudo apt-get install yarn`
+`sudo apt-get install postgresql-contrib`  
+`sudo apt-get install libpq-dev`  
+`sudo apt-get install yarn`  
 
 Now on linux (only) we need to get a current version of node, and the nodejs command must
 point to it.  So we do:
 
-`sudo apt-get npm`
-`nvm install --lts`
-`sudo apt remove nodejs`
-`which node`
+`sudo apt-get npm`  
+`nvm install --lts`  
+`sudo apt remove nodejs`  
+`which node`  
 
 The which command will return a filename like
 
@@ -71,16 +71,16 @@ git remote add upstream https://github.com/CodeTheDream/not-alone
 
 You will do the following:
 
-`yarn add bootstrap@4.5.3 jquery popper.js`
-`rvm install 2.70`
-`cd not-alone`
-`bundle install`
-`bin/rails webpacker:install`
-`yarn install --checkfiles`
-`bin/rails db:create`
-`bin/rails db:migrate`
-`bin/rails db:migrate RAILS_ENV=test`
-`rspec`
+`yarn add bootstrap@4.5.3 jquery popper.js`  
+`rvm install 2.70`  
+`cd not-alone`  
+`bundle install`  
+`bin/rails webpacker:install`  
+`yarn install --checkfiles`  
+`bin/rails db:create`  
+`bin/rails db:migrate`  
+`bin/rails db:migrate RAILS_ENV=test`  
+`rspec`  
 
 Each of these commands should complete without failures, including Rspec.  Then
 run  
