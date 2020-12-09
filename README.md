@@ -80,6 +80,7 @@ You will do the following:
 `bin/rails db:create`  
 `bin/rails db:migrate`  
 `bin/rails db:migrate RAILS_ENV=test`  
+`bin/rails db:seed`    
 `rspec`  
 
 Each of these commands should complete without failures, including Rspec.  Then
