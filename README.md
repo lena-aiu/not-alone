@@ -73,7 +73,8 @@ You will do the following:
 
 `yarn add bootstrap@4.5.3 jquery popper.js`  
 `rvm install 2.70`  
-`cd not-alone`  
+`cd not-alone`
+`rvm use 2.7.0`  
 `bundle install`  
 `bin/rails webpacker:install`  
 `yarn install --checkfiles`  
