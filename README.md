@@ -39,7 +39,7 @@ Do:
 Now on linux (only) we need to get a current version of node, and the nodejs command must
 point to it.  So we do:
 
-`sudo apt-get nvm`  
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`   
 `nvm install --lts`  
 `sudo apt remove nodejs`  
 `which node`  
