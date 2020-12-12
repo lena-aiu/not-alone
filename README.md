@@ -61,9 +61,9 @@ Catalina, which is the most current release, you will have to do the following s
 
 The above command may return an error.  If so, do the following:
 
-`sudo rm -rf /Library/Developer/CommandLineTools` (You will have to enter your root password)
-`sudo xcode-select --reset`
-`xcode-select --install`
+`sudo rm -rf /Library/Developer/CommandLineTools` (You will have to enter your admin password)  
+`sudo xcode-select --reset`  
+`xcode-select --install`  
 
 Then repeat the curl command above.  The error should go away. If it does not, stop!
 and contact me.
@@ -76,11 +76,11 @@ you originally set up your Mac to run rails.  Check that it is there with this c
 If you do not have brew, instructions for installing it are here: https://brew.sh/ .
 Now, do the following commands:
 
-`brew update`
-`brew doctor`
-`brew install postgresql`
-`brew services start postgresql`
-`brew install yarn`
+`brew update`  
+`brew doctor`  
+`brew install postgresql`  
+`brew services start postgresql`  
+`brew install yarn`  
 
 Each of these commands should complete without error.  If not, stop! and post to
 the slack channel.
