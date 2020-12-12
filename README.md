@@ -26,7 +26,7 @@ session running it as the windows administrator.  Then do a "vagrant up".
 From now on, whenever you do "vagrant up", you will need to do it from a Git
 Bash session that was run as the windows administrator.
 
-# Installing Prerequisites
+# Installing Prerequisites on Linux (and Vagrant)  
 
 Do:
 
@@ -35,10 +35,6 @@ Do:
 `sudo apt-get install postgresql-contrib`  
 `sudo apt-get install libpq-dev`  
 `sudo apt-get install yarn`  
-
-Now on linux (only) we need to get a current version of node, and the nodejs command must
-point to it.  So we do:
-
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`   
 `nvm install --lts`  
 `sudo apt remove nodejs`  
@@ -54,6 +50,40 @@ You create a symbolic link to it via
 
 Be sure that the ln command is passed the actual location returned by which.
 The node/nodejs stuff is not needed on mac.
+
+# Installing Prerequisites on Mac OS  
+
+Check if you are running Mac OS Catalina.  That is done by clicking on the apple icon in the upper
+left corner of your screen, and then clicking on About This Mac.  If you are running
+Catalina, which is the most current release, you will have to do the following steps:
+
+`curl -sL https://github.com/nodejs/node-gyp/raw/master/macOS_Catalina_acid_test.sh | bash`
+
+The above command may return an error.  If so, do the following:
+
+`sudo rm -rf /Library/Developer/CommandLineTools` (You will have to enter your root password)
+`sudo xcode-select --reset`
+`xcode-select --install`
+
+Then repeat the curl command above.  The error should go away. If it does not, stop!
+and contact me.
+
+Now we can actually install the prerequisites.  You should have installed brew when
+you originally set up your Mac to run rails.  Check that it is there with this command:
+
+`brew -v`
+
+If you do not have brew, instructions for installing it are here: https://brew.sh/ .
+Now, do the following commands:
+
+`brew update`
+`brew doctor`
+`brew install postgresql`
+`brew services start postgresql`
+`brew install yarn`
+
+Each of these commands should complete without error.  If not, stop! and post to
+the slack channel.
 
 # Getting started with the git repository
 
@@ -72,12 +102,10 @@ git remote add upstream https://github.com/CodeTheDream/not-alone
 You will do the following:
 
 `yarn add bootstrap@4.5.3 jquery popper.js`  
-`rvm install 2.70`  
+`rvm install 2.7.0`  
 `cd not-alone`  
-`rvm use 2.7.0`  
-`bundle install`  
-`bin/rails webpacker:install`  
-`yarn install --checkfiles`  
+`bundle install`    
+`yarn install --checkfiles`    
 `bin/rails db:create`  
 `bin/rails db:migrate`  
 `bin/rails db:migrate RAILS_ENV=test`  
