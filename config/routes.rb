@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'customer#index'
   #cambie home for customer 
   get 'home/index'
+  get 'home/about'
   #root to: 'customer/index'
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
