@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users   
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   
   #post '/order/create/:id', to: 'orders#create1'
   resources :services
+  resources :videos
   #root to: 'order#index'
   #resources :orders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
