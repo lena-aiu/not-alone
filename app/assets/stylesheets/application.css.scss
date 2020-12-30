@@ -18,65 +18,62 @@
   Element Styles
 ==================================== */
 @import 'bootstrap/dist/css/bootstrap';
-.my_alert {color: red;}
-.fondo {
-  text-align: center;
-  background: linear-gradient(90deg, #ae91c7, #9674b1, #7d7ee6),
-              image-url("estados.jpeg") no-repeat;
-              background-blend-mode: multiply;
-              background-size: auto;
-              background-position: center;
-              margin-top: 85px;
-}
+// .my_alert {color: red;}
+// .fondo {
+//   text-align: center;
+//   background: linear-gradient(90deg, #ae91c7, #9674b1, #7d7ee6),
+//               image-url("estados.jpeg") no-repeat;
+//               background-blend-mode: multiply;
+//               background-size: auto;
+//               background-position: center;
+//               margin-top: 85px;
+// }
 // linear-gradient(90deg, #d4eece, #55b3d0, #1e7eb7),
 
-a, input[type="submit"] {
-  display: inline-block;
-  background-color: #aaaaaa;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 12px;
+// a, input[type="submit"] {
+//   display: inline-block;
+//   background-color: #aaaaaa;
+//   color: #fff;
+//   text-transform: uppercase;
+//   font-weight: bold;
+//   font-size: 12px;
+//   text-decoration: none;
+//   padding: 12px 20px;
+//   border-radius: 100px;
+//   transition: background-color 200ms ease-in-out;
+//   letter-spacing: 0.05em;
+//   border: none;
+// }
+// a:hover,
+// a:focus,
+// a:active,
+// input[type="submit"]:hover,
+// input[type="submit"]:focus,
+// input[type="submit"]:active {
+//   background-color: #aaaaaa;
+// }
+
+// div + a,
+// div a {
+//   background-color: #aaa;
+// }
+// div + a:hover,
+// div a:hover {
+//   background-color: rgb(229, 226, 226);
+// }
+// div a { margin-right: 10px; }
+// div a + form { display: inline-block; }
+
+// @import "bootstrap";
+#about{
+
+  text-align: left;
+  font-size: 50px;
+}
+
+a.list-group-item{
   text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 100px;
-  transition: background-color 200ms ease-in-out;
-  letter-spacing: 0.05em;
-  border: none;
 }
-a:hover,
-a:focus,
-a:active,
-input[type="submit"]:hover,
-input[type="submit"]:focus,
-input[type="submit"]:active {
-  background-color: #aaaaaa;
-}
-
-div + a,
-div a {
-  background-color: #aaa;
-}
-div + a:hover,
-div a:hover {
-  background-color: rgb(229, 226, 226);
-}
-div a { margin-right: 10px; }
-div a + form { display: inline-block; }
-
-
-
-
-// body {
-//   background: #3d72b4;
-// }
-
-// body {
-//   background-color: #d4eece;// #edeff0;
-//   background-size: auto;
-//   background-position: center;
-//   font-family: "Helvetica", Arial, sans-serif;
-//   text-align: center;
-//   color: #333;
-//   font-size: 18px;
-// }
+a.nav-item.nav-link {
+    text-decoration: none;
+  }
