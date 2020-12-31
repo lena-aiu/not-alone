@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users   
-  root to: 'customer#index'
+  root to: 'home#index'
   #cambie home for customer 
   get 'home/index'
   get 'home/about'
