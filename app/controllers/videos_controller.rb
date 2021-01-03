@@ -2,6 +2,7 @@ class VideosController < InheritedResources::Base
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   layout 'video_layout'
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
   
   def video_params
     params.require(:video).permit(:title, :description, :clip)#, :thumbnail)
