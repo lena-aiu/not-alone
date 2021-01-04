@@ -9,7 +9,6 @@ class VideosController < InheritedResources::Base
   # GET /videos
   # GET /videos.json
   def index
-    #byebug
     @videos = Video.all
   end
 
@@ -46,16 +45,7 @@ class VideosController < InheritedResources::Base
       flash.now.alert = @video.errors.full_messages.to_sentence
       render :new  
     end
-    # @customer = Customer.new(customer_params)
-    # respond_to do |format|
-    #   if @customer.save
-    #     format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-    #     format.json { render :show, status: :created, location: @customer }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    
   end
 
   # PATCH/PUT /videos/1
@@ -75,16 +65,6 @@ class VideosController < InheritedResources::Base
       flash.now.alert = @video.errors.full_messages.to_sentence
       render :edit
     end
-    #params[:video][:pictures].each do |picture| more than one
-    # respond_to do |format|
-    #   if @customer.update(customer_params)
-    #     format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @customer }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /videos/1
@@ -100,8 +80,7 @@ class VideosController < InheritedResources::Base
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
-      @video = Video.find(params[:id])
-      #@picture = Video.find(params[:picture])        
+      @video = Video.find(params[:id])        
     end
 
     # Only allow a list of trusted parameters through.

@@ -4,13 +4,8 @@
   <strong>Title:</strong>
   <%= @video.title %>
 </p>
-<%# <div style = "width:400px; heigth:400px"> %>
-  <%# <%= image_tag(@video.thumbnail, style:'width:100%; heigth:auto') %> 
-<%# </div> %>
 <div style = "width:400px; heigth:400px">
   <%= video_tag(url_for(@video.clip), style:'width:100%; heigth:auto', controls: '') if @video.clip.attached? %>
-  <%# if @video.clip.attached? %>
-  <%# image_tag(@user.avatar) if @user.avatar.attached?  %>
 </div>
 <p>
   <strong>Description:</strong>
