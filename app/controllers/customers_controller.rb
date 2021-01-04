@@ -33,18 +33,7 @@ class CustomersController < ApplicationController
       else
         flash.now.alert = @customer.errors.full_messages.to_sentence
         render :new  
-      end
-    
-      # @customer = Customer.new(customer_params)
-      # respond_to do |format|
-      #   if @customer.save
-      #     format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-      #     format.json { render :show, status: :created, location: @customer }
-      #   else
-      #     format.html { render :new }
-      #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-      #   end
-      # end
+      end    
     end
   
     # PATCH/PUT /customers/1
@@ -57,15 +46,6 @@ class CustomersController < ApplicationController
         flash.now.alert = @customer.errors.full_messages.to_sentence
         render :edit
       end
-      # respond_to do |format|
-      #   if @customer.update(customer_params)
-      #     format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-      #     format.json { render :show, status: :ok, location: @customer }
-      #   else
-      #     format.html { render :edit }
-      #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-      #   end
-      # end
     end
   
     # DELETE /customers/1
@@ -86,7 +66,7 @@ class CustomersController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def customer_params
-        params.require(:customer).permit(:first_name, :last_name, :phone, :email)
+        params.require(:customer).permit(:first_name, :last_name, :phone, :email, :street, :city, :state, :zip)
       end
       def catch_not_found(e)
         Rails.logger.debug("We had a not found exception.")
