@@ -34,7 +34,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-      if params[:service][:picture].present? 
+      if params[:service][:picture].present?
         @service.picture.attach(params[:service][:picture])
         #@service.picture.attach(@picture)
       end
@@ -42,7 +42,7 @@ class ServicesController < ApplicationController
       redirect_to @service
     else
       flash.now.alert = @service.errors.full_messages.to_sentence
-      render :new  
+      render :new
     end
     # @customer = Customer.new(customer_params)
     # respond_to do |format|
@@ -62,7 +62,7 @@ class ServicesController < ApplicationController
     if @service.update(service_params)
       # byebug
       if params[:service][:picture].present?
-        # byebug 
+        # byebug
         @service.picture.attach(params[:service][:picture])
         #@service.picture.attach(@picture)
       end
@@ -99,7 +99,7 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
-      #@picture = Service.find(params[:picture])        
+      #@picture = Service.find(params[:picture])
     end
 
     # Only allow a list of trusted parameters through.
@@ -112,4 +112,3 @@ class ServicesController < ApplicationController
       redirect_to services_path
     end
 end
-
