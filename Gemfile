@@ -33,7 +33,7 @@ gem 'bootstrap'
 gem 'social-share-button'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
-gem 'faker'
+gem 'faker', :require => false
 gem 'activeadmin'
 gem 'rails-controller-testing'
 
