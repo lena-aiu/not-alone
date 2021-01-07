@@ -13,7 +13,10 @@ class Customer < ApplicationRecord
     #accepts_nested_attributes_for :orders    
     def full_name
       "#{first_name} #{last_name}"
-    end       
+    end
+    def cust_address
+      "#{street} #{city} #{state} #{zip}"
+    end             
   end
   
  
