@@ -1,9 +1,9 @@
 class VideosController < InheritedResources::Base
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-  layout 'video_layout'
+  #layout 'video_layout'
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  
+
   def video_params
     params.require(:video).permit(:title, :description, :clip)#, :thumbnail)
   end
@@ -36,7 +36,7 @@ class VideosController < InheritedResources::Base
   def create
     @video = Video.new(video_params)
     if @video.save
-      if params[:video][:clip].present? 
+      if params[:video][:clip].present?
         @video.clip.attach(params[:video][:clip])
         #@video.picture.attach(@picture)
       end
@@ -44,9 +44,9 @@ class VideosController < InheritedResources::Base
       redirect_to @video
     else
       flash.now.alert = @video.errors.full_messages.to_sentence
-      render :new  
+      render :new
     end
-    
+
   end
 
   # PATCH/PUT /videos/1
@@ -55,7 +55,7 @@ class VideosController < InheritedResources::Base
     if @video.update(video_params)
       # byebug
       if params[:video][:clip].present?
-        # byebug 
+        # byebug
         @video.clip.attach(params[:video][:clip])
         #@video.picture.attach(@picture)
       end
@@ -81,20 +81,19 @@ class VideosController < InheritedResources::Base
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
-      @video = Video.find(params[:id])        
+      @video = Video.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def video_params
       params.require(:video).permit(:title, :description, :clip)
     end
-    
+
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
       redirect_to videos_path
     end
-    
+
 
 end
-
