@@ -2,21 +2,21 @@ Rails.application.routes.draw do
   resources :videos
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users   
+  devise_for :users
   root to: 'home#index'
-  #cambie home for customer 
+  #cambie home for customer
   get 'home/index'
   get 'home/about'
   #root to: 'customer/index'
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
   # end
-  get 'customer/index'
+  get 'customers/index'
   #get 'service/index'
   #get 'order/index'
   #get '/orders', to: 'orders#index'
   #get 'home/index'
-  
+
   resources :customers do
     resources :orders, shallow: false
   end
@@ -30,16 +30,16 @@ Rails.application.routes.draw do
   patch '/order/:id', to: 'orders#update1'
   delete '/order/:id', to: 'orders#destroy1'
   get '/order/edit/:id', to: 'orders#edit1', as: 'edit_order'
-  
+
   #post '/order/create/:id', to: 'orders#create1'
   resources :services
   resources :videos
   #root to: 'order#index'
   #resources :orders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
-  resources :videos
-  #root 'home#index'
-  #resources :about
-  #resources :home
+
+  get 'services/index'
+  get 'orders/index'
+  get 'videos/index'
+
 end

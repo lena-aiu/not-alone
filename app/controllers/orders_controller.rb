@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-    layout 'order_layout'
+    #layout 'order_layout'
     before_action :set_order, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
 #ORDER1
     rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found1
-    layout 'order_layout1'
+    #layout 'order_layout1'
     before_action :set_order1, only: [:show1, :edit1, :update1, :destroy1]
 
     # GET /orders
@@ -14,10 +14,10 @@ class OrdersController < ApplicationController
       @customer = Customer.find params[:customer_id]
       @orders = Order.all
     end
-  
-    def show      
+
+    def show
     end
-    
+
     def new
       @customer = Customer.find params[:customer_id]
       @order = @customer.orders.new
@@ -25,21 +25,21 @@ class OrdersController < ApplicationController
       #@order.save
       #@order = Order.new
     end
-  
-    
+
+
     def edit
-      
+
       @order = Order.find(params[:id])
     end
-  
+
     # POST /orders
     # POST /orders.json
 # orders#create
-# new_customer_order GET    /customers/:customer_id/orders/new(.:format)              
+# new_customer_order GET    /customers/:customer_id/orders/new(.:format)
 # customers#index
 # POST   /customers(.:format)                                                                     customers#create
 # new_customer GET    /customers/new(.:format)                                                                 customers#new
-# edit_customer GET    /customers/:id/edit(.:format)                                                            
+# edit_customer GET    /customers/:id/edit(.:format)
     def create
       @customer = Customer.find params[:customer_id]
 #      @order = @customer.orders.new order_params
@@ -50,10 +50,10 @@ class OrdersController < ApplicationController
         redirect_to @customer
       else
         flash.now.alert = @order.errors.full_messages.to_sentence
-        render :new  
+        render :new
       end
     end
-  
+
     # PATCH/PUT /customers/1
     # PATCH/PUT /customers/1.json
     def update
@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
         render :edit
       end
     end
-  
+
     # DELETE /orders/1
     # DELETE /orders/1.json
     def destroy
@@ -78,7 +78,7 @@ class OrdersController < ApplicationController
     end
 ######ORDER1
   # GET /customers
-  # GET /customers.json  
+  # GET /customers.json
   def index1
     @orders = Order.all
   end
@@ -106,9 +106,9 @@ class OrdersController < ApplicationController
       redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
-      render :new1  
+      render :new1
     end
-  
+
     # @customer = Customer.new(customer_params)
     # respond_to do |format|
     #   if @customer.save
@@ -151,14 +151,14 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  #########PRIVATE  
+  #########PRIVATE
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_order 
+      def set_order
         @customer = Customer.find params[:customer_id]
         @order = Order.find(params[:id])
       end
-      
+
       # Only allow a list of trusted parameters through.
       def order_params
         params.require(:order).permit(:description, :customer_id, :service_id)
@@ -171,9 +171,9 @@ class OrdersController < ApplicationController
 ########PRIVATE FOR ORDER1
       #PRIVATE FOR ORDERS
     # Use callbacks to share common setup or constraints between actions.
-    def set_order1 
+    def set_order1
       @order = Order.find(params[:id])
-      
+
     end
 
     # Only allow a list of trusted parameters through.

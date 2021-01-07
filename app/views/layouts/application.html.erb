@@ -11,28 +11,28 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  </head>     
-  
+  </head>
+
   <body>
-    <%# <% if !flash[:alert].nil? %> 
-    <%# <p class="my_alert"><%= flash[:alert] %> 
+    <%# <% if !flash[:alert].nil? %>
+    <%# <p class="my_alert"><%= flash[:alert] %>
     <%# </p> %>
-    <%# <% end %> 
-	
-	<header>
+    <%# <% end %>
+
+	  <header>
       <%= render 'layouts/navigation' %>
     </header>
 
     <div class="container pt-4">
-		<main role="main">
-		<%=  yield %>
-		</main>
+  		<main role="main">
+  		<%=  yield %>
+		  </main>
 
-		<footer>	
-		   <%= render 'layouts/footer' %>
-		</footer>
-	</div> <!-- /container -->	
-	
+  		<footer>
+  		   <%= render 'layouts/footer' %>
+  		</footer>
+	</div> <!-- /container -->
+
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -41,11 +41,3 @@
 	<!--<script type="text/javascript" src="app.js"></script>-->
  </body>
 	</html>
-
-
-
-
-
-
-
-
