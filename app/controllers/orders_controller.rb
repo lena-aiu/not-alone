@@ -108,17 +108,6 @@ class OrdersController < ApplicationController
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :new1
     end
-
-    # @customer = Customer.new(customer_params)
-    # respond_to do |format|
-    #   if @customer.save
-    #     format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-    #     format.json { render :show, status: :created, location: @customer }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /customers/1
@@ -131,15 +120,7 @@ class OrdersController < ApplicationController
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit1
     end
-    # respond_to do |format|
-    #   if @customer.update(customer_params)
-    #     format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @customer }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @customer.errors, status: :unprocessable_entity }
-    #   end
-    # end
+
   end
 
   # DELETE /customers/1
@@ -168,8 +149,8 @@ class OrdersController < ApplicationController
         flash.alert = e.to_s
         redirect_to orders_path
       end
-########PRIVATE FOR ORDER1
-      #PRIVATE FOR ORDERS
+
+#PRIVATE FOR ORDERS
     # Use callbacks to share common setup or constraints between actions.
     def set_order1
       @order = Order.find(params[:id])

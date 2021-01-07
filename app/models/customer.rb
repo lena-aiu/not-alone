@@ -7,12 +7,16 @@ class Customer < ApplicationRecord
     #validates_length_of :number, is: 10,  message: "Number must be 10 digit long" 
     validates :email, presence: true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+    validates :zip, numericality: { only_integer: true }
     has_many :orders, dependent: :delete_all
     has_many :services, through: :orders  
     #accepts_nested_attributes_for :orders    
     def full_name
       "#{first_name} #{last_name}"
-    end       
+    end
+    def cust_address
+      "#{street} #{city} #{state} #{zip}"
+    end             
   end
   
  
