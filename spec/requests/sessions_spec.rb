@@ -12,6 +12,6 @@ RSpec.describe "Sessions" do
     
     sign_out user
     get root_path
-    expect(response).not_to render_template(:index) # add gem 'rails-controller-testing' to your Gemfile first.
+    expect(response).not_to render_template(:home) # add gem 'rails-controller-testing' to your Gemfile first.
   end
 end
