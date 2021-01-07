@@ -15,18 +15,4 @@ RSpec.describe "Customers", type: :request do
     #expect(response).not_to render_template(:index)
     end
   end
-    # describe "GET /customers" do
-    #   it "works! (now write some real specs)" do
-    #     get customers_path
-    #     expect(response).to have_http_status(302)
-    #   end
-  describe "get customers_path" do  
-    it "renders the index view" do
-      service = FactoryBot.create_list(:customer, 10)
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password") 
-      sign_in user 
-      get customers_path
-      expect(response.status).to eq(200)
-    end
-  end
 end

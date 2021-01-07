@@ -7,7 +7,8 @@ FactoryBot.define do
     f.street { Faker::Name.street }
     f.city { Faker::Name.city }
     f.state { Faker::Name.state }
-    f.zip { Faker::Number.zip (digits: 5) }
+    f.zip { Faker::Number.number(digits: 5) }
+    
 
   end
 end
