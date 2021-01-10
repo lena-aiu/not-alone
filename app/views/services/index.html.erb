@@ -37,11 +37,10 @@
             <th>Url</th>
             <th>Picture</th>
             <% if admin? || intern? %>
-              <th colspan="3">
+              <th colspan="3"></th>
             <% else %>
-                <th colspan="1">
+                <th colspan="1"></th>
             <% end %>
-            </th>
           </tr>
         </div>
       </thead>
@@ -49,29 +48,30 @@
       <tbody>
         <% @services.each do |service| %>
           <div class="row">
-          <tr>
-            <td><%= service.name %></td>
-            <td><%= service.description %></td>
-            <td><%= service.kind %></td>
-            <td><%= service.phone_number %></td>
-            <td><%= service.url %></td>
-            <td>
-              <figure class="picture is-128x128">
-              <% if service.picture.attached? %>
-              <%= image_tag(url_for(service.picture), size: 50) %>  
-              <%# <% else%>
-              <%# <%  %> 
+            <tr>
+              <td><%= service.name %></td>
+              <td><%= service.description %></td>
+              <td><%= service.kind %></td>
+              <td><%= service.phone_number %></td>
+              <td><%= service.url %></td>
+              <td>
+                <figure class="picture is-128x128">
+                <% if service.picture.attached? %>
+                <%= image_tag(url_for(service.picture), size: 50) %>  
+                <%# <% else%>
+                <%# <%  %> 
+                <% end %>
+                </figure>
+              </td>
+              <% if admin? || intern? %>
+                <td><%= link_to 'Show', service %></td>
+                <td><%= link_to 'Edit', edit_service_path(service) %></td>
+                <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td><%= link_to 'Show', service %></td>
               <% end %>
-              </figure>
-            </td>
-            <% if admin? || intern? %>
-              <td><%= link_to 'Show', service %></td>
-              <td><%= link_to 'Edit', edit_service_path(service) %></td>
-              <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% else %>
-              <td><%= link_to 'Show', service %></td>
-          </tr>
-            <% end %>
+            </tr>
+          </div>
         <% end %>
       </tbody>
     </table>
