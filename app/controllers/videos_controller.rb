@@ -3,6 +3,10 @@ class VideosController < InheritedResources::Base
   #layout 'video_layout'
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :require_current_user, except: [:show, :index]
+  
+  helper_method :admin?
+  helper_method :intern?
 
   def video_params
     params.require(:video).permit(:title, :description, :clip)#, :thumbnail)
@@ -95,5 +99,23 @@ class VideosController < InheritedResources::Base
       redirect_to videos_path
     end
 
+    def admin?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("administrator")
+    end
 
+    def intern?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("intern")
+    end
 end
