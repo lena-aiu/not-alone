@@ -25,12 +25,11 @@
   <% end %>
 
 
+
   <div class="form-group col">
-  <%= f.label :customer %>
-  <%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
+  <%= f.label :user %>
+  <%= f.collection_select :user_id, User.all, :id, :email, include_blank: true %>
   </div>
-
-
   
   <div class="form-group col">
     <%= f.label :status %>
