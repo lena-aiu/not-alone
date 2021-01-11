@@ -9,13 +9,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
-  
+
   <div class="container">
       <!-- about -->
       <div id="about" class="row">
         <div class="col-lg container">
           <p style="text-align:center; color: #385DB8; " class="blockquote">"Domestic Violence impacts everyone, not just survivors. We need to operate as a community to address systemic issues that allow domestic violence to thrive", Virginia Hedrick</p>
-          <img class="rounded mx-auto d-sm-block" alt="Responsive image" src="/assets/loveisservice.jpeg" alt="Service" > 
+          <img class="rounded mx-auto d-sm-block" alt="Responsive image" src="/assets/loveisservice.jpeg" alt="Service" >
         </div>
       </div>
   </div>
@@ -59,9 +59,9 @@
             <td>
               <figure class="picture is-128x128">
               <% if service.picture.attached? %>
-              <%= image_tag(url_for(service.picture), size: 50) %>  
+              <%= image_tag(url_for(service.picture), size: 50) %>
               <%# <% else%>
-              <%# <%  %> 
+              <%# <%  %>
               <% end %>
               </figure>
             </td>
@@ -71,7 +71,7 @@
               <td><%= link_to 'Show', service %></td>
               <td><%= link_to 'Edit', edit_service_path(service) %></td>
               <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>    
+            <% end %>
           </tr>
         </div>
         <% end %>
