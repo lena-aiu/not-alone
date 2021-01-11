@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @assignment.description %>
+</p>
+
+<%= link_to 'Edit', edit_customer_assignment_path(@customer.id, @assignment.id) %> |
+<%= link_to 'Back', assignments_path %> 

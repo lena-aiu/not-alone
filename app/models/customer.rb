@@ -9,7 +9,9 @@ class Customer < ApplicationRecord
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
     validates :zip, numericality: { only_integer: true }
     has_many :orders, dependent: :delete_all
-    has_many :services, through: :orders  
+    has_many :services, through: :orders 
+    has_many :assignments
+    has_many :users, through: :assignments 
     #accepts_nested_attributes_for :orders    
     def full_name
       "#{first_name} #{last_name}"
