@@ -12,10 +12,10 @@
   <%= @video.description %>
 </p>
 
-<% if current_user === nil %>
-  <%= link_to 'Back', videos_path %>
-<% else %>
+<% if admin? || intern? %>
   <%= link_to 'Edit', edit_video_path(@video) %> |
   <%= link_to 'Back', videos_path %>
+<% else %>
+  <%= link_to 'Back', videos_path %>  
 <% end %>
 
