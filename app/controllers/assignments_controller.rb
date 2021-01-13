@@ -7,7 +7,7 @@ class AssignmentsController < ApplicationController
       @assignments = Assignment.all
     end
   
-    def show      
+    def show  
     end
     
     def new
@@ -16,7 +16,7 @@ class AssignmentsController < ApplicationController
     end
     
     def edit
-      
+ 
       @assignment = Assignment.find(params[:id])
     end
                                                           
@@ -35,7 +35,7 @@ class AssignmentsController < ApplicationController
     def update
       if @assignment.update(assignment_params)
         flash.notice = "The assignment record was updated successfully."
-        redirect_to @customer
+        redirect_to assignment_path(@assignment)
       else
         flash.now.alert = @assignment.errors.full_messages.to_sentence
         render :edit
@@ -56,6 +56,6 @@ class AssignmentsController < ApplicationController
     end
     private
     def assignment_params
-      params.require(:assignment).permit(:user_id, :customer_id, :status)
+      params.require(:assignment).permit(:customer_id, :user_id, :status)
     end
 end

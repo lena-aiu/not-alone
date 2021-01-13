@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # end
   resources :customers do
     resources :orders, shallow: false
-    resources :assignments, shallow: false
+    resources :assignments, shallow: true
   end
 
   get 'customer/index'

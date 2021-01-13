@@ -18,7 +18,7 @@
   <thead>
     <tr>
       <th> Catalog</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
 
   </thead>
@@ -27,25 +27,18 @@
 
     <% @assignments.each do |assignment| %>
       <tr>
+        <td><%= assignment.customer.full_name %></td>
         <td><%= assignment.user.email %></td>
         <td><%= assignment.status %></td>
-        <td><%= link_to 'Show', customer_assignment_path(@customer,assignment) %></td>
-        <td><%= link_to 'Edit', edit_customer_assignment_path(@customer,assignment) %></td>
-        <td><%= link_to 'Destroy', [@customer,assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', assignment %></td>
+        <td><%= link_to 'Edit', assignment %></td>
+        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Assignment', new_customer_assignment_path %>
-<%# @assignment.id
-customer_assignment 
-customer_assignment_path(@customer.id, assignment.id)
-customer_assignments_path(@customer.id) current
-customers_path 
-<%# edit_assignment_path(assignment) %>
-<%# edit_customer_assignment_path(@customer.id, assignment.id) %>
-<%# <%= link_to 'Edit', edit_customer_assignment_path(@customer.id, assignment.id) %> %>
+
 
 <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
