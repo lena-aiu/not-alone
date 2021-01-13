@@ -3,11 +3,12 @@ class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   def index
-      @customer = Customer.find params[:customer_id]
+      
       @assignments = Assignment.all
     end
   
-    def show  
+    def show 
+      @assignment = Assignment.find(params[:id]) 
     end
     
     def new
