@@ -3,6 +3,10 @@ class ServicesController < ApplicationController
   #layout 'service_layout'
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :require_current_user, except: [:show, :index]
+  
+  helper_method :admin?
+  helper_method :intern?
 
   # GET /services
   # GET /services.json
@@ -86,9 +90,30 @@ class ServicesController < ApplicationController
     def service_params
       params.require(:service).permit(:name, :description, :kind, :phone_number, :url, :picture)
     end
+
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
       redirect_to services_path
+    end
+
+    def admin?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("administrator")
+    end
+
+    def intern?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("intern")
     end
 end

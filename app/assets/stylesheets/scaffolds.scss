@@ -16,12 +16,16 @@ pre {
 a {
   color: #000; }
 
-a:visited {
-  color: #666; }
+//a:visited {
+//  color: #666; }
 
-a:hover {
-  color: #fff;
-  background-color: #000; }
+//a:hover {
+//  color: #ffffff;
+//  background-color: #191919; }
+
+li {
+  list-style-type: none;
+}
 
 th {
   padding-bottom: 5px; }
@@ -63,3 +67,11 @@ div.actions {
 
 label {
   display: block; }
+
+.dropdown-menu {
+  background-color: #191919 !important;
+}
+
+.dropdown-item {
+  color: #ffffff; 
+}
