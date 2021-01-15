@@ -80,7 +80,7 @@ class OrdersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index1
-    byebug
+  #  byebug
     @orders = Order.all
   end
 
