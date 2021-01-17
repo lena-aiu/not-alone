@@ -8,7 +8,6 @@ class AssignmentsController < ApplicationController
     end
   
     def show 
-      @assignment = Assignment.find(params[:id]) 
     end
     
     def new
@@ -17,7 +16,7 @@ class AssignmentsController < ApplicationController
     end
     
     def edit
- 
+
       @assignment = Assignment.find(params[:id])
     end
                                                           
