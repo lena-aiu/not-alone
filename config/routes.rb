@@ -5,6 +5,22 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/index'
   get 'home/about'
+  get 'assignments/index'
+  #root to: 'customer/index'
+  # devise_scope :user do
+  #   root to: 'devise/sessions#new'
+  # end
+  resources :customers do
+    resources :orders, shallow: false
+    resources :assignments, shallow: true
+  end
+
+  get 'customer/index'
+  #get 'service/index'
+  #get 'order/index'
+  #get '/orders', to: 'orders#index'
+  #get 'home/index'
+  
 
   resources :services
   resources :videos

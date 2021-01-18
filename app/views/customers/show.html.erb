@@ -39,9 +39,8 @@
   <strong>Zip:</strong>
   <%= @customer.zip%>
 </p>
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
 
+<h2><Orders</h2>
 <table class="table table-hover">
 <% @customer.orders.each do |order| %>
 <tr>
@@ -52,4 +51,19 @@
 <td><%= link_to 'Destroy', customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
 <% end %>
-</table>  
+</table> 
+
+<h2>Assignments</h2>
+<table class="table table-hover">
+<% @customer.assignments.each do |assignment| %>
+<tr>
+<td><%= assignment.user.email %></td>
+<td><%= assignment.status %></td>
+<td><%= link_to 'Show', assignment %></td>
+<td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+<td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</table> 
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
