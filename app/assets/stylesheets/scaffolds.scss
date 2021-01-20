@@ -1,12 +1,12 @@
 body {
   background-color: #fff;
-  color: #333;
+  color: #000000;
   margin: 33px; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+  font-size: 18px;
+}
 
 pre {
   background-color: #eee;
@@ -14,14 +14,13 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: #000000; }
 
 //a:visited {
 //  color: #666; }
 
-//a:hover {
-//  color: #ffffff;
-//  background-color: #191919; }
+a:hover {
+text-decoration: none; }
 
 li {
   list-style-type: none;
@@ -69,7 +68,7 @@ label {
   display: block; }
 
 .dropdown-menu {
-  background-color: #191919 !important;
+  background-color: #000000 !important;
 }
 
 .dropdown-item {

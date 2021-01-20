@@ -65,15 +65,34 @@
 // div a + form { display: inline-block; }
 
 // @import "bootstrap";
-#about{
 
-  text-align: left;
-  font-size: 50px;
-}
-
-a.list-group-item{
+a, a:link, a:visited, a:hover{
   text-decoration: none;
+  color: #212529;
 }
-a.nav-item.nav-link {
+ 
+  .carousel-item img {
+    max-height: 700px;
+  } 
+
+  .jumbotron img {
+    max-height: 450px;
+    max-width: 550px;
+  }
+  .jumbotron {
+    background-size: cover;
+    width: 100%;
+  }
+  table.table a{
     text-decoration: none;
   }
+  // td:nth-of-type(5n-3) {
+  //   color: white
+  // }
+  .card{
+    box-shadow: -webkit-box-shadow -19px 19px 43px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+    box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
+  }
+  
+  

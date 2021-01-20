@@ -10,27 +10,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head> %>
 
-  <div class="container pt-4">
-  </div><!-- /about -->
+ <!-- /about -->
 
   <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
 
 <p id="notice"><%= notice %></p>
 
 <h1>Clients</h1>
-
-<table class="table table-hover">
-  <thead>
+<table class=" table table-hover">
+<thead class="thead-dark">
     <tr>
-      <th> Full name</th>
+      <th style="text-align:center"> Full name</th>
       <!--<th>First name</th>
       <th>Last name</th>-->
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
+      <th style="text-align:center">Phone</th>
+      <th style="text-align:center">Email</th>
+      <th style="text-align:center">Street</th>
+      <th style="text-align:center">City</th>
+      <th style="text-align:center">State</th>
+      <th style="text-align:center">Zip</th>
       <th colspan="7"></th>
     </tr>
   </thead>
@@ -47,11 +45,11 @@
         <td><%= customer.city %></td>
         <td><%= customer.state %></td>
         <td><%= customer.zip %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'New Client Assignment', new_customer_assignment_path(customer.id)  %></td>
-        <td><%= link_to 'New Client Order', new_customer_order_path(customer.id)  %></td>
+        <td><%= link_to 'Show', customer, :class => "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), :class => "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to 'New Client Assignment', new_customer_assignment_path(customer.id), :class => "btn btn-outline-dark btn-sm"  %></td>
+        <td><%= link_to 'New Client Order', new_customer_order_path(customer.id), :class => "btn btn-outline-dark btn-sm"  %></td>
       </tr>
     <% end %>
   </tbody>
