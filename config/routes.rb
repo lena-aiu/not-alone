@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/about'
   get 'assignments/index'
+  get 'home/health'
+  get 'home/results'
   #root to: 'customer/index'
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
