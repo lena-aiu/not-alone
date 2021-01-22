@@ -29,14 +29,15 @@
       <thead>
         <div class="row">
           <tr>
-            <th> Service Name</th>
+            <th> <%= t ('Service Name') %></th>
+            <%# <th>(t'New Service')</th> %>
             <!--<th>First name</th>
             <th>Last name</th>-->
-            <th>Description</th>
-            <th>Type</th>
-            <th>Phone</th>
-            <th>Url</th>
-            <th>Picture</th>
+            <th> <%= t ('Description') %></th>
+            <th> <%= t ('Type') %></th>
+            <th> <%= t ('Phone') %></th>
+            <th> <%= t ('Url') %></th>
+            <th> <%= t ('Picture') %></th>
             <% if current_user === nil %>
               <th colspan="1">
             <% else %>
@@ -66,11 +67,11 @@
               </figure>
             </td>
             <% if current_user === nil %>
-              <td><%= link_to 'Show', service %></td>
+              <td><%= link_to (t'show'), service %></td>
             <% else %>
-              <td><%= link_to 'Show', service %></td>
-              <td><%= link_to 'Edit', edit_service_path(service) %></td>
-              <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to (t'show'), service %></td>
+              <td><%= link_to (t'edit'), edit_service_path(service) %></td>
+              <td><%= link_to (t'destroy'), service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>    
           </tr>
         </div>
@@ -80,7 +81,7 @@
 
     <br>
 
-    <%= link_to 'New Service', new_service_path %>
+    <%= link_to (t'New Service'), new_service_path %>
 
   </body>
 </html>

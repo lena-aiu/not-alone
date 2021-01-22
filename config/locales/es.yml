@@ -1,0 +1,115 @@
+es:
+  en: English
+  es: Spanish
+  language: Lenguaje
+  
+  log_in: Iniciar sesion
+  #sign_up: Inscribirse
+  log_out: Terminar sesion
+  foot1: 2020 Proyecto de Violencia Doméstica
+  foot2: Desarrollado por el Practico de Code The Dream
+  emergencia: Emergencia(911)
+  hotline: Sitio Nacional de Violencia Doméstica
+  urlhotline: https://espanol.thehotline.org/
+  connect: Contáctanos
+  other: Otra Ayuda
+  suicide: Prevención del suicidio
+  clinic: Clínica Legal de Violencia Doméstica
+  shelter: Refugio para sobrevivientes de Violencia Doméstica
+  sexual: Agresión sexual y Violencia Doméstica
+  grief: Ayuda para sobrellevar el dolor y la pérdida
+  substance: Ayuda con el Abuso de Substancias
+  activerecord:
+    models:
+      user:
+        one: 'Usuario'
+        other: 'Usuarios'  
+      customer:
+        one: 'Cliente'
+        other: 'Clientes'
+      order:
+        one: 'Orden'
+        other: 'Ordenes'
+      service:
+        one: 'Servicio'
+        other: 'Servicios'
+      video:
+        one: 'Video'
+        other: 'Videos'
+    attributes:  
+      user:
+        login: 'Iniciar Sesión'
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        rememberme: 'Recordar tu usuario'
+        singup: 'Registrate'
+        forgotyourpassword: 'Olvidaste tu contraseña'
+        sign_in: Iniciar sesión
+        sign_up: Inscribirse
+        sign_out: Terminar sesión
+      customer:
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+        phone: 'Numero telefónico'
+        email: 'Correo electrónico'
+        street: 'Domicilio (calle)'
+        city: 'Ciudad'
+        state: 'Estado'
+        zip: 'Codigo postal'
+        back: "Regresar"
+      order: 
+        description: 'Descripción'
+      service:
+        name: 'Nombre'
+        description: 'Descripción'
+        kind: 'Tipo de Servicio'
+        phone_number: 'Numero telefónico'
+        url: 'Pagina Web'
+        picture: 'Imagen'
+        back: "Regresar"
+      video:
+        title: 'titulo'
+        description: 'Descripción'
+  helpers:
+    submit:
+      customer:
+        create: "Crear %{model}"
+        show: "Mostrar %{model}"
+        edit: "Editar %{model}"
+        update: "Actualizar %{model}"
+       
+      service:
+        create: "Crear %{model}"
+        show: "Mostrar %{model}"
+        edit: "Editar %{model}"
+        update: "Actualizar %{model}"
+      order:
+        create: "Guardar %{model}"
+        show: "Mostrar %{model}"
+        edit: "Editar %{model}"
+        update: "Actualizar %{model}"
+      video:
+        create: "Crear %{model}"
+        show: "Mostrar %{model}"
+        edit: "Editar %{model}"
+        update: "Actualizar %{model}"
+  nav_links:
+    home: Inicio
+    about: Acerca de
+    services: Servicios
+    customers: Clientes
+    orders: Ordenes
+    videos: Videos
+    quizzes: Cuestionarios
+    connect: Conéctate con nosotros
+    
+
+
+  
+
+
+
+ 
+
+  
+     

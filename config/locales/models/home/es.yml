@@ -1,0 +1,82 @@
+es:
+  en: English
+  es: Spanish
+  language: Lenguaje
+  
+  home: 
+    # title: Proyecto de Violencia Doméstica
+    h3a: Qué es violencia doméstica?
+    p1: La violencia doméstica es un patrón de comportamiento abusivo cometido en una relación de noviazgo, matrimonial o de cohabitantes afectando a las personas en todas nuestras comunidades independientemente de su género, edad, orientación sexual, raza, etnia, religión, posición social y estatus migratorio. La violencia doméstica puede consistir en violencia física, emocional, financiera o sexual o una combinación de algunas de ellas.
+    p2: Para determinar si su relación es abusiva, responda las preguntas a continuación. Cuantas más respuestas "sí", más probable es que estés en una relación abusiva.
+    p3: Usted
+    p4:  ¿Tiene miedo de su pareja la mayor parte del tiempo?
+    p5:  ¿Evitas ciertos temas por miedo a que se enoje tu pareja? 
+    p6:  ¿Sientes que no puedes hacer nada bien para tu pareja? 
+    h3b: ¿Cuáles son las estadísticas sobre violencia doméstica?
+    p7: Las estadísticas sobre violencia doméstica son escalofriantes. Una mujer es abusada físicamente por una pareja sentimental cada 15 segundos. Más de tres mujeres mueren cada día a manos de sus maridos o novios. Si bien la mayoría de las víctimas son mujeres, el número de victimizaciones masculinas está aumentando y se cree que no se informa debido al estigma social. Las mujeres de entre 16 y 24 años son el grupo de mayor riesgo de violencia doméstica. Aproximadamente 15.5 millones de niños están expuestos a este tipo de violencia cada año.
+    p8: Los hombres que han presenciado personalmente la violencia doméstica tenían cuatro veces más probabilidades de cometer violencia doméstica ellos mismos. Se estima que los gastos por violencia doméstica cuestan $ 5,8 mil millones cada año y la gran mayoría de estos gastos están relacionados con los costos de atención médica.
+    h3c: ¿Cuáles son los signos de violencia doméstica?
+    p9: La violencia doméstica es diferente en cada situación. Sin embargo, a menudo hay señales de advertencia de que una persona tiene la propensión a ser violenta con su pareja. Estas señales de advertencia incluyen
+    p10: Extremadamente celoso
+    p11: Intentos de controlar el comportamiento de la víctima
+    p12: Aislamiento de amigos y familiares
+    p13: Destrucción de propiedad personal, daño a las mascotas de la familia o amenazas de lastimar a la familia, los niños o las mascotas de la víctima
+    p14: Intimidación
+    p15: Culpar a la víctima por el abuso
+    p16: Crítica constante a la víctima
+    p17: Intentos de control económico como no dejar trabajar a la víctima o no darle dinero
+    p18: Temperamento incontrolable
+    p19: Estos son solo algunos signos de advertencia de violencia doméstica. ¡Aprenda más al conectarse con nosotros!
+    h3d: Para obtener más información sobre la violencia doméstica, visite
+    p20: Violencia Doméstica ¿Cómo responder?
+    p21: Características de la violencia doméstica
+    p22: Las consecuencias de la violencia doméstica
+    p23: Órdenes de restricción por violencia doméstica
+    p24: ¿Cuándo debo llamar a la policía?
+    p25: Dejar una relación abusiva
+    p26: Plan de seguridad violencia doméstica
+    url1: http://www.ctcadv.org/en-espanol/que-es-la-violencia-domestica/
+    url2: https://www.lawhelp.org/dc/resource/frequently-asked-questions-about-domestic-vio-2?lang=ES
+    text1: Continuar leyendo...
+    h3d: Aprender más sobre Violencia Doméstica
+    url3: https://www.womenslaw.org/es/sobre-el-maltrato/formas-especificas-de-maltrato
+    url4: http://www.ctcadv.org/en-espanol/que-es-la-violencia-domestica/
+    url5: https://espanol.thehotline.org/abuso/entendiendo-abuso/
+    url6: https://www.un.org/es/coronavirus/domestic-abuse
+    url7: https://espanol.thehotline.org/abuso/alerta-de-abuso/
+    url8: https://espanol.thehotline.org/abuso/alerta-de-abuso/
+    url9: https://espanol.womenshealth.gov/relationships-and-safety/domestic-violence/leaving-abusive-relationship
+    url10: https://www.un.org/es/coronavirus/safety-planning
+    url11: https://espanol.womenshealth.gov/relationships-and-safety/domestic-violence/leaving-abusive-relationship
+    url12: https://www.un.org/es/coronavirus/safety-planning
+    video1: https://www.youtube.com/embed/L43loExUJ0k
+    video1title: 12 señales de que estás en una relación tóxica y no lo quieres ver
+    video1txt: Cuando la gente piensa en el abuso, a menudo lo realciona solo con la violencia física, pero no es ahí donde comienza o termina el abuso. Vea el video para obtener más información al respecto.
+    video2: https://www.youtube.com/embed/pmJI-_F4sts
+    video2title: El ciclo de la violencia en la pareja
+    video2txt: Este video recorre el ciclo de la violencia en la pareja también conocido como violencia doméstica.
+    video3: https://www.youtube.com/embed/8cIjKT_YdZE
+    video3title: Violencia doméstica y rueda de poder y control
+    video3txt: Este video describe qué es la violencia doméstica y también lo relaciona con la rueda de poder y control.
+  
+
+
+  
+
+  about:
+    title: Proyecto de Violencia Doméstica
+    h3: Propósito de esta Aplicación
+    p1: La violencia doméstica es un patrón de conductas coercitivas que involucra abuso físico o la amenaza de abuso físico.
+    p2: También puede incluir abuso psicológico repetido, agresión, aislamiento social progresivo, privación, intimidación o coacción económica.
+    p3: La violencia doméstica es perpetrada por adultos o adolescentes contra sus parejas íntimas en relaciones actuales o anteriores, casadas o en cohabitación de heterosexuales, gays y lesbianas, bisexuales y transexuales.
+    p4: Los casos de violencia doméstica han experimentado un aumento en la tasa con el refugio en el lugar.
+    p5: En esta aplicación podrás encontrar algunos recursos disponibles. Puedes descubrir nuevos recursos y voluntarios de personas de la comunidad que quieren ayudarte con cualquier situación que puedas estar enfrentando.
+    p6: No estás solo. Podrá encontrar recursos de agencias y algunos buenos samaritanos de la sociedad podrán registrarse como voluntarios.
+    p7: Esta aplicación fue creada por
+    p8: Estudiantes de Code The Dream 
+    p9: con ayuda del mentor John McGarvey
+    l1: Elena Aiupova
+    l2: Adriana Cabrera (creador de la aplicación)
+    l3: Natalia Markova
+    l4: Oksana Weigand-Suminski
+      

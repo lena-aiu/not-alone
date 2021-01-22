@@ -15,32 +15,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Service name:</strong>
+  <strong><%= t ("Service Name")%></strong>
   <%= @service.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t ("Description")%></strong>
   <%= @service.description %>
 </p>
 
 <p>
-  <strong>Type of Service</strong>
+  <strong><%= t ("Type")%></strong>
   <%= @service.kind %>
 </p>
 
 <p>
-  <strong>Phone Number:</strong>
+  <strong><%= t ("Phone")%></strong>
   <%= @service.phone_number %>
 </p>
 
 <p>
-  <strong>URL:</strong>
+  <strong><%= t ("Url")%></strong>
   <%= @service.url %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <strong><%= t ("Picture")%></strong>
       <figure class="picture is-128x128">
       <% if @service.picture.attached? %>
           <%= image_tag(url_for(@service.picture), size: 50) %>  
@@ -58,10 +58,10 @@
    <%# <%= image_tag(url_for(projet.images[0].variant(resize: "400x400")), class:"background") if projet.images.length > 0 %> 
 
 <% if current_user === nil %>
-  <%= link_to 'Back', services_path %>
+  <%= link_to (t'back'), services_path %>
 <% else %>
-  <%= link_to 'Edit', edit_service_path(@service) %> |
-  <%= link_to 'Back', services_path %>
+  <%= link_to (t'edit'), edit_service_path(@service) %> |
+  <%= link_to (t'back'), services_path %>
 <% end %>
 <%= social_share_button_tag(@service.url)%>
 

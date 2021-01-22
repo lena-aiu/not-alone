@@ -8,38 +8,76 @@
 
     		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     		  <ul class="navbar-nav ">
-    			  <li class='nav-item'><%= link_to 'Home', home_index_path, class: 'nav-link' %></li>
-    			  <li class='nav-item'><%= link_to 'About', home_about_path, class: 'nav-link' %></li>
-    			  <li class='nav-item'><%= link_to 'Services', services_path, class: 'nav-link' %></li>
-            <li class='nav-item'><%= link_to 'Customers', customers_path, class: 'nav-link' %></li>
-            <li class='nav-item'><%= link_to 'Orders', orders_path, class: 'nav-link' %></li>
-    			  <li class='nav-item'><%= link_to 'Videos', videos_path, class: 'nav-link' %></li>
-    			  <li class='nav-item'><%= link_to 'Questionar', home_index_path, class: 'nav-link' %></li>
-    			  <li class='nav-item'><%= link_to 'Connect with us', home_index_path, class: 'nav-link' %></li>
-            <li class="nav-item"><%= link_to 'Our Community is our Strenght', home_index_path, class: 'nav-link' %></li>
+    			  <li class='nav-item'> 
+              <%= link_to home_index_path, class: 'nav-link'  do %>
+                <%= t('nav_links.home') %>
+              <% end %>
+            </li>
+    			  <li class='nav-item'>
+              <%= link_to home_about_path, class: 'nav-link'  do %>
+                <%= t('nav_links.about') %>
+              <% end %>
+            </li>
+            <li class='nav-item'>
+              <%= link_to services_path, class: 'nav-link'  do %>
+                <%= t('nav_links.services') %>
+              <% end %>
+            </li>
+            <li class='nav-item'>
+              <%= link_to customers_path, class: 'nav-link'  do %>
+                <%= t('nav_links.customers') %>
+              <% end %>
+            </li>
+            <li class='nav-item'>
+              <%= link_to orders_path, class: 'nav-link'  do %>
+                <%= t('nav_links.orders') %>
+              <% end %>
+            </li>
+    			  <li class='nav-item'>
+              <%= link_to videos_path, class: 'nav-link'  do %>
+                <%= t('nav_links.videos') %>
+              <% end %>
+            </li>
+            <li class='nav-item'> 
+              <%= link_to home_index_path, class: 'nav-link'  do %>
+                <%= t('nav_links.quizzes') %>  
+              <% end %>
+            </li>
+            <%# <li class='nav-item'><%= link_to 'Questionar', home_index_path, class: 'nav-link' %>
+            <li class='nav-item'>
+              <%= link_to home_index_path, class: 'nav-link'  do %>
+                <%# Connect %>
+                <%= t('connect') %>
+              <% end %> 
+            </li>
             <li class="nav-item">
               <div class="btn-group">
-                <button type="button" class="btn btn-outline-secondary">Other Help</button>
+                <button type="button" class="btn btn-outline-secondary"><%= t ('other') %></button>
                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="http://www.bascia.org/">Bay Area Suicide and Crisis Intervention </a>
-                <a class="dropdown-item" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/">Domestic Violence Legal Clinic</a>
-                <a class="dropdown-item" href="https://sfmohcd.org/resources-domestic-violence-survivors">Shelter for Domestic Violence Survivors</a>
-                <a class="dropdown-item" href="https://www.napanews.org/">Sexual Assault & Domestic Violence</a>
-                <a class="dropdown-item" href="https://kara-grief.org/">Coping with Grief</a>
-                <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline">Substance Abuse Help</a>
+                <a class="dropdown-item" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %> </a>
+                <a class="dropdown-item" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/"><%= t ('clinic') %></a>
+                <a class="dropdown-item" href="https://sfmohcd.org/resources-domestic-violence-survivors"><%= t ('shelter') %></a>
+                <a class="dropdown-item" href="https://www.napanews.org/"><%= t ('sexual') %></a>
+                <a class="dropdown-item" href="https://kara-grief.org/"><%= t ('grief') %></a>
+                <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline"><%= t ('substance') %></a>
               </div>
               </div>
             </li>
           </ul>
         </div>
-
+        
+        <div class="nav-item">
+          <%= link_to_unless_current "English", locale: "en" %> 
+          <%= link_to_unless_current "Spanish", locale: "es" %> 
+        </div>
+        
     		<% if user_signed_in? %>
-              <p><%= current_user.email %>  <%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+              <p><%= current_user.email %>  <%= link_to (t'log_in'), destroy_user_session_path, method: :delete %></p>
             <% else %>
-              <p><%= link_to "Log in", new_user_session_path %></p>
+              <p><%= link_to (t'log_out') , new_user_session_path %></p>
         <% end %>
 
       </div>
@@ -52,7 +90,8 @@
   </div><!-- /jumbotron -->
 
 <div class="container text-sm-center" role="group" aria-label="Callout buttons">
-  <a class="btn btn-dark btn-lg" href="tel:911">Emergency(911)</a>
-  <a class="btn btn-dark btn-lg" href="https://www.thehotline.org/">Link to National Domestic Violence Link</a>
+  <a class="btn btn-dark btn-lg" href="tel:911"><%= t ("emergencia")%> </a>
+  <a class="btn btn-dark btn-lg" href=<%= t ("urlhotline")%>><%= t ("hotline")%> </a>
+
 </div>
  <!-- /navbar -->
