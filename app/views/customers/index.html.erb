@@ -1,43 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <%# <head>
-    <title>Domestic Violence Project</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head> %>
-
- <!-- /about -->
-
-  <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
-
 <p id="notice"><%= notice %></p>
 
-<h1>Clients</h1>
-<table class=" table table-hover">
-<thead class="thead-dark">
+<h1 class="title mt-5 mb-5 display-3" style="text-align:center">Clients</h1>
+<div class="table-responsive card mb-5">
+<table class="table table-hover">
+  <thead>
     <tr>
-      <th style="text-align:center"> Full name</th>
-      <!--<th>First name</th>
-      <th>Last name</th>-->
-      <th style="text-align:center">Phone</th>
-      <th style="text-align:center">Email</th>
-      <th style="text-align:center">Street</th>
-      <th style="text-align:center">City</th>
-      <th style="text-align:center">State</th>
-      <th style="text-align:center">Zip</th>
-      <th colspan="7"></th>
+      <th class="h2" style="background:none;">Name</th>
+      <th class="h2" style="background:none;">Phone</th>
+      <th class="h2" style="background:none;">Email</th>
+      <th class="h2" style="background:none;">Street</th>
+      <th class="h2" style="background:none;">City</th>
+      <th class="h2" style="background:none;">State</th>
+      <th class="h2" style="background:none;">Zip</th>
+      <th colspan="12" style="background:none;"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <!--<td><%= customer.first_name %></td>
-        <td><%= customer.last_name %></td>-->
         <td><%= customer.full_name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
@@ -45,24 +26,18 @@
         <td><%= customer.city %></td>
         <td><%= customer.state %></td>
         <td><%= customer.zip %></td>
-        <td><%= link_to 'Show', customer, :class => "btn btn-outline-dark btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer), :class => "btn btn-outline-dark btn-sm" %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-dark btn-sm" %></td>
-        <td><%= link_to 'New Client Assignment', new_customer_assignment_path(customer.id), :class => "btn btn-outline-dark btn-sm"  %></td>
-        <td><%= link_to 'New Client Order', new_customer_order_path(customer.id), :class => "btn btn-outline-dark btn-sm"  %></td>
+        <td><%= link_to 'Show', customer, :class => "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), :class => "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'New Client Assignment', new_customer_assignment_path(customer.id), :class => "btn btn-outline-primary btn-sm"  %></td>
+        <td><%= link_to 'New Client Order', new_customer_order_path(customer.id), :class => "btn btn-outline-primary btn-sm"  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
+<%= link_to 'New Client', new_customer_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
+<br><br>
 
-<%= link_to 'New Client', new_customer_path %>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-</body>
-</html>
