@@ -1,11 +1,9 @@
 <div class="container pt-4">
-  <h1>Healthy Relationship Quiz</h1>
+  <h1><%= t ('health.quizz') %></h1>
 </div>
 <div>
   <h6>
-  Everyone deserves to be in a safe and healthy relationship. Do you know if your relationship
-  is healthy? Answer yes or no to the following questions to find out. Make sure to check
-  the boxes to record your responses. At the end, you’ll find out how to score your answers.
+  <%= t ('health.description') %>
   </h6>
 </div>
 
@@ -13,14 +11,14 @@
   <table>
     <thead>
       <tr>
-        <th>THE PERSON I’M WITH</th>
-        <th>Yes</th>
+        <th><%= t ('health.general') %></th>
+        <th><%= t ('health.Yes') %></th>
         <th>No</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>1. Is very supportive of things that I do.</td>
+        <td><%= t ('health.q1') %></td>
         <td>
           <input name="x1" type="radio" value="yes">
         </td>
@@ -30,7 +28,7 @@
       </tr>
       
       <tr>
-        <td>2. Encourages me to try new things.</td>
+        <td><%= t ('health.q2') %></td>
         <td>
           <input name="x2" type="radio" value="yes">
         </td>
@@ -40,7 +38,7 @@
       </tr>
       
       <tr>
-        <td>3. Likes to listen when I have something on my mind.</td>
+        <td><%= t ('health.q3') %></td>
         <td>
           <input name="x3" type="radio" value="yes">
         </td>
@@ -50,7 +48,7 @@
       </tr>
       
       <tr>
-        <td>4. Understands that I have my own life too.</td>
+        <td><%= t ('health.q4') %></td>
         <td>
           <input name="x4" type="radio" value="yes">
         </td>
@@ -60,7 +58,7 @@
       </tr>
       
       <tr>
-        <td>5. Is not liked very well by my friends.</td>
+        <td><%= t ('health.q5') %></td>
         <td>
           <input name="x5" type="radio" value="yes">
         </td>
@@ -70,7 +68,7 @@
       </tr>
       
       <tr>
-        <td>6. Says I’m too involved in different activities.</td>
+        <td><%= t ('health.q6') %></td>
         <td>
           <input name="x6" type="radio" value="yes">
         </td>
@@ -80,7 +78,7 @@
       </tr>
       
       <tr>
-        <td>7. Texts me or calls me all the time.</td>
+        <td><%= t ('health.q7') %></td>
         <td>
           <input name="x7" type="radio" value="yes">
         </td>
@@ -90,7 +88,7 @@
       </tr>
       
       <tr>
-        <td>8. Thinks I spend too much time trying to look nice.</td>
+        <td><%= t ('health.q8') %></td>
         <td>
           <input name="x8" type="radio" value="yes">
         </td>
@@ -100,7 +98,7 @@
       </tr>
     
       <tr>
-        <td>9. Gets extremely jealous or possessive.</td>
+        <td><%= t ('health.q9') %></td>
         <td>
           <input name="x9" type="radio" value="yes">
         </td>
@@ -110,7 +108,7 @@
       </tr>
       
       <tr>
-        <td>10. Accuses me of flirting or cheating.</td>
+        <td><%= t ('health.q10') %></td>
         <td>
           <input name="x10" type="radio" value="yes">
         </td>
@@ -120,7 +118,7 @@
       </tr>
       
       <tr>
-        <td>11. Constantly checks up on me or makes me check in.</td>
+        <td><%= t ('health.q11') %></td>
         <td>
           <input name="x11" type="radio" value="yes">
         </td>
@@ -130,7 +128,7 @@
       </tr>
     
       <tr>
-        <td>12. Controls what I wear or how I look.</td>
+        <td><%= t ('health.q12') %></td>
         <td>
           <input name="x12" type="radio" value="yes">
         </td>
@@ -140,7 +138,7 @@
       </tr>
       
       <tr>
-        <td>13. Tries to control what I do and who I see.</td>
+        <td><%= t ('health.q13') %></td>
           <td>
           <input name="x13" type="radio" value="yes">
         </td>
@@ -150,7 +148,7 @@
       </tr>
       
       <tr>
-        <td>14. Tries to keep me from seeing or talking to my family and friends.</td>
+        <td><%= t ('health.q14') %></td>
         <td>
           <input name="x14" type="radio" value="yes">
         </td>
@@ -160,7 +158,7 @@
       </tr>
       
       <tr>
-        <td>15. Has big mood swings, getting angry and yelling at me one minute but being sweet and apologetic the next.</td>
+        <td><%= t ('health.q15') %></td>
         <td>
           <input name="x15" type="radio" value="yes">
         </td>
@@ -170,7 +168,7 @@
       </tr>
       
       <tr>
-        <td>16. Makes me feel nervous or like I’m “walking on eggshells.”</td>
+        <td><%= t ('health.q16') %></td>
         <td>
           <input name="x16" type="radio" value="yes">
         </td>
@@ -180,7 +178,7 @@
       </tr>
     
       <tr>
-        <td>17. Puts me down, calls me names or criticizes me.</td>
+        <td><%= t ('health.q17') %></td>
         <td>
           <input name="x17" type="radio" value="yes">
         </td>
@@ -190,7 +188,7 @@
       </tr>
       
       <tr>
-        <td>18. Makes me feel like I can’t do anything right or blames me for problems.</td>
+        <td><%= t ('health.q18') %></td>
         <td>
           <input name="x18" type="radio" value="yes">
         </td>
@@ -200,7 +198,7 @@
       </tr>
       
       <tr>
-        <td>19. Makes me feel like no one else would want me.</td>
+        <td><%= t ('health.q19') %></td>
         <td>
           <input name="x19" type="radio" value="yes">
         </td>
@@ -210,7 +208,7 @@
       </tr>
       
       <tr>
-        <td>20. Threatens to hurt me, my friends or family.</td>
+        <td><%= t ('health.q20') %></td>
         <td>
           <input name="x20" type="radio" value="yes">
         </td>
@@ -220,7 +218,7 @@
       </tr>
       
       <tr>
-        <td>21. Threatens to hurt themselves because of me.</td>
+        <td><%= t ('health.q21') %></td>
         <td>
           <input name="x21" type="radio" value="yes">
         </td>
@@ -230,7 +228,7 @@
       </tr>
       
       <tr>
-        <td>22. Threatens to destroy my things (Phone, clothes, laptop, car, etc.).</td>
+        <td><%= t ('health.q22') %></td>
         <td>
           <input name="x22" type="radio" value="yes">
         </td>
@@ -240,7 +238,7 @@
       </tr>
     
       <tr>
-        <td>23. Grabs, pushes, shoves, chokes, punches, slaps, holds me down, throws things or hurts me in some way.</td>
+        <td><%= t ('health.q23') %></td>
         <td>
           <input name="x23" type="radio" value="yes">
         </td>
@@ -250,7 +248,7 @@
       </tr>
       
       <tr>
-        <td>24. Breaks or throws things to intimidate me.</td>
+        <td><%= t ('health.q24') %></td>
         <td>
           <input name="x24" type="radio" value="yes">
         </td>
@@ -260,7 +258,7 @@
       </tr>
       
       <tr>
-        <td>25. Yells, screams or humiliates me in front of other people.</td>
+        <td><%= t ('health.q25') %></td>
         <td>
           <input name="x25" type="radio" value="yes">
         </td>
@@ -270,7 +268,7 @@
       </tr>
       
       <tr>
-        <td>26. Pressures or forces me into having sex or going farther than I want to.</td>
+        <td><%= t ('health.q26') %></td>
         <td>
           <input name="x26" type="radio" value="yes">
         </td>
@@ -280,12 +278,12 @@
       </tr>
     </tbody>
   </table>
-  <p><%= link_to 'Submit', home_results_path %></p>
+  <p><%= link_to (t'health.Submit'), home_results_path %></p>
 
 </form>
 <div>
   <br>
-  <p>The questionnaire developed by <a href = "https://www.wadvocates.org/wp-content/uploads/2020/06/are-you-in-a-healthy-relationship-quiz.pdf">Women's advocates</p>
+  <p><%= t ('health.develop') %> <a href = "https://www.wadvocates.org/wp-content/uploads/2020/06/are-you-in-a-healthy-relationship-quiz.pdf"><%= t ('health.WA') %></p>
 </div>
 
 

@@ -80,3 +80,38 @@ es:
     l3: Natalia Markova
     l4: Oksana Weigand-Suminski
       
+  health:
+    quizz: Cuestionario de relaciones saludables
+    description: Todos merecen tener una relación sana y segura. ¿Sabes si tu relación es sana? Responda sí o no a las siguientes preguntas para averiguarlo. Asegurte de marcar las casillas para registrar tus respuestas. Al final, descubrirás el resultado de tu prueba de acuerdo a tus respuestas.
+    general: LA PERSONA CON LA QUE ESTOY (RELACIÓN)
+    "Yes": "SI"
+
+    q1: 1. Me da su apoyo en las cosas que realizo.
+    q2: 2. Me anima a tratar nuevas cosas.
+    q3: 3. Le gusta escuchar cuando tengo algo en mente.
+    q4: 4. Entiende que yo también tengo mi propia vida.
+    q5: 5. No es del agrado de mis amigos.
+    q6: 6. Dice que estoy demasiado involucrado (a) en diferentes actividades.
+    q7: 7. Me envía mensajes de texto o me llama todo el tiempo.
+    q8: 8. Piensa que paso demasiado tiempo tratando de lucir bien.
+    q9: 9. Se vuelve extremadamente celoso(a) o posesivo(a).
+    q10: 10. Me acusa de coquetear o de que lo/la engaño(a)
+    q11: 11. Constantemente me controla o me obliga a que me reporte.
+    q12: 12. Controla la ropa que uso o cómo me veo.
+    q13: 13. Intenta controlar lo que hago y a quién veo.
+    q14: 14. Intenta evitar que vea o hable con mi familia y amigos.
+    q15: 15. Tiene grandes cambios de humor, se enoja y me grita en un minuto, pero se muestra cariñoso y se disculpa al siguiente.
+    q16: 16. Me hace sentir nerviosa o como si estuviera "caminando sobre cáscaras de huevo".
+    q17: 17. Me desanima, me insulta o me critica.
+    q18: 18. Me hace sentir que no puedo hacer nada bien o me culpa por los problemas.
+    q19: 19. Me hace sentir como si nadie más me va a querer.
+    q20: 20. Amenaza con lastimarme a mi, a mis amigas o a mi familia.
+    q21: 21. Amenaza con hacerse daño por mi culpa.
+    q22: 22. Amenaza con destruir mis cosas (teléfono, ropa, laptop, auto, etc.).
+    q23: 23. Empuja, agarra, estrangula, golpea, abofetea, me sujeta, tira cosas o me lastima de alguna manera.
+    q24: 24. Rompe o tira cosas para intimidarme.
+    q25: 25. Grita o me humilla frente a otras personas.
+    q26: 26. Me presiona o me obliga a tener relaciones sexuales o ir más lejos de lo que quiero.
+    develop: Este cuestionario fue desarrollado por
+    WA: Women's advocates (Organización)
+    Submit: Enviar
