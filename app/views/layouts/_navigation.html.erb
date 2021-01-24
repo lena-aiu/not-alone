@@ -36,12 +36,7 @@
                 <%= t('nav_links.videos') %>
               <% end %>
             </li>
-            <li class='nav-item'>
-              <%= link_to home_index_path, class: 'nav-link'  do %>
-                <%# Connect %>
-                <%= t('connect') %>
-              <% end %> 
-            </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= t ('other') %>
@@ -66,16 +61,12 @@
                 <%= t('nav_links.quizzes') %>  
               <% end %>
             </li>
-            <%# <li class='nav-item'> %>
-              <%# <%= link_to home_index_path, class: 'nav-link'  do %> 
-                <%# Connect %>
-                <%# <%= t('connect') %> 
-              <%# <% end %>  
-            <%# </li> %>
+
             <li class="nav-item">
-                <a class="disabled"><%= link_to home_index_path, class: 'nav-link  text-nowrap' do %></a>
+                <a class="disabled"><%= link_to home_index_path, class: 'nav-link  text-nowrap' do %>
                 <%= t('connect') %>
                 <% end %> 
+                </a>
             </li>
             <li class="nav-item">
                 <a class="disabled"><%= link_to 'Our Community is our Strenght', home_index_path, class: 'nav-link  text-nowrap' %></a>
@@ -93,10 +84,6 @@
             <% end %>
           </ul>
         </div>
-        <%# <div class="nav-item"> %>
-          <%# <%= link_to_unless_current "English", locale: "en" %>  
-          <%# <%= link_to_unless_current "Spanish", locale: "es" %>  
-        <%# </div> %>
       </div>
     </nav><!-- /navbar -->
 
