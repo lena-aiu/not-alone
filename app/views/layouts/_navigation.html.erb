@@ -1,19 +1,18 @@
 <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color: #55B3D0;">
-      <div class="container">
-
-    		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-    		  <span class="sr-only">Toggle navigation</span>
-            </button>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+     <div class="container">
+          <li class="navbar-brand"><%= link_to 'Domestic Violence', home_index_path, class: 'nav-link' %></li>
+    		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
     		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    		  <ul class="navbar-nav ">
-    			  <li class='nav-item'> 
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
+            <li class='nav-item'> 
               <%= link_to home_index_path, class: 'nav-link'  do %>
                 <%= t('nav_links.home') %>
               <% end %>
             </li>
-    			  <li class='nav-item'>
+            <li class='nav-item'>
               <%= link_to home_about_path, class: 'nav-link'  do %>
                 <%= t('nav_links.about') %>
               <% end %>
@@ -38,48 +37,65 @@
                 <%= t('nav_links.videos') %>
               <% end %>
             </li>
-            <li class='nav-item'> 
-              <%= link_to home_index_path, class: 'nav-link'  do %>
-                <%= t('nav_links.quizzes') %>  
-              <% end %>
-            </li>
-            <%# <li class='nav-item'><%= link_to 'Questionar', home_index_path, class: 'nav-link' %>
             <li class='nav-item'>
               <%= link_to home_index_path, class: 'nav-link'  do %>
                 <%# Connect %>
                 <%= t('connect') %>
               <% end %> 
             </li>
-            <li class="nav-item">
-              <div class="btn-group">
-                <button type="button" class="btn btn-outline-secondary"><%= t ('other') %></button>
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="sr-only">Toggle Dropdown</span>
-                </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %> </a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= t ('other') %>
+                <%# Other Help %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %>c</a>
                 <a class="dropdown-item" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/"><%= t ('clinic') %></a>
                 <a class="dropdown-item" href="https://sfmohcd.org/resources-domestic-violence-survivors"><%= t ('shelter') %></a>
                 <a class="dropdown-item" href="https://www.napanews.org/"><%= t ('sexual') %></a>
                 <a class="dropdown-item" href="https://kara-grief.org/"><%= t ('grief') %></a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline"><%= t ('substance') %></a>
               </div>
-              </div>
             </li>
+            <%# <li class="nav-item">
+                <a class="disabled"><%= link_to 'Questionnaire', home_health_path, class: 'nav-link' %>
+                <%# </a> %>
+            <%# </li>  %>
+            <li class='nav-item'> 
+              <a class="disabled"><%= link_to home_health_path, class: 'nav-link'  do %>
+                <%= t('nav_links.quizzes') %>  
+              <% end %>
+            </li>
+            <%# <li class='nav-item'> %>
+              <%# <%= link_to home_index_path, class: 'nav-link'  do %> 
+                <%# Connect %>
+                <%# <%= t('connect') %> 
+              <%# <% end %>  
+            <%# </li> %>
+            <li class="nav-item">
+                <a class="disabled"><%= link_to home_index_path, class: 'nav-link  text-nowrap' do %></a>
+                <%= t('connect') %>
+                <% end %> 
+            </li>
+            <li class="nav-item">
+                <a class="disabled"><%= link_to 'Our Community is our Strenght', home_index_path, class: 'nav-link  text-nowrap' %></a>
+            </li>
+          <div class="nav-item">
+            <%= link_to_unless_current "English", locale: "en" %> 
+            <%= link_to_unless_current "Spanish", locale: "es" %> 
+          </div>
+        		<% if user_signed_in? %>
+                  <a class="disabled"><%= current_user.email %>  <%= link_to (t'log_out'), destroy_user_session_path, method: :delete, class: 'nav-link text-nowrap' %></a>
+                <% else %>
+                  <a class="disabled"><%= link_to (t'log_in'), new_user_session_path, class: 'nav-link text-nowrap' %></a>
+            <% end %>
           </ul>
         </div>
-        
         <div class="nav-item">
           <%= link_to_unless_current "English", locale: "en" %> 
           <%= link_to_unless_current "Spanish", locale: "es" %> 
         </div>
-        
-    		<% if user_signed_in? %>
-              <p><%= current_user.email %>  <%= link_to (t'log_in'), destroy_user_session_path, method: :delete %></p>
-            <% else %>
-              <p><%= link_to (t'log_out') , new_user_session_path %></p>
-        <% end %>
-
       </div>
     </nav><!-- /navbar -->
 

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+
+<address>
+<h2><strong><%= @assignment.customer.first_name %></strong></h2>
+<h2><strong><%= @assignment.customer.last_name %></strong></h2>
+
+<%= @assignment.customer.street %><br>
+
+<%=  @assignment.customer.city %>
+
+<%=  @assignment.customer.state %>
+
+<%=  @assignment.customer.zip %><br>
+
+<abbr title="Cell phone">Cell:</abbr>
+<%=  @assignment.customer.phone %><br>
+
+<abbr title="Email address">E.:</abbr>
+<a href="mailto:#"><%=  @assignment.customer.email %></a>
+</address>
+
+</div>
+</div>
+<p>
+  <h4><strong>Assignment Status:</strong></h4>
+  <%= @assignment.status %>
+</p>
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back to Assignments', customer_assignments_path(@assignment) %> |
+<%= link_to 'Back to Clients', customers_path %> 
+</div>
