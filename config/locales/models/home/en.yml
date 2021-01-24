@@ -75,3 +75,37 @@ en:
     l2: Adriana Cabrera (application originator)
     l3: Natalia Markova
     l4: Oksana Weigand-Suminski
+
+  health:
+    quizz: Healthy Relationship Quiz
+    description: Everyone deserves to be in a safe and healthy relationship. Do you know if your relationship is healthy? Answer yes or no to the following questions to find out. Make sure to check the boxes to record your responses. At the end, you’ll find out how to score your answers.
+    general: THE PERSON I’M WITH
+    
+    q1: 1. Is very supportive of things that I do.		
+    q2: 2. Encourages me to try new things.		
+    q3: 3. Likes to listen when I have something on my mind.		
+    q4: 4. Understands that I have my own life too.		
+    q5: 5. Is not liked very well by my friends.		
+    q6: 6. Says I’m too involved in different activities.		
+    q7: 7. Texts me or calls me all the time.		
+    q8: 8. Thinks I spend too much time trying to look nice.		
+    q9: 9. Gets extremely jealous or possessive.		
+    q10: 10. Accuses me of flirting or cheating.		
+    q11: 11. Constantly checks up on me or makes me check in.		
+    q12: 12. Controls what I wear or how I look.		
+    q13: 13. Tries to control what I do and who I see.		
+    q14: 14. Tries to keep me from seeing or talking to my family and friends.		
+    q15: 15. Has big mood swings, getting angry and yelling at me one minute but being sweet and apologetic the next.		
+    q16: 16. Makes me feel nervous or like I’m “walking on eggshells.”		
+    q17: 17. Puts me down, calls me names or criticizes me.		
+    q18: 18. Makes me feel like I can’t do anything right or blames me for problems.		
+    q19: 19. Makes me feel like no one else would want me.		
+    q20: 20. Threatens to hurt me, my friends or family.		
+    q21: 21. Threatens to hurt themselves because of me.		
+    q22: 22. Threatens to destroy my things (Phone, clothes, laptop, car, etc.).		
+    q23: 23. Grabs, pushes, shoves, chokes, punches, slaps, holds me down, throws things or hurts me in some way.		
+    q24: 24. Breaks or throws things to intimidate me.		
+    q25: 25. Yells, screams or humiliates me in front of other people.		
+    q26: 26. Pressures or forces me into having sex or going farther than I want to.
+    develop: The questionnaire developed by
+    WA: Women's advocates
