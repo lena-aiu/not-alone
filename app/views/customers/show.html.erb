@@ -40,30 +40,35 @@
   <%= @customer.zip%>
 </p>
 
-<h2><Orders</h2>
+<h2 class="title mt-5 mb-5 display-4" style="text-align:center">Orders</h2>
+<div class="table-responsive card mb-5">
 <table class="table table-hover">
 <% @customer.orders.each do |order| %>
 <tr>
 <td><%= order.description %></td>
 <td><%= order.service.name %></td>
-<td><%= link_to (t'show'), customer_order_path(@customer.id, order.id) %></td>
-<td><%= link_to (t'edit'), edit_customer_order_path(@customer.id, order.id) %></td>
-<td><%= link_to (t'destroy'), customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to (t'show'), customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to (t'edit'), edit_customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to (t'delete'), customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
 </tr>
 <% end %>
-</table> 
+</table>
+</div> 
 
-<h2>Assignments</h2>
+<h2 class="title mt-5 mb-5 display-4" style="text-align:center">Assignments</h2>
+<div class="table-responsive card mb-5">
 <table class="table table-hover">
 <% @customer.assignments.each do |assignment| %>
 <tr>
 <td><%= assignment.user.email %></td>
 <td><%= assignment.status %></td>
-<td><%= link_to 'Show', assignment %></td>
-<td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-<td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to 'Show', assignment, :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
 </tr>
 <% end %>
 </table> 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to (t'customer.back'), customers_path %>
+</div>
+
+<%= link_to 'Edit', edit_customer_path(@customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to (t'customer.back'), customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>

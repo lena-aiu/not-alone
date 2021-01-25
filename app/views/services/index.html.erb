@@ -1,44 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Domestic Violence Project</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-
-  <div class="container">
-      <!-- about -->
-      <div id="about" class="row">
-        <div class="col-lg container">
-          <p style="text-align:center; color: #385DB8; " class="blockquote">"Domestic Violence impacts everyone, not just survivors. We need to operate as a community to address systemic issues that allow domestic violence to thrive", Virginia Hedrick</p>
-          <img class="rounded mx-auto d-sm-block" alt="Responsive image" src="/assets/loveisservice.jpeg" alt="Service" >
-        </div>
-      </div>
-  </div>
-
-  <body>
-    <p id="notice"><%= notice %></p>
-
+<p id="notice"><%= notice %></p>
+<h1 class="title mt-5 mb-5 display-3" style="text-align: center;">Services</h1>
+<div class="table-responsive card mb-5">
     <%# <h1>Services</h1> %>
     <table class="table table-hover">
       <thead>
         <div class="row">
           <tr>
-            <th> <%= t ('Service Name') %></th>
             <%# <th>(t'New Service')</th> %>
-            <!--<th>First name</th>
-            <th>Last name</th>-->
-            <th><%= t ('Description') %></th>
-            <th><%= t ('Type') %></th>
-            <th><%= t ('Phone') %></th>
-            <th><%= t ('Url') %></th>
-            <th><%= t ('Picture') %></th>
+            <th class="h2" style="background:none;"><%= t ('Description') %></th>
+            <th class="h2" style="background:none;"><%= t ('Type') %></th>
+            <th class="h2" style="background:none;"><%= t ('Phone') %></th>
+            <th class="h2" style="background:none;"><%= t ('Url') %></th>
+            <th class="h2" style="background:none;"><%= t ('Picture') %></th>
             <% if admin? || intern? %>
-              <th colspan="3"></th>
+              <th colspan="3" style="background:none;"></th>
             <% else %>
                 <th colspan="1"></th>
             <% end %>
@@ -65,22 +40,21 @@
                 </figure>
               </td>
               <% if admin? || intern? %>
-                <td><%= link_to (t'show'), service %></td>
-                <td><%= link_to (t'edit'), edit_service_path(service) %></td>
-                <td><%= link_to (t'destroy'), service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to (t'show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'edit'), edit_service_path(service), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'delete'), service, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
               <% else %>
-                <td><%= link_to (t'show'), service %></td>
+                <td><%= link_to (t'show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
               <% end %>
             </tr>
           </div>
         <% end %>
       </tbody>
     </table>
+    </div>
     <br>
 
     <% if admin? || intern? %>
-      <%= link_to (t'New Service'), new_service_path %>
+      <%= link_to (t'New Service'), new_service_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
     <% end %>
 
-  </body>
-</html>
