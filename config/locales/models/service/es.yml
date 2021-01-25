@@ -1,0 +1,19 @@
+es:
+  en: English
+  es: Spanish
+  language: Lenguaje
+  
+  show: Mostrar
+  back: Atras
+  edit: Actualizar
+  destroy: Borrar
+  New Service: Crear Servicio
+  Service Name: Nombre del Servicio
+  Description: Descripción
+  Type: Tipo de Servicio
+  Phone: Número Telefónico
+  Url: Página Web
+  Picture: Imagen
+  edit_service: Actualizar Servicio
+  new_service: Crear Servicio
+

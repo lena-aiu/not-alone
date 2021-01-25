@@ -11,11 +11,11 @@
   </head>
   <body>
 
-<h1>Editing Service</h1>
+<h1><%= t ("edit_service")%></h1>
 
 <%= render 'form', service: @service %>
 
-<%= link_to 'Show', @service %> |
-<%= link_to 'Back', services_path %>
+<%= link_to (t'show'), @service %> |
+<%= link_to (t'back'), services_path %>
 </body>
 </html>

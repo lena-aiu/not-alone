@@ -1,0 +1,27 @@
+es:
+  en: English
+  es: Spanish
+  language: Lenguaje
+
+  show: Mostrar
+  back: Atras
+  edit: Actualizar
+  destroy: Borrar
+  edit_customer: Actualizar Cliente
+  new_customer: Crear Cliente
+
+  first_name: 'Nombre'
+  last_name: 'Apellido'
+  phone: 'Numero telefonico'
+  email: 'Correo electronico'
+  street: 'Domicilio (calle)'
+  city: 'Ciudad'
+  state: 'Estado'
+  zip: 'Codigo postal' 
+
+
+
+
+  
+
+

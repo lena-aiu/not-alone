@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
+  scope "(:locale)", locale: /en|es/ do
+  
   root to: 'home#index'
   get 'home/index'
   get 'home/about'
   get 'assignments/index'
+  get 'home/health'
+  get 'home/results'
   #root to: 'customer/index'
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
@@ -36,7 +40,8 @@ Rails.application.routes.draw do
   patch '/order/:id', to: 'orders#update1'
   delete '/order/:id', to: 'orders#destroy1'
   get '/order/edit/:id', to: 'orders#edit1', as: 'edit_order'
-
+  end #end of scope locale
+end
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
   # end
@@ -45,4 +50,5 @@ Rails.application.routes.draw do
   #get '/orders', to: 'orders#index'
   #post '/order/create/:id', to: 'orders#create1'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+
+

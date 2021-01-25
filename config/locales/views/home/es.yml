@@ -1,0 +1,20 @@
+es:
+  es: Spanish
+  en: English
+  language: Language
+  
+# sessions: 
+#   user:
+#     signed_in: 'Inicio sesion'
+#      Description: 'Descripcion'
+#      Show: 'Mostrar'
+  # nav_links:
+  #   home: Pagina Principal #working
+  #   about: Acerca de
+  #   Customer: Clientes
+  #   Orders: Ordenes
+  #   Assignments: 'Asignar Clientes'
+  #   sign_in: Iniciar sesion
+  #   sign_up: Dar de alta
+  #   sign_out: Salir del programa
+

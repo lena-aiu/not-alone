@@ -46,9 +46,9 @@
 <tr>
 <td><%= order.description %></td>
 <td><%= order.service.name %></td>
-<td><%= link_to 'Show', customer_order_path(@customer.id, order.id) %></td>
-<td><%= link_to 'Edit', edit_customer_order_path(@customer.id, order.id) %></td>
-<td><%= link_to 'Destroy', customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to (t'show'), customer_order_path(@customer.id, order.id) %></td>
+<td><%= link_to (t'edit'), edit_customer_order_path(@customer.id, order.id) %></td>
+<td><%= link_to (t'destroy'), customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
 <% end %>
 </table> 
@@ -66,4 +66,4 @@
 <% end %>
 </table> 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to (t'customer.back'), customers_path %>

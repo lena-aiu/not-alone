@@ -28,6 +28,28 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  en: English
+  es: Spanish
+  language: Language
+
+  log_in: Log In
+  #sign_up: Inscribirse
+  log_out: Log Out
+  foot1: 2020 Domestic Violence Project
+  foot2: Practicum by Code The Dream
+  emergencia: Emergency(911)
+  hotline: Link to National Domestic Violence 
+  connect: Connect with Us
+  urlhotline: https://www.thehotline.org/
+  other: Other Help
+  suicide: National Suicide Prevention Lifeline
+  clinic: Domestic Violence Legal Clinic
+  shelter: Shelter for Domestic Violence Survivors
+  sexual: Sexual Assault & Domestic Violence
+  grief: Coping with Grief and Loss
+  substance: Substance Abuse Help
+
+
+
+  
