@@ -1,0 +1,9 @@
+en:
+  en: English
+  es: Spanish
+  language: Language
+session: 
+  user:
+    signed_in:
+     Description: 'Descripcion'
+     Show: 'Mostrar'

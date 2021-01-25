@@ -6,14 +6,14 @@
       <thead>
         <div class="row">
           <tr>
-            <th class="h2" style="background:none;"> Service Name</th>
-            <th class="h2" style="background:none;">Description</th>
-            <th class="h2" style="background:none;">Type</th>
-            <th class="h2" style="background:none;">Phone</th>
-            <th class="h2" style="background:none;">Url</th>
-            <th class="h2" style="background:none;">Picture</th>
+            <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;"><%= t ('Description') %></th>
+            <th class="h2" style="background:none;"><%= t ('Type') %></th>
+            <th class="h2" style="background:none;"><%= t ('Phone') %></th>
+            <th class="h2" style="background:none;"><%= t ('Url') %></th>
+            <th class="h2" style="background:none;"><%= t ('Picture') %></th>
             <% if admin? || intern? %>
-              <th colspan="9" style="background:none;"></th>
+              <th colspan="3" style="background:none;"></th>
             <% else %>
                 <th colspan="1"></th>
             <% end %>
@@ -40,11 +40,11 @@
                 </figure>
               </td>
               <% if admin? || intern? %>
-                <td><%= link_to 'Show', service, :class => "btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to 'Edit', edit_service_path(service), :class => "btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'edit'), edit_service_path(service), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'delete'), service, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
               <% else %>
-                <td><%= link_to 'Show', service, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
               <% end %>
             </tr>
           </div>
@@ -55,6 +55,6 @@
     <br>
 
     <% if admin? || intern? %>
-      <%= link_to 'New Service', new_service_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
+      <%= link_to (t'New Service'), new_service_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
     <% end %>
 

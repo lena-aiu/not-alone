@@ -47,9 +47,9 @@
 <tr>
 <td><%= order.description %></td>
 <td><%= order.service.name %></td>
-<td><%= link_to 'Show', customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
-<td><%= link_to 'Edit', edit_customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
-<td><%= link_to 'Delete', customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to (t'show'), customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to (t'edit'), edit_customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
+<td><%= link_to (t'delete'), customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
 </tr>
 <% end %>
 </table>
@@ -71,4 +71,4 @@
 </div>
 
 <%= link_to 'Edit', edit_customer_path(@customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-<%= link_to 'Back', customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to (t'customer.back'), customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>

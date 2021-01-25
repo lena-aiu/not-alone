@@ -80,70 +80,82 @@
 </div>
 <div class="container pt-3">
 <!--About-->
+
 <div class="row">
 <div class="col-lg order-lg-1">
-    <h3 class="mb-4">What Is Domestic Violence?</h3>
-    <p>Domestic violence is a pattern of abusive behavior committed in a dating, cohabiting or marital relationship 
-    affecting people in all our communities regardless of gender, age, sexual orientation, race, ethnicity, religion, social standing and immigration status. 
-    Domestic violence may consist of physical, emotional, financial or sexual violence or a combination of some of these.
-    <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004" style="text-decoration: none;" target="_blank">[1]</a>
-    <a href="https://centerforfamilyjustice.org/faq/domestic-violence/" style="text-decoration: none;"  target="_blank">[2]</a> </p>
-        <p>To determine whether your relationship is abusive, answer the questions below. The more “yes” answers, the more likely it is that you’re in an abusive relationship.</p>
-        <p><strong> Do you:</strong></p>
+    <h3 class="mb-4"> <%= t ('home.h3a') %> </h3>
+    <p> <%= t ('home.p1') %>
+    <a href= <%= t ("home.url1")%> target="_blank">[1]</a>
+    <a href= <%= t ("home.url2")%> target="_blank">[2]</a> </p>
+    <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a> </p>
+    <a href="https://centerforfamilyjustice.org/faq/domestic-violence/"  target="_blank">[2]</a> </p> %>
+        <p><%= t ('home.p2') %></p>
+        <p><strong> <%= t ('home.p3') %> </strong></p>
         <p>
-        • feel afraid of your partner much of the time?<br>
-        • avoid certain topics out of fear of angering your partner?<br>
-        • feel that you can’t do anything right for your partner?<br>
-        <a href="https://www.helpguide.org/articles/abuse/domestic-violence-and-abuse.htm" target="_blank" class="text-black font-weight-bold mb-0" style="text-decoration: none;">Continue reading...</a>
-        </p>
-
+        <%= t ('home.p4') %> <br>
+        <%= t ('home.p5') %> <br>
+        <%= t ('home.p6') %> <br>
+        
+        <a href= <%= t ("home.url3")%> target="_blank" class="text-black font-weight-bold mb-0">[...]</a> </p>
+        <%# <a href="https://www.helpguide.org/articles/abuse/domestic-violence-and-abuse.htm" target="_blank" class="text-black font-weight-bold mb-0">Continue reading...</a> %>
+        <%# </p> %>
+<!-- CHANGE THE LINK -->
   </div>
   <div class="col-lg order-lg-2">
-    <h3 class="mb-4">What Are The Statistics Regarding Domestic Violence?</h3>
-        <p>The statistics regarding domestic violence are chilling. A woman is physically abused by a romantic partner every 15 seconds. More than three woman are killed each day by their husbands or boyfriends. 
-        While most victims are females, the number of male victimizations is growing and is believed to be underreported due to social stigma. Females between the ages of 16 and 24 are the group that is the most at risk for domestic violence. 
-        Approximately 15.5 million children are exposed to this type of violence every year.</p>
-
-        <p>Men who have personally witnessed domestic violence were four times more likely to commit domestic violence themselves. Domestic violence expenses are estimated to cost $5.8 billion every year with the vast majority of these expenses being related to health care costs.
-        <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004" style="text-decoration: none;" target="_blank">[1]</a></p>
+    <h3 class="mb-4"> <%= t ('home.h3b') %> </h3>
+        <p> <%= t ('home.p7') %> </p>
+        <p> <%= t ('home.p8') %>
+        <a href= <%= t ("home.url4")%> target="_blank">[1]</a> </p>
+        <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a></p> %>
   </div>
   <div class="col-lg order-lg-3">
-    <h3 class="mb-4">What Are The Signs Of Domestic Violence?</h3>
-      <p>Domestic violence is different in each situation. However, there are often warning signs that a person has the propensity to be violent toward his or her partner. These warnings signs include:</p>
-      <p>• Extreme jealousy <br>
-      • Attempts to control the victim’s behavior<br>
-      • Isolation from friends and family<br>
-      • Destruction of personal property, harm of family pets or threats to hurt the victim’s family, children or pets<br>
-      • Intimidation<br>
-      • Blaming the victim for the abuse<br>
-      • Constant criticism of the victim<br>
-      • Attempts at economic control such as not letting the victim work or not giving him or her money<br>
-      • Uncontrollable temper  <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004" style="text-decoration: none;" target="_blank">[1]</a></p>
-      <p>These are just a few warning signs of domestic violence. Learn more about it by connecting with us!</p>
+    <h3 class="mb-4"> <%= t ('home.h3c') %> </h3>
+      <p> <%= t ('home.p9') %> </p>
+      <ul>
+      <li> <%= t ('home.p10') %> </li>
+      <li> <%= t ('home.p11') %></li>
+      <li> <%= t ('home.p12') %></li>
+      <li> <%= t ('home.p13') %></li>
+      <li> <%= t ('home.p14') %></li>
+      <li> <%= t ('home.p15') %></li>
+      <li> <%= t ('home.p16') %></li>
+      <li> <%= t ('home.p17') %></li>
+      <li> <%= t ('home.p18') %> <a href= <%= t ("home.url5")%> target="_blank">[1]</a> </li> 
+      </ul>
+      <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a></p> %>
+      <p><%= t ('home.p19') %></p>
+
   </div>
   <div class="col-lg order-lg-4">
-    <h3 class="mb-4">To Learn More About Domestic Violence Visit</h3>
+    <h3 class="mb-4"> <%= t ('home.h3d') %></h3>
       <div class="list-group">
-        <a href="https://www.un.org/en/coronavirus/domestic-abuse" target="_blank" class="list-group-item list-group-item-action"><strong>
-        Domestic Abuse: How to respond?</strong></a>
-        <a href="https://centerforfamilyjustice.org/faq/domestic-violence/" target="_blank" class="list-group-item list-group-item-action">
-        <strong>Characteristics of Domestic Abuse</strong></a>
-        <a href="https://www.hg.org/legal-articles/the-consequences-of-domestic-violence-39897" target="_blank" class="list-group-item list-group-item-action"><strong>
-        The Consequences of Domestic Violence</strong></a>
-        <a href="https://www.hg.org/legal-articles/domestic-abuse-restraining-orders-21650" target="_blank" class="list-group-item list-group-item-action"><strong>
-        Domestic Abuse Restraining Orders</strong></a>
-        <a href="https://www.hg.org/legal-articles/when-should-i-call-the-police-36455" target="_blank" class="list-group-item list-group-item-action"><strong>
-        When Should I Call the Police?</strong></a>
-        <a href="https://www.womenshealth.gov/relationships-and-safety/domestic-violence/leaving-abusive-relationship" target="_blank" class="list-group-item list-group-item-action"><strong>
-        Leaving an Abusive Relationship</strong></a>
-        <a href="https://www.un.org/en/coronavirus/safety-planning" target="_blank" class="list-group-item list-group-item-action"><strong>
-        Safety Planning</strong></a>
+        <a href= <%= t ("home.url6")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p20') %></strong></a>
+        <%# <a href="https://www.un.org/en/coronavirus/domestic-abuse" target="_blank" class="list-group-item list-group-item-action"><strong> %>
+        <a href= <%= t ("home.url7")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p21') %></strong></a>
+        <%# <a href="https://centerforfamilyjustice.org/faq/domestic-violence/" target="_blank" class="list-group-item list-group-item-action"> %>
+        <a href= <%= t ("home.url8")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p22') %></strong></a>
+        <%# <a href="https://www.hg.org/legal-articles/the-consequences-of-domestic-violence-39897" target="_blank" class="list-group-item list-group-item-action"><strong> %>
+        <a href= <%= t ("home.url9")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p23') %></strong></a>
+        <%# <a href="https://www.hg.org/legal-articles/domestic-abuse-restraining-orders-21650" target="_blank" class="list-group-item list-group-item-action"><strong> %>
+        <a href= <%= t ("home.url10")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p24') %></strong></a>
+        <%# <a href="https://www.hg.org/legal-articles/when-should-i-call-the-police-36455" target="_blank" class="list-group-item list-group-item-action"><strong> %>
+        <a href= <%= t ("home.url11")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p25') %></strong></a>
+        <%# <a href="https://www.womenshealth.gov/relationships-and-safety/domestic-violence/leaving-abusive-relationship" target="_blank" class="list-group-item list-group-item-action"><strong> %>
+        <a href= <%= t ("home.url12")%> target="_blank" class="list-group-item list-group-item-action"><strong>
+        <%= t ('home.p26') %></strong></a>
+        <%# <a href="https://www.un.org/en/coronavirus/safety-planning" target="_blank" class="list-group-item list-group-item-action"><strong> %>
       </div>
   </div>
 </div>
 <!--callout button-->
 <button type="button" class="btn btn-outline-dark btn-lg d-block mx-auto my-5" data-toggle="modal"
-  data-target="#register">Connect with Us</button>
+  data-target="#register"><%= t ("connect")%></button>
 <!--/callout button-->
 </div>
 <!-- /About-->
@@ -153,12 +165,13 @@
     <div class="card mb-3">
      <!-- 4:3 aspect ratio -->
 <div class="embed-responsive embed-responsive-4by3">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NMDJkWl7E2A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src= <%= t ("home.video1")%> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
       <div class="card-body">
-        <h5 class="card-title">10 Red Flags of Abuse</h5>
+        <h5 class="card-title"> <%= t ('home.video1title') %></h5>
         <p class="card-text">
-        When people think of abuse they often equate it to physical violence but that isn’t where abuse starts or ends. Watch the video to find out more about it.
+        <%= t ('home.video1txt') %>
+        <%# When people think of abuse they often equate it to physical violence but that isn’t where abuse starts or ends. Watch the video to find out more about it. %>
         </p>
       </div>
     </div>
@@ -168,12 +181,12 @@
     <div class="card mb-3">
               <!-- 4:3 aspect ratio -->
 <div class="embed-responsive embed-responsive-4by3">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vK3RhRwMwIg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src= <%= t ("home.video2")%> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
       <div class="card-body">
-        <h5 class="card-title">Intimate Partner Violence</h5>
+        <h5 class="card-title"><%= t ('home.video2title') %></h5>
         <p class="card-text">
-        Intimate partner violence, also known as “teen dating violence” or “domestic violence,” is when a person behaves in a way to control another person in an intimate relationship. 
+        <%= t ('home.video2txt') %>
         </p>
       </div>
     </div>
@@ -181,15 +194,15 @@
 
   <div class="col-md-6 col-lg-4">
     <div class="card mb-3">
-<!-- 4:3 aspect ratio -->
+<!-- 4:3 aspect ratio -->  
 <div class="embed-responsive embed-responsive-4by3">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/QLgvbG0F2TM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src= <%= t ("home.video3")%> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
       <!-- <img src="img/6.jpeg" class="card-img-top" alt="Vivianne"> -->
       <div class="card-body">
-        <h5 class="card-title">Power & Control Wheel</h5>
+        <h5 class="card-title"><%= t ('home.video3title') %></h5>
         <p class="card-text">
-        This video walks through the cycle of violence that helps describe how intimate partner abuse may happen and the types of abuse used.
+        <%= t ('home.video3txt') %>
         </p>
       </div>
     </div>
