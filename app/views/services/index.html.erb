@@ -1,33 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Domestic Violence Project</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-
-  <body>
-    <p id="notice"><%= notice %></p>
-    <h1>Services</h1>
+<p id="notice"><%= notice %></p>
+<h1 class="title mt-5 mb-5 display-3" style="text-align: center;">Services</h1>
+<div class="table-responsive card mb-5">
     <%# <h1>Services</h1> %>
     <table class="table table-hover">
       <thead>
         <div class="row">
           <tr>
-            <th> Service Name</th>
-            <!--<th>First name</th>
-            <th>Last name</th>-->
-            <th>Description</th>
-            <th>Type</th>
-            <th>Phone</th>
-            <th>Url</th>
-            <th>Picture</th>
+            <th class="h2" style="background:none;"> Service Name</th>
+            <th class="h2" style="background:none;">Description</th>
+            <th class="h2" style="background:none;">Type</th>
+            <th class="h2" style="background:none;">Phone</th>
+            <th class="h2" style="background:none;">Url</th>
+            <th class="h2" style="background:none;">Picture</th>
             <% if admin? || intern? %>
-              <th colspan="3"></th>
+              <th colspan="9" style="background:none;"></th>
             <% else %>
                 <th colspan="1"></th>
             <% end %>
@@ -54,22 +40,21 @@
                 </figure>
               </td>
               <% if admin? || intern? %>
-                <td><%= link_to 'Show', service %></td>
-                <td><%= link_to 'Edit', edit_service_path(service) %></td>
-                <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', service, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'Edit', edit_service_path(service), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
               <% else %>
-                <td><%= link_to 'Show', service %></td>
+                <td><%= link_to 'Show', service, :class => "btn btn-outline-primary btn-sm" %></td>
               <% end %>
             </tr>
           </div>
         <% end %>
       </tbody>
     </table>
+    </div>
     <br>
 
     <% if admin? || intern? %>
-      <%= link_to 'New Service', new_service_path %>
+      <%= link_to 'New Service', new_service_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
     <% end %>
 
-  </body>
-</html>
