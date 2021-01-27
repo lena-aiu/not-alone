@@ -6,8 +6,11 @@
   <%= t ('health.description') %>
   </h6>
 </div>
+<br>
 
-<form>
+  <%= flash[:error] %>
+
+<%= form_with url: results_path, method: "post", local: true do |form| %>
   <table>
     <thead>
       <tr>
@@ -278,9 +281,10 @@
       </tr>
     </tbody>
   </table>
-  <p><%= link_to (t'health.Submit'), home_results_path %></p>
-
-</form>
+  <br>
+    <button type="submit"><%= (t'health.Submit') %></button>
+ 
+<% end %>
 <div>
   <br>
   <p><%= t ('health.develop') %> <a href = "https://www.wadvocates.org/wp-content/uploads/2020/06/are-you-in-a-healthy-relationship-quiz.pdf"><%= t ('health.WA') %></p>
