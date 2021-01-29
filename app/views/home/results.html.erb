@@ -1,1 +1,65 @@
-<h1>Results are here</h1>
+<div>
+    <h1>Scoring</h1>
+</div>
+
+<div>
+    <h6>Give yourself one point for every No you answered to numbers 1-4, one point for every Yes response to numbers 5-8 and five points for every Yes to numbers 9 and above.</h6>
+</div><br>
+
+<div>
+    <% if health_result %>
+        <h6><%= flash[:notice] %> </h6>
+        <% #= button_to 'Finish the Quiz', home_health_path, :method => "get"%>
+        <button type="button" id="goback">Finish the Quiz</button>
+    <% else %>
+        <h6>Your score is <%= @correct_answer %> (it was computed automatically)</h6>
+    <% end %><br>
+
+
+    <h6>Your privacy is important to us so we do not share your response with third parties.</h6><br>
+</div>
+
+<div>
+    <p>
+    You got a score of zero? Don’t worry -- it’s a good thing! It sounds like your relationship is on a pretty
+    healthy track. Maintaining healthy relationships takes some work -- keep it up! Remember that while you
+    may have a healthy relationship, it’s possible that a friend of yours does not. If you know someone who is in
+    an abusive relationship, find out how you can help them by visiting loveisrespect.org.
+    </p>
+</div>
+
+<div>
+    <p>
+    If you scored one or two points, you might be noticing a couple of things in your relationship that are
+    unhealthy, but it doesn’t necessarily mean they are warning signs. It’s still a good idea to keep an eye out
+    and make sure there isn’t an unhealthy pattern developing.
+    The best thing to do is to talk to your partner and let them know what you like and don’t like. Encourage
+    them to do the same. Remember, communication is always important when building a healthy relationship.
+    It’s also good to be informed so you can recognize the different types of abuse.
+    </p>
+</div>
+
+<div>
+    <p>
+    If you scored three or four points, it sounds like you may be seeing some warning signs of an abusive
+    relationship. Don’tignore these red flags. Something that starts small can grow much worse over time.
+    No relationship is perfect -- it takes work! But in a healthy relationship you won’t find abusive behaviors.
+    </p>
+</div>
+
+<div>
+    <p>
+    If you scored five or more points, you are definitely seeing warning signs and may be in an abusive relationship.
+    Remember the most important thing is your safety -- consider making a safety plan.
+    You don’t have to deal with this alone. We can help. Chat with a trained peer advocate to learn about your
+    different options at loveisrespect.org.
+    </p>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const goback=document.getElementById('goback');
+    goback.addEventListener('click', (event2) => {
+      window.history.go(-1);
+    });
+  });
+</script>
