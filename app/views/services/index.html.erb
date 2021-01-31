@@ -7,6 +7,7 @@
         <div class="row">
           <tr>
             <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;"><%= t ('Service Name') %></th> 
             <th class="h2" style="background:none;"><%= t ('Description') %></th>
             <th class="h2" style="background:none;"><%= t ('Type') %></th>
             <th class="h2" style="background:none;"><%= t ('Phone') %></th>
@@ -25,6 +26,7 @@
         <% @services.each do |service| %>
           <div class="row">
             <tr>
+            
               <td><%= service.name %></td>
               <td><%= service.description %></td>
               <td><%= service.kind %></td>
@@ -40,11 +42,11 @@
                 </figure>
               </td>
               <% if admin? || intern? %>
-                <td><%= link_to (t'show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to (t'edit'), edit_service_path(service), :class => "btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to (t'delete'), service, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to t('show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to t('edit'), edit_service_path(service), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to t('delete'), service, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
               <% else %>
-                <td><%= link_to (t'show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to t('show'), service, :class => "btn btn-outline-primary btn-sm" %></td>
               <% end %>
             </tr>
           </div>
