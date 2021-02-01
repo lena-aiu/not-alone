@@ -56,6 +56,17 @@ RSpec.describe "Videos", type: :request do
     end
   end
 
+  describe "get new_video_path" do
+    it "renders the :new template  redirects to the index path if the the user role is invalid" do
+      video = FactoryBot.create(:video)
+      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "stranger")
+      sign_in user
+      get new_video_path
+      expect(user.role).to_not eq("administrator")
+      expect(response.status).to eq(200)
+    end
+  end
+
   describe "get edit_video_path" do
     it "renders the :edit template" do
       video = FactoryBot.create(:video)
