@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Videos</h1>
-<table>
+<h1 class="title mt-5 mb-5 display-3" style="text-align:center">Videos</h1>
+<div class="table-responsive card mb-5">
+<table class="table table-hover ">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Text</th>
+      <th class="h2" style="background:none;">Title</th>
+      <th class="h2" style="background:none;">Description</th>
+      <th class="h2" style="background:none;">Text</th>
       <% if admin? || intern? %>
-        <th colspan="3"></th>
+        <th colspan="3" style="background:none;"></th>
       <% else %>
-        <th colspan="1"></th>
+        <th colspan="1" style="background:none;"></th>
       <% end %>
     </tr>
   </thead>
@@ -22,18 +23,19 @@
         <td><%= video.description %></td>
         <td><%= video.text %></td>
         <% if admin? || intern? %>
-          <td><%= link_to 'Show', video %></td>
-          <td><%= link_to 'Edit', edit_video_path(video) %></td>
-          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', video, :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to 'Edit', edit_video_path(video), :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
         <% else %>
-          <td><%= link_to 'Show', video %></td>
+          <td><%= link_to 'Show', video, :class => "btn btn-outline-primary btn-sm" %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 <br>
 
 <% if admin? || intern? %>
-  <%= link_to 'New Video', new_video_path %>
+  <%= link_to 'New Video', new_video_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
 <% end %>

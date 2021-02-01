@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'assignments/index'
   get 'home/health'
-  get 'home/results'
+  post 'home/results', to: 'home#results', as: 'results'
   #root to: 'customer/index'
   # devise_scope :user do
   #   root to: 'devise/sessions#new'

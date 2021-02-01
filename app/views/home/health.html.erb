@@ -1,13 +1,22 @@
 <div class="container pt-4">
-  <h1><%= t ('health.quizz') %></h1>
+  <h1 class="title mt-5 mb-5 display-3" style="text-align: center;"><%= t ('health.quizz') %></h1>
 </div>
-<div>
-  <h6>
-  <%= t ('health.description') %>
-  </h6>
+<div class="container">
+  <div class="p-3 mb-2 bg-secondary text-dark border border-dark rounded">
+    <h6 class="text-white text-center">
+      <%= t ('health.description') %>
+    </h6>
+  </div>
+</div>
+<div class="container">
+  <div class="p-3 mb-2 border border-dark rounded">
+    <h6 class="text-black text-center">
+    Your answers are confidential. We do not save them or transmit them to anyone.
+    </h6>
+  </div>
 </div>
 
-<form>
+<%= form_with url: results_path, method: "post", local: true do |form| %>
   <table>
     <thead>
       <tr>
@@ -278,12 +287,13 @@
       </tr>
     </tbody>
   </table>
-  <p><%= link_to (t'health.Submit'), home_results_path %></p>
-
-</form>
+  <br>
+    <button type="submit"><%= (t'health.Submit') %></button>
+ 
+<% end %>
 <div>
   <br>
-  <p><%= t ('health.develop') %> <a href = "https://www.wadvocates.org/wp-content/uploads/2020/06/are-you-in-a-healthy-relationship-quiz.pdf"><%= t ('health.WA') %></p>
+  <p><%= t ('health.develop') %> <a target="_blank" class="link" href = "https://www.wadvocates.org/wp-content/uploads/2020/06/are-you-in-a-healthy-relationship-quiz.pdf"><%= t ('health.WA') %></p>
 </div>
 
 
