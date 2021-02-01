@@ -124,7 +124,8 @@ RSpec.describe "Services", type: :request do
       service = FactoryBot.create(:service)
       delete service_path(id: service.id), params: {service:{name: "new", description: "new", kind: "new", phone_number: "1234567890"}}
 #     #expect(response).to have_http_status(:success)
-      expect { delete services_path(id: service.id).to eq("new")}
+      # expect { delete services_path(id: service.id).to eq("new")}
+      expect(response).to render_template(:index)
      end
   end
 end #FINAL END

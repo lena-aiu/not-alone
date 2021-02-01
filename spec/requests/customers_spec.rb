@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.configure do |config|
-  config.include DeviseRequestSpecHelpers, type: :request
-end #lo cambie a spec_helper.rb
+# RSpec.configure do |config|
+#   config.include DeviseRequestSpecHelpers, type: :request
+# end #lo cambie a spec_helper.rb
 
 RSpec.describe "Customers", type: :request do
   describe "sign in" do
@@ -124,7 +124,8 @@ RSpec.describe "Customers", type: :request do
       customer = FactoryBot.create(:service)
       delete customer_path(id: customer.id), params: {customer:{first_name: "new", last_name: "new", phone: "1234567890", email: "new@new.com", street: "1 New St 1 Apt", city: "New", state: "NY", zip: "10000"}}
 #     #expect(response).to have_http_status(:success)
-      expect { delete customers_path(id: customer.id).to eq("new")}
+      # expect { delete customers_path(id: customer.id).to eq("new")}
+      expect(response).to render_template(:index)
      end
   end
 end

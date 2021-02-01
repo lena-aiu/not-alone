@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.configure do |config|
-  config.include DeviseRequestSpecHelpers, type: :request
-end #lo cambie a spec_helper.rb
+# RSpec.configure do |config|
+#   config.include DeviseRequestSpecHelpers, type: :request
+# end #lo cambie a spec_helper.rb
 
 RSpec.describe "Orders", type: :request do
   describe "sign in" do

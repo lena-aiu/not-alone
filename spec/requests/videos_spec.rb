@@ -135,7 +135,9 @@ RSpec.describe "Videos", type: :request do
       video = FactoryBot.create(:video)
       delete video_path(id: video.id), params: {video:{title: "new", description: "new", text: "new"}}
 #     #expect(response).to have_http_status(:success)
-      expect { delete videos_path(id: video.id).to eq("new")}
+      # expect { delete videos_path(id: video.id).to eq("new")}
+      # expect(response).to redirect_to video_path(id: video.id)
+      expect(response).to render_template(:index)
      end
   end
 end

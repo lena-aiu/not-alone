@@ -139,7 +139,8 @@ RSpec.describe "Assignments", type: :request do
       user = FactoryBot.create(:user)
       assignment = FactoryBot.create(:status)
       delete assignment_path(id: assignment.id), params: {assignment: {customer_id: "1", user_id: "1", status: "new"}}
-      expect { delete assignments_path(id: assignment.id).to eq("new")}
+      # expect { delete assignments_path(id: assignment.id).to eq("new")}
+      expect(response).to render_template(:index)
      end
   end
 end
