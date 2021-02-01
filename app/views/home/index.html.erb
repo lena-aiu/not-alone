@@ -101,11 +101,12 @@
         <p><%= t ('home.p2') %></p>
         <p><strong> <%= t ('home.p3') %> </strong></p>
         <p>
-        <%= t ('home.p4') %> <br>
-        <%= t ('home.p5') %> <br>
-        <%= t ('home.p6') %> <br>
-        
-        <a href= <%= t ("home.url3")%> target="_blank" class="text-black font-weight-bold mb-0">[...]</a> </p>
+        <ul>
+        <li><%= t ('home.p4') %></li>
+        <li><%= t ('home.p5') %> </li>
+        <li><%= t ('home.p6') %> </li>
+        </ul> 
+        <a href= <%= t ("home.url3")%> target="_blank" class="text-black font-weight-bold mb-0">Continue reading...</a> </p>
         <%# <a href="https://www.helpguide.org/articles/abuse/domestic-violence-and-abuse.htm" target="_blank" class="text-black font-weight-bold mb-0">Continue reading...</a> %>
         <%# </p> %>
 <!-- CHANGE THE LINK -->
@@ -163,7 +164,7 @@
   </div>
 </div>
 <!--callout button-->
-<button type="button" class="btn btn-outline-dark btn-lg d-block mx-auto my-5" data-toggle="modal"
+<button type="button" class="btn btn-outline-dark btn-lg d-block mx-auto my-5" style="color: white;" data-toggle="modal"
   data-target="#register"><%= t ("connect")%></button>
 <!--/callout button-->
 
