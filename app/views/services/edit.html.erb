@@ -1,5 +1,5 @@
 <h1><%= t ("edit_service")%></h1>
 <%= render 'form', service: @service %>
 
-<%= link_to (t'show'), @service, :class => "btn btn-primary btn-sm", :style => "color: white" %>
-<%= link_to (t'back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to t('show'), @service, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>

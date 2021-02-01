@@ -37,8 +37,8 @@
     <%# <%= image_tag(url_for(projet.images[0].variant(resize: "400x400")), class:"background") if projet.images.length > 0 %> 
 
     <% if admin? || intern? %>
-      <%= link_to (t'edit'), edit_service_path(@service), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-      <%= link_to (t'back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+      <%= link_to t('edit'), edit_service_path(@service), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+      <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
     <% else %>
       <%= link_to (t'back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
     <% end %><br><br>
