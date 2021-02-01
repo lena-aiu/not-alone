@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #563d7c;
   color: #333;
   margin: 33px; }
 
@@ -13,18 +13,57 @@ pre {
   padding: 10px;
   font-size: 11px; }
 
+
+.navbar {
+      display: flex;
+      align-items: center;
+      padding: .5rem 1rem;
+      background-color: #563d7c;
+  }
+
+.bd-navbar {
+      min-height: 4rem;
+      background-color: #563d7c;
+  }
+
 a {
-  color: #000; }
+      color: #ffffff80;
+      font-size: 13px;
+      // padding: 8.0008px;
+}
 
-//a:visited {
-//  color: #666; }
+// a:visited {
+//  color: #ffffff80;
+// font-size: 13px;
+// }
+//
+// a:hover {
+//  color: #ffffff80;
+//  background-color: #563d7c;
+//  font-size: 13px;
+// }
 
-//a:hover {
-//  color: #ffffff;
-//  background-color: #191919; }
+div.dropdown-menu {
+  background-color: #563d7c !important;
+}
+
+// a.dropdown-item {
+//   background-color: #563d7c;
+// }
 
 li {
   list-style-type: none;
+  font-size: 13px;
+  color: #ffffff80;
+   background-color: #563d7c;
+}
+
+a.nav-link.text-nowrap {
+    color: #ffffff80;
+}
+
+a.dropdown-item {
+   background-color: #563d7c;
 }
 
 th {
@@ -67,11 +106,3 @@ div.actions {
 
 label {
   display: block; }
-
-.dropdown-menu {
-  background-color: #191919 !important;
-}
-
-.dropdown-item {
-  color: #ffffff; 
-}
