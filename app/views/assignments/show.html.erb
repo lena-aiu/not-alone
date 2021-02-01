@@ -29,7 +29,7 @@
   <h4><strong>Assignment Status:</strong></h4>
   <%= @assignment.status %>
 </p>
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back to Assignments', customer_assignments_path(@assignment) %> |
-<%= link_to 'Back to Clients', customers_path %> 
+<%= link_to 'Edit', edit_assignment_path(@assignment), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to 'Back to Assignments', customer_assignments_path(@assignment), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to 'Back to Clients', customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
 </div>
