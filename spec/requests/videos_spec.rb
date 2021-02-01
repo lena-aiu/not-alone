@@ -62,8 +62,9 @@ RSpec.describe "Videos", type: :request do
       user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "stranger")
       sign_in user
       get new_video_path
-      expect(user.role).to_not eq("administrator")
-      expect(response.status).to eq(200)
+      # expect(user.role).to_not eq("administrator")
+      # expect(response.status).to eq(200)
+      expect(response).to_not render_template(:new)
     end
   end
 
@@ -137,7 +138,7 @@ RSpec.describe "Videos", type: :request do
 #     #expect(response).to have_http_status(:success)
       # expect { delete videos_path(id: video.id).to eq("new")}
       # expect(response).to redirect_to video_path(id: video.id)
-      expect(response).to render_template(:index)
+      expect(response).to redirect_to videos_path
      end
   end
 end

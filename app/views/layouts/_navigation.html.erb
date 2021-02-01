@@ -69,10 +69,10 @@
                 <% end %>
             </li>
 
-            <li>
+            <li class="language">
               <%= link_to_unless_current "English", locale: "en" %>
             </li>
-            <li >
+            <li class="language">
               <%= link_to_unless_current "Spanish", locale: "es" %>
             </li>
         </ul>
@@ -91,6 +91,12 @@
         </ul>
       </div>
     </nav><!-- /navbar -->
+
+<!-- jumbotron -->
+<div class="jumbotron fondo jumbotron-fluid bg-info text-light-green"><!--class="jumbotron jumbotron-fluid bg-info text-white"-->
+  <div class="container text-sm-center pt-5">
+  </div>
+</div><!-- /jumbotron -->
 
 <div class="container text-sm-center" role="group" aria-label="Callout buttons">
   <a class="btn btn-dark btn-lg" href="tel:911"><%= t ("emergencia")%> </a>
