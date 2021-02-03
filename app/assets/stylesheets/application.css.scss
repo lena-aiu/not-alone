@@ -23,18 +23,28 @@ a, a:link, a:visited, a:hover{
   color: #212529;
 }
 
-  .carousel-item {
+div.row{
+  height: 100%;
+}
+
+  .carousel-item, .jumbo {
     max-height: 700px;
+    width:  100%;
+    height: 100%;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    object-fit: cover;
+  } 
+
+  .jumbo .img {
+    max-height: 100px;
+    max-width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ 
   }
 
-  .jumbotron .img {
-    max-height: 450px;
-    max-width: 550px;
-  }
-  .jumbotron {
-    background-size: cover;
-    width: 100%;
-  }
   table.table a{
     text-decoration: none;
   }
@@ -44,7 +54,7 @@ a, a:link, a:visited, a:hover{
     box-shadow: -19px 19px 43px 0px rgba(0,0,0,0.61);
   }
 
-form input[type=submit] {
+form input[type=submit]{
   display:inline-block;
   font-weight: 400;
   text-align: center;
@@ -71,4 +81,55 @@ form input[type=button]:not(.disabled):hover,
 form button:not(.disabled):hover{
   background-color: #007bff;
   background-image: none;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    
+  /* Force table to not be like tables anymore */
+  div.table-responsive.card.mb-5 div#no-more-tables table, 
+  div.table-responsive.card.mb-5 div#no-more-tables thead, 
+  div.table-responsive.card.mb-5 div#no-more-tables tbody, 
+  div.table-responsive.card.mb-5 div#no-more-tables th, 
+  div.table-responsive.card.mb-5 div#no-more-tables td, 
+div.table-responsive.card.mb-5 div#no-more-tables tr { 
+  display: block; 
+}
+
+/* Hide table headers (but not display: none;, for accessibility) */
+div.table-responsive.card.mb-5 div#no-more-tables thead tr { 
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+div.table-responsive.card.mb-5 div#no-more-tables tr { border: 1px solid #ccc; }
+
+div.table-responsive.card.mb-5 div#no-more-tables td { 
+  /* Behave  like a "row" */
+  border: none;
+  border-bottom: 1px solid #eee; 
+  position: relative;
+  padding-left: 50%; 
+  white-space: normal;
+  text-align:left;
+}
+
+div.table-responsive.card.mb-5 div#no-more-tables td:before { 
+  /* Now like a table header */
+  position: absolute;
+  /* Top/left values mimic padding */
+  top: 6px;
+  left: 6px;
+  width: 45%; 
+  padding-right: 10px; 
+  white-space: nowrap;
+  text-align:left;
+  font-weight: bold;
+}
+
+/*
+Label the data
+*/
+div.table-responsive.card.mb-5 div#no-more-tables td:before { content: attr(data-title); }
 }

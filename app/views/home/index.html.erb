@@ -1,20 +1,27 @@
+<div class="conthome mx-5  pt-5">
+<div class="row">
+<div class="jumbo col-lg-6 order-sm-1">
 <!--Jumbotron-->
-<div class="jumbotron jumbotron-fluid p-5 p-md-5 mt-5 text-white bg-dark">
+
+<div class="rectangle p-5 p-md-5 text-white bg-dark">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 px-0">
+      <div class="col-md-12 px-0">
         <h1 class="display-4 font-italic">Domestic Violence</h1>
         <p class="lead my-3">impacts everyone, not just survivors. We need to operate as a community to address systemic issues that allow domestic violence to thrive <br>
         <footer class="blockquote-footer text-right"><cite style="text-size: 14px, color: white">Virginia Hedrick</cite></footer></p>
       </div>
-      <div class="col-md-6 px-0">
-        <img class="img float-right" alt="Love and Service message" src="/assets/loveisservice.jpeg" alt="Service" >
+     <div class="col-md-12 px-0">
+        <img class="img" alt="Love and Service message" src="/assets/loveisservice.jpeg" alt="Service" >
       </div>
     </div>
   </div>
 </div>
+
 <!--/Jumbotron-->
-<div class="container pt-5 pb-5">
+</div>
+
+<div class="col-lg-6 order-sm-12">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -78,11 +85,13 @@
 </div>
 
 </div>
-<div class="container pt-3">
+
+</div>
+
 <!--About-->
 
 <div class="row">
-<div class="col-lg order-lg-1">
+<div class="col-lg-3 col-md-6 col-sm-12 order-md-1">
     <h3 class="mb-4"> <%= t ('home.h3a') %> </h3>
     <p> <%= t ('home.p1') %>
     <a href= <%= t ("home.url1")%> target="_blank">[1]</a>
@@ -92,23 +101,24 @@
         <p><%= t ('home.p2') %></p>
         <p><strong> <%= t ('home.p3') %> </strong></p>
         <p>
-        <%= t ('home.p4') %> <br>
-        <%= t ('home.p5') %> <br>
-        <%= t ('home.p6') %> <br>
-        
-        <a href= <%= t ("home.url3")%> target="_blank" class="text-black font-weight-bold mb-0">[...]</a> </p>
+        <ul>
+        <li><%= t ('home.p4') %></li>
+        <li><%= t ('home.p5') %> </li>
+        <li><%= t ('home.p6') %> </li>
+        </ul> 
+        <a href= <%= t ("home.url3")%> target="_blank" class="text-black font-weight-bold mb-0">Continue reading...</a> </p>
         <%# <a href="https://www.helpguide.org/articles/abuse/domestic-violence-and-abuse.htm" target="_blank" class="text-black font-weight-bold mb-0">Continue reading...</a> %>
         <%# </p> %>
 <!-- CHANGE THE LINK -->
   </div>
-  <div class="col-lg order-lg-2">
+  <div class="col-lg-3 col-md-6 col-sm-12 order-md-2">
     <h3 class="mb-4"> <%= t ('home.h3b') %> </h3>
         <p> <%= t ('home.p7') %> </p>
         <p> <%= t ('home.p8') %>
         <a href= <%= t ("home.url4")%> target="_blank">[1]</a> </p>
         <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a></p> %>
   </div>
-  <div class="col-lg order-lg-3">
+  <div class="col-lg-3 col-md-6 col-sm-12 order-md-3">
     <h3 class="mb-4"> <%= t ('home.h3c') %> </h3>
       <p> <%= t ('home.p9') %> </p>
       <ul>
@@ -126,7 +136,7 @@
       <p><%= t ('home.p19') %></p>
 
   </div>
-  <div class="col-lg order-lg-4">
+  <div class="col-lg-3 col-md-6 col-sm-12 order-md-4">
     <h3 class="mb-4"> <%= t ('home.h3d') %></h3>
       <div class="list-group">
         <a href= <%= t ("home.url6")%> target="_blank" class="list-group-item list-group-item-action"><strong>
@@ -154,12 +164,12 @@
   </div>
 </div>
 <!--callout button-->
-<button type="button" class="btn btn-outline-dark btn-lg d-block mx-auto my-5" data-toggle="modal"
+<button type="button" class="btn btn-outline-dark btn-lg d-block mx-auto my-5" style="color: white;" data-toggle="modal"
   data-target="#register"><%= t ("connect")%></button>
 <!--/callout button-->
-</div>
+
 <!-- /About-->
-<div class="container pt-3">
+
 <div class="row">
   <div class="col-md-6 col-lg-4">
     <div class="card mb-3">
@@ -207,6 +217,7 @@
       </div>
     </div>
   </div>
+  
 </div>
 
 </div>
