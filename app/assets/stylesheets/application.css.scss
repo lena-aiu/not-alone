@@ -22,6 +22,21 @@ a, a:link, a:visited, a:hover{
   text-decoration: none;
   color: #212529;
 }
+a.btn.callout-button{
+  margin-top: 150px; 
+  background-color: #563d7c; 
+  color: #ffffff80; 
+}
+a.btn.callout-button:hover{
+  color: #f0f0f0;
+}
+.link-color{
+  color: #ffffff80; 
+}
+.link-color:hover{
+  color: #f0f0f0;
+  background-color: none;
+}
 
 div.row{
   height: 100%;
