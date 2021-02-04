@@ -8,8 +8,8 @@ body {
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 18px;
+  // line-height: 18px;
 }
 
 pre {
@@ -32,13 +32,13 @@ pre {
 
 a {
   color: #ffffff80;
-  font-size: 13px;
+  font-size: 18px;
  }
 
 a.link {
      text-decoration: none;
      color: #ffffff80;
-     font-size: 13px;
+     font-size: 18px;
    }
 
  // a:visited {
@@ -79,9 +79,9 @@ a.link {
 // a.dropdown-item {
 //   background-color: #563d7c;
 // }
-li {
-  list-style-type: none;
-}
+// li {
+//   list-style-type: none;
+// }
 
 li.language {
   list-style-type: none;

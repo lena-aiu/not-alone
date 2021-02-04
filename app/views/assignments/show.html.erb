@@ -16,17 +16,17 @@
 
 <%=  @assignment.customer.zip %><br>
 
-<abbr title="Cell phone">Cell:</abbr>
+<strong>Phone</strong>
 <%=  @assignment.customer.phone %><br>
 
-<abbr title="Email address">E.:</abbr>
+<strong>Email</strong>
 <a href="mailto:#"><%=  @assignment.customer.email %></a>
 </address>
 
 </div>
 </div>
 <p>
-  <h4><strong>Assignment Status:</strong></h4>
+  <h4><strong>Assignment Status</strong></h4>
   <%= @assignment.status %>
 </p>
 <%= link_to 'Edit', edit_assignment_path(@assignment), :class => "btn btn-primary btn-sm", :style => "color: white" %>

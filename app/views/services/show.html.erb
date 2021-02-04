@@ -1,45 +1,47 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+  <h2><strong><%= @service.name %><br></strong></h2>
     <p>
-      <strong><%= t ("Service Name")%></strong>
-      <%= @service.name %>
-    </p>
-
-    <p>
-      <strong><%= t ("Description")%></strong>
+      <strong><%= t ("Description")%></strong><br>
       <%= @service.description %>
     </p>
 
     <p>
       <strong><%= t ("Type")%></strong>
-      <%= @service.kind %>
-    </p>
-
-    <p>
+      <%= @service.kind %><br>
       <strong><%= t ("Phone")%></strong>
-      <%= @service.phone_number %>
-    </p>
-
-    <p>
+      <%= @service.phone_number %><br>
       <strong><%= t ("Url")%></strong>
-      <%= @service.url %>
+      <%= link_to @service.url, @service.url  %>
     </p>
 
     <p>
-      <strong><%= t ("Picture")%></strong>
-          <figure class="picture is-128x128">
-          <% if @service.picture.attached? %>
-              <%= image_tag(url_for(@service.picture), size: 50) %>  
-          <% end %>
-          </figure>
+      <figure class="picture is-128x128">
+        <% if @service.picture.attached? %>
+          <%= image_tag(url_for(@service.picture), size: 200) %>  
+        <% end %>
+      </figure>
     </p> 
+    </div>
+    </div>
+    <%# <figure class="picture is-128x128">
+      <%= image_tag(url_for(@service.picture.attach(params[:picture]))) %>
+    <%# </figure> %> 
+    <%# property.pictures.first.image.url(:thumb) unless property.pictures.first.nil? %>
+    <%# <%= image_tag(url_for(@service.picture)) unless @service.picture.first.nil?%>
+    <%# <%= rails_blob_path(service.picture, disposition: "attachment") %> 
+    <%# <%= image_tag url_for(projet.images[0].variant(resize: "400x400")) if projet.images.length > 0 %>
+    <%# <%= image_tag(url_for(projet.images[0].variant(resize: "400x400")), class:"background") if projet.images.length > 0 %> 
 
-    
     <% if admin? || intern? %>
       <%= link_to t('edit'), edit_service_path(@service), :class => "btn btn-primary btn-sm", :style => "color: white" %>
       <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
     <% else %>
-      <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
-    <% end %>
+      <%= link_to (t'back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+    <% end %><br><br>
 
     <%= social_share_button_tag(@service.url)%>
+    </div>
