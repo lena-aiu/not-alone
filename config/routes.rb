@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   resources :customers do
     resources :orders, shallow: false
   end
-
+  resources :categories
   post '/orders', to: 'orders#create1', as: 'orders'
   get '/orders', to: 'orders#index1'
   get '/order/new', to: 'orders#new1', as: 'new_order'

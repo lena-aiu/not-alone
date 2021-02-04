@@ -36,6 +36,9 @@ es:
       video:
         one: 'Video'
         other: 'Videos'
+      category:
+        one: 'Category'
+        other: 'Categories'
     attributes:  
       user:
         login: 'Iniciar Sesión'
@@ -89,6 +92,11 @@ es:
         edit: "Editar %{model}"
         update: "Actualizar %{model}"
       video:
+        create: "Crear %{model}"
+        show: "Mostrar %{model}"
+        edit: "Editar %{model}"
+        update: "Actualizar %{model}"
+      category:
         create: "Crear %{model}"
         show: "Mostrar %{model}"
         edit: "Editar %{model}"

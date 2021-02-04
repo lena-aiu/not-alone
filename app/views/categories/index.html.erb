@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<h1 class="title mt-5 mb-5 display-3" style="text-align: center;">Categories</h1>
+<div class="table-responsive card mb-5">
+    <table class="table table-hover">
+      <thead>
+        <div class="row">
+          <tr>
+            <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;">Category Name</th> 
+            <th class="h2" style="background:none;">Description</th>
+            <% if admin? || intern? %>
+              <th colspan="3" style="background:none;"></th>
+            <% else %>
+                <th colspan="1"></th>
+            <% end %>
+          </tr>
+        </div>
+      </thead>
+
+      <tbody>
+        <% @categories.each do |category| %>
+          <div class="row">
+            <tr>
+            
+              <td><%= category.name %></td>
+              <td><%= category.description %></td>
+              <% if admin? || intern? %>
+                <td><%= link_to 'show', category, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'edit', edit_category_path(category), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'delete', category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+              <% else %>
+                <td><%= link_to 'show', category, :class => "btn btn-outline-primary btn-sm" %></td>
+              <% end %>
+            </tr>
+          </div>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <br>
+
+    <% if admin? || intern? %>
+      <%= link_to 'New Categories', new_category_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
+    <% end %>
+

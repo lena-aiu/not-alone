@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Category Name</strong>
+      <%= @category.name %>
+    </p>
+
+    <p>
+      <strong>Description</strong>
+      <%= @category.description %>
+    </p>
+    
+    <% if admin? || intern? %>
+      <%= link_to 'edit', edit_category_path(@category), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+      <%= link_to 'back', categories_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+    <% else %>
+      <%= link_to 'back', categories_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+    <% end %>
+
+   
