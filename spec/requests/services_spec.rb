@@ -56,6 +56,16 @@ RSpec.describe "Services", type: :request do
     end
   end
 
+  describe "get new_service_path" do
+    it "renders the :new template  redirects to the index path if the the user role is invalid" do
+      video = FactoryBot.create(:service)
+      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "stranger")
+      sign_in user
+      get new_service_path
+      expect(response).to_not render_template(:new)
+    end
+  end
+
   describe "get edit_service_path" do
     it "renders the :edit template" do
       service = FactoryBot.create(:service)
@@ -125,7 +135,7 @@ RSpec.describe "Services", type: :request do
       delete service_path(id: service.id), params: {service:{name: "new", description: "new", kind: "new", phone_number: "1234567890"}}
 #     #expect(response).to have_http_status(:success)
       # expect { delete services_path(id: service.id).to eq("new")}
-      expect(response).to render_template(:index)
+      expect(response).to redirect_to services_path
      end
   end
 end #FINAL END

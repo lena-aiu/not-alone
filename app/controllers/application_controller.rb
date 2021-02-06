@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  # before_action :authenticate_user!
   before_action :set_locale
-
+  
+ 
 
   def set_locale
    I18n.locale = params[:locale] || I18n.default_locale
@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-
   def require_current_user
     # unless current_user.role.include?("administrator") ||
     #   current_user.role.include?("intern")
@@ -20,11 +19,11 @@ class ApplicationController < ActionController::Base
     #   redirect_to root_path
     # end
   end
+
 end
 
 
   # def set_locale
   #   I18n.locale = params[:locale] if params[:locale].present?
   # end
-
 

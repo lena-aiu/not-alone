@@ -3,10 +3,14 @@ class VideosController < InheritedResources::Base
   #layout 'video_layout'
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :require_current_user, except: [:show, :index]
+  before_action :is_user_authorized?, except: [:show, :index]
+  before_action :admin?, except: [:show, :index]
+  before_action :intern?, except: [:show, :index]
   
   helper_method :admin?
   helper_method :intern?
+  helper_method :is_user_authorized?
+  
 
   def video_params
     params.require(:video).permit(:title, :description, :clip)#, :thumbnail)
@@ -27,6 +31,10 @@ class VideosController < InheritedResources::Base
   # GET /videos/new
   def new
     @video = Video.new
+    if current_user.role.nil?
+      return false
+      redirect_to root_path
+    end
   end
 
   # GET /videos/1/edit
@@ -117,5 +125,14 @@ class VideosController < InheritedResources::Base
         return false
       end
       current_user.role.include?("intern")
+    end
+
+    def is_user_authorized?
+      if intern? || admin?
+        return 
+      else
+        flash[:error] = "You are not authorize for this operation."
+        redirect_to videos_path
+      end
     end
 end

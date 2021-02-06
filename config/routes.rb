@@ -50,5 +50,3 @@ end
   #get '/orders', to: 'orders#index'
   #post '/order/create/:id', to: 'orders#create1'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
