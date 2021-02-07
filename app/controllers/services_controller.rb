@@ -1,12 +1,14 @@
 class ServicesController < ApplicationController
+  include ApplicationHelper
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   #layout 'service_layout'
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :require_current_user, except: [:show, :index]
+  before_action :is_user_authorized?, except: [:show, :index]
+  before_action :set_service, only: [:show, :edit, :update, :destroy]
   
   helper_method :admin?
   helper_method :intern?
+  helper_method :is_user_authorized?
 
   # GET /services
   # GET /services.json
