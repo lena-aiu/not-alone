@@ -1,11 +1,10 @@
 class VideosController < InheritedResources::Base
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
+  include ApplicationHelper
   #layout 'video_layout'
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_user_authorized?, except: [:show, :index]
-  before_action :admin?, except: [:show, :index]
-  before_action :intern?, except: [:show, :index]
+  before_action :set_video, only: [:show, :edit, :update, :destroy]
   
   helper_method :admin?
   helper_method :intern?
@@ -125,14 +124,5 @@ class VideosController < InheritedResources::Base
         return false
       end
       current_user.role.include?("intern")
-    end
-
-    def is_user_authorized?
-      if intern? || admin?
-        return 
-      else
-        flash[:error] = "You are not authorize for this operation."
-        redirect_to videos_path
-      end
     end
 end
