@@ -1,4 +1,21 @@
-en:
+es:
   en: English
   es: Spanish
-  language: Language
+  language: Lenguaje
+
+  show: Mostrar
+  back: Atras
+  edit: Actualizar
+  delete: Borrar
+  new_order: Crear Orden
+  edit_order: Actualizar Orden
+  orders: Ordenes
+  
+  Client: Cliente
+  Service: Servicio
+  Kind of Service: Tipo de Servicio
+  Category: Categoría
+  Description: Descripción
+
+ 
+  

@@ -143,7 +143,7 @@ class OrdersController < ApplicationController
 
       # Only allow a list of trusted parameters through.
       def order_params
-        params.require(:order).permit(:description, :customer_id, :service_id)
+        params.require(:order).permit(:description, :customer_id, :service_id, :category_id) 
       end
       def catch_not_found(e)
         Rails.logger.debug("We had a not found exception.")
@@ -160,7 +160,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params1
-      params.require(:order).permit(:description, :customer_id, :service_id)
+      params.require(:order).permit(:description, :customer_id, :service_id, :category_id)
     end
     def catch_not_found1(e)
       Rails.logger.debug("We had a not found exception.")
