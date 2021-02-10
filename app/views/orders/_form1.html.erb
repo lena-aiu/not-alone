@@ -12,19 +12,25 @@
     </div>
   <% end %>
   <div class="form-group">
-      <label for="customer">Client:</label>
+      <label for="customer"><%= t ("Client")%></label>
       <%= f.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
   </div>
 
   <div class="form-group">
-      <label for="service">Service:</label>
+      <label for="service"><%= t ("Service")%></label>
       <%= f.collection_select :service_id, Service.all, :id, :name, include_blank: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
+  <div class="form-group">
+      <label for="category"><%= t ("Category")%></label>
+      <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="form-group">
+    <label for="description"><%= t ("Description")%></label>
     <%= f.text_field :description %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
