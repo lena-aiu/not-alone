@@ -141,3 +141,13 @@ Label the data
 */
 div.table-responsive.card.mb-5 div#no-more-tables td:before { content: attr(data-title); }
 }
+
+.line {
+  width: 100%;
+  box-sizing: border-box;
+}
+.line figure {
+   width: 45%;
+   margin: 0;
+   display: inline-block;
+}
