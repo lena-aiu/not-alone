@@ -1,6 +1,6 @@
-<h1>Editing Order</h1>
+<h1><%= t ("edit_order")%></h1>
 
-<%= render 'form', order: @order %>
+<%= render 'form1', order: @order %>
  
-<%= link_to 'Show', @order, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
-<%= link_to 'Back', orders_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to t('show'), @order, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+<%= link_to t('back'), orders_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>

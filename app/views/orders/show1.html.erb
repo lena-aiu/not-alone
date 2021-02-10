@@ -1,9 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t ("Client")%></strong>
+  <%= @order.customer.full_name %>
+</p>
+
+<p>
+  <strong><%= t ("Service Name")%></strong>
+  <%= @order.service.name %>
+</p>
+
+<p>
+  <strong><%= t ("Kind of Service")%></strong>
+  <%= @order.service.kind %>
+</p>
+
+<p>
+  <strong><%= t ("Category")%></strong>
+  <%= @order.category.name %>
+</p>
+
+<p>
+  <strong><%= t ("Description")%></strong>
   <%= @order.description %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-<%= link_to 'Back', orders_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to t('edit'), edit_order_path(@order), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to t('back'), orders_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>

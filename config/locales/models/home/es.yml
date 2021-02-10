@@ -83,6 +83,7 @@ es:
   health:
     quizz: Cuestionario de relaciones saludables
     description: Todos merecen tener una relación sana y segura. ¿Sabes si tu relación es sana? Responda sí o no a las siguientes preguntas para averiguarlo. Asegurte de marcar las casillas para registrar tus respuestas. Al final, descubrirás el resultado de tu prueba de acuerdo a tus respuestas.
+    word: Tus respuestas son confidenciales. Nosotros no guardamos ni compartimos sus respuestas con nadie.
     general: LA PERSONA CON LA QUE ESTOY (RELACIÓN)
     "Yes": "SI"
 

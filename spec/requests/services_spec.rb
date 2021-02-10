@@ -125,7 +125,7 @@ RSpec.describe "Services", type: :request do
       delete service_path(id: service.id), params: {service:{name: "new", description: "new", kind: "new", phone_number: "1234567890"}}
 #     #expect(response).to have_http_status(:success)
       # expect { delete services_path(id: service.id).to eq("new")}
-      expect(response).to render_template(:index)
+      expect(response).to redirect_to services_path
      end
   end
 end #FINAL END
