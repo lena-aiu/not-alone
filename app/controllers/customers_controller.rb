@@ -1,9 +1,9 @@
 class CustomersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
     include ApplicationHelper
-    
-    before_action :set_customer, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
+    before_action :set_customer, only: [:show, :edit, :update, :destroy]
+    
 
     # GET /customers
     # GET /customers.json
