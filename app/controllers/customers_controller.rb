@@ -1,12 +1,25 @@
 class CustomersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-
+    include ApplicationHelper
+    
     before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  
+    before_action :authenticate_user!
+
     # GET /customers
     # GET /customers.json
+    # def index
+    #   @customers = Customer.all
+    # end
+
     def index
-      @customers = Customer.all
+      if current_user.role.nil?
+        flash.notice = "You are not authorized for that operation."
+        redirect_to home_index_path
+      elsif current_user.role.include?("volunteer")
+        @customers = current_user.customers
+      else current_user.role.include?("administrator") || current_user.role.include?("intern")
+        @customers = Customer.all
+      end
     end
   
     # GET /customers/1
@@ -68,11 +81,14 @@ class CustomersController < ApplicationController
       def customer_params
         params.require(:customer).permit(:first_name, :last_name, :phone, :email, :street, :city, :state, :zip)
       end
+
       def catch_not_found(e)
         Rails.logger.debug("We had a not found exception.")
         flash.alert = e.to_s
         redirect_to customers_path
       end
+
+     
 end  
 
   
