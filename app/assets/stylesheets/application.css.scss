@@ -31,18 +31,10 @@ a.btn.callout-button:hover{
   color: #f0f0f0;
 }
 
-div.row{
-  height: 100%;
-}
-// .carousel {
-//   width:640px;
-//   height:360px;
-// }
-  .carousel-item, .jumbo {
+#carouselExampleSlidesOnly.carousel.slide, .jumbo {
     width:  100%;
     margin-top: 15px;
     margin-bottom: 50px;
-    // float: left;
   } 
 
   .jumbo .img {
