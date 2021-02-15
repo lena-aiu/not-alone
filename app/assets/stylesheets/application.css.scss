@@ -34,14 +34,15 @@ a.btn.callout-button:hover{
 div.row{
   height: 100%;
 }
-
+// .carousel {
+//   width:640px;
+//   height:360px;
+// }
   .carousel-item, .jumbo {
-    max-height: 700px;
     width:  100%;
-    height: 100%;
     margin-top: 15px;
     margin-bottom: 50px;
-    object-fit: cover;
+    // float: left;
   } 
 
   .jumbo .img {
