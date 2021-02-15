@@ -110,3 +110,37 @@ en:
     q26: 26. Pressures or forces me into having sex or going farther than I want to.
     develop: The questionnaire developed by
     WA: Women's advocates
+
+  result:
+    score: Your score can be computed by giving one point for each No answer to questions 1-4, 
+            one point for each Yes answer to questions 5-8,
+            and five points for each Yes answer to questions 9 and above.
+    finish: Finish the Quiz
+    h6a: Your score is 
+    h6b: (it was computed automatically).
+    back: Back to quiz
+    zero: 0 pts
+    one: 1-2 pts
+    three: 3-4 pts
+    five: 5 pts
+    success: You got a score of zero? Don’t worry -- it’s a good thing! It sounds like your relationship is on a pretty
+            healthy track. Maintaining healthy relationships takes some work -- keep it up! Remember that while you
+            may have a healthy relationship, it’s possible that a friend of yours does not. If you know someone who is in
+            an abusive relationship, find out how you can help them by visiting loveisrespect.org.
+    info: If you scored one or two points, you might be noticing a couple of things in your relationship that are
+            unhealthy, but it doesn’t necessarily mean they are warning signs. It’s still a good idea to keep an eye out
+            and make sure there isn’t an unhealthy pattern developing.
+            The best thing to do is to talk to your partner and let them know what you like and don’t like. Encourage
+            them to do the same. Remember, communication is always important when building a healthy relationship.
+            It’s also good to be informed so you can recognize the different types of abuse.
+    warning: If you scored three or four points, it sounds like you may be seeing some warning signs of an abusive
+            relationship. Don’tignore these red flags. Something that starts small can grow much worse over time.
+            No relationship is perfect -- it takes work! But in a healthy relationship you won’t find abusive behaviors.
+    danger: If you scored five or more points, you are definitely seeing warning signs and may be in an abusive relationship.
+            Remember the most important thing is your safety -- consider making a safety plan.
+            You don’t have to deal with this alone. We can help. Chat with a trained peer advocate to learn about your
+            different options at 
+    love: loveisrespect.org.
+
+
+     
