@@ -1,27 +1,19 @@
 <div class="conthome mx-5  pt-5">
 <div class="row">
-<div class="jumbo col-lg-6 order-sm-1">
 <!--Jumbotron-->
-
-<div class="rectangle p-5 p-md-5 text-white bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 px-0">
-        <h1 class="display-4 font-italic">Domestic Violence</h1>
-        <p class="lead my-3">impacts everyone, not just survivors. We need to operate as a community to address systemic issues that allow domestic violence to thrive <br>
-        <footer class="blockquote-footer text-right"><cite style="text-size: 14px, color: white">Virginia Hedrick</cite></footer></p>
-      </div>
-     <div class="col-md-12 px-0">
-        <img class="img" alt="Love and Service message" src="/assets/loveisservice.jpeg" alt="Service" >
-      </div>
-    </div>
+<div class="jumbo col-lg-6 order-md-1 text-white bg-dark p-5">
+  <div class="col-md-12 px-0">
+    <h1 class="display-4 font-italic">Domestic Violence</h1>
+    <p class="lead my-3">impacts everyone, not just survivors. We need to operate as a community to address systemic issues that allow domestic violence to thrive <br>
+    <footer class="blockquote-footer text-right"><cite style="text-size: 14px, color: white">Virginia Hedrick</cite></footer></p>
+  </div>
+  <div class="col-md-12 px-0">
+    <img class="img" alt="Love and Service message" src="/assets/loveisservice.jpeg" alt="Service" >
   </div>
 </div>
-
 <!--/Jumbotron-->
-</div>
 
-<div class="col-lg-6 order-sm-12">
+<div class="col-lg-6 order-md-12">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -71,6 +63,7 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="/assets/12.png" alt="I say no message written on a face">
     </div>
+  <!--closing carouselExampleSlidesOnly-->
   </div>
 </div>
 
@@ -82,20 +75,19 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+<!--col-lg-6 order-md-12-->
+</div>
+</div>
+<!--closing div row-->
 </div>
 
-</div>
-
-</div>
 
 <!--About-->
 
 <div class="row">
 <div class="col-lg-3 col-md-6 col-sm-12 order-md-1">
     <h3 class="mb-4"> <%= t ('home.h3a') %> </h3>
-    <p> <%= t ('home.p1') %>
-    <a href= <%= t ("home.url1")%> target="_blank">[1]</a>
-    <a href= <%= t ("home.url2")%> target="_blank">[2]</a> </p>
+    <p> <%= t ('home.p1') %></p>
     <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a> </p>
     <a href="https://centerforfamilyjustice.org/faq/domestic-violence/"  target="_blank">[2]</a> </p> %>
         <p><%= t ('home.p2') %></p>
@@ -114,9 +106,7 @@
   <div class="col-lg-3 col-md-6 col-sm-12 order-md-2">
     <h3 class="mb-4"> <%= t ('home.h3b') %> </h3>
         <p> <%= t ('home.p7') %> </p>
-        <p> <%= t ('home.p8') %>
-        <a href= <%= t ("home.url4")%> target="_blank">[1]</a> </p>
-        <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a></p> %>
+        <p> <%= t ('home.p8') %></p>
   </div>
   <div class="col-lg-3 col-md-6 col-sm-12 order-md-3">
     <h3 class="mb-4"> <%= t ('home.h3c') %> </h3>
@@ -130,9 +120,8 @@
       <li> <%= t ('home.p15') %></li>
       <li> <%= t ('home.p16') %></li>
       <li> <%= t ('home.p17') %></li>
-      <li> <%= t ('home.p18') %> <a href= <%= t ("home.url5")%> target="_blank">[1]</a> </li> 
+      <li> <%= t ('home.p18') %></li> 
       </ul>
-      <%# <a href="https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004"  target="_blank">[1]</a></p> %>
       <p><%= t ('home.p19') %></p>
 
   </div>
@@ -160,6 +149,13 @@
         <a href= <%= t ("home.url12")%> target="_blank" class="list-group-item list-group-item-action"><strong>
         <%= t ('home.p26') %></strong></a>
         <%# <a href="https://www.un.org/en/coronavirus/safety-planning" target="_blank" class="list-group-item list-group-item-action"><strong> %>
+      </div>
+      <h3 class="mt-4 mb-4"> References</h3>
+      <div class="list-group">
+        <a href= "https://www.hg.org/legal-articles/what-you-should-know-about-domestic-violence-40004" target="_blank" class="list-group-item list-group-item-action"><strong>
+        What You Should Know About Domestic Violence<br> HG.org Legal Resources</strong></a>
+        <a href= "https://centerforfamilyjustice.org/faq/domestic-violence/" target="_blank" class="list-group-item list-group-item-action"><strong>
+        What is Domestic Violence?<br>centerforfamilyjustice.org<br> The Center for Family Justice</strong></a>
       </div>
   </div>
 </div>
@@ -219,6 +215,6 @@
   </div>
   
 </div>
-
+<!--closing div conthome-->
 </div>
 
