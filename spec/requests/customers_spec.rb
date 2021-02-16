@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.configure do |config|
-  config.include DeviseRequestSpecHelpers, type: :request
-end
+# RSpec.configure do |config|
+#   config.include DeviseRequestSpecHelpers, type: :request
+# end
 
 RSpec.describe "Customers", type: :request do
   describe "sign in" do

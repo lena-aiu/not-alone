@@ -16,10 +16,11 @@ RSpec.describe "Assignments", type: :request do
 
   describe "get assignments_index_path" do
     it "renders the index view" do
-      customer = FactoryBot.create_list(:customer, 10)
-      assignment = FactoryBot.create_list(:assignment, 10)
+      # customer = FactoryBot.create_list(:customer, 10)
+      assignments = FactoryBot.create_list(:assignment, 10)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
-      get assignments_index_path
+      sing in
+      get customer_assignments_path(id: customer.id, params: {assignment: {user_id: user.id, status: "new"})
       expect(response.status).to eq(200)
     end
   end
@@ -28,6 +29,7 @@ RSpec.describe "Assignments", type: :request do
     it "renders the :show template" do
       assignment = FactoryBot.create(:assignment)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign in
       get assignment_path(id: assignment.id)
       expect(response.status).to eq(200)
     end
