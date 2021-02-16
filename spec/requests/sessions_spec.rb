@@ -2,28 +2,44 @@ require 'rails_helper'
 
 RSpec.configure do |config|
   config.include DeviseRequestSpecHelpers, type: :request
-end #lo cambie a spec_helper.rb
+end
 
 RSpec.describe "Sessions", type: :request do
   describe "sign in" do
-    it "signs user in and out" do
-      #user = create(:user)    ## uncomment if using FactoryBot
-      user = User.create(email: 'admin@example.com', password: "password", password_confirmation: "password", role: "administrator") ## uncomment if not using FactoryBot
-      #user = User.create(email: 'test@test.com', password: "password", password_confirmation: "password") ## uncomment if not using FactoryBot
+    it "signs user in" do
+      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator") ## uncomment if not using FactoryBot
       sign_in user
-      get root_path
-      expect(response).to render_template(:index) # add gem 'rails-controller-testing' to your Gemfile first.
+      get orders_path
+      expect(response).to render_template('orders/index1') # add gem 'rails-controller-testing' to your Gemfile first.
     end
   end
 
   describe "sign out" do
-    it "signs user in and out" do
-      #user = create(:user)    ## uncomment if using FactoryBot
-      user = User.create(email: 'admin@example.com', password: "password", password_confirmation: "password", role: "administrator") ## uncomment if not using FactoryBot
-      #user = User.create(email: 'test@test.com', password: "password", password_confirmation: "password") ## uncomment if not using FactoryBot
+    it "signs user out" do
+      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator") ## uncomment if not using FactoryBot
+      sign_in user
       sign_out user
-      get root_path
-      expect(response).not_to render_template(:home) # add gem 'rails-controller-testing' to your Gemfile first.
+      get orders_path
+      expect(response).to redirect_to new_user_session_path
     end
   end
+
+  describe "sign in" do
+    it "signs in as an intern" do
+      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "intern") ## uncomment if not using FactoryBot
+      sign_in user
+      get orders_path
+      expect(response).to render_template('orders/index1')
+    end
+  end
+
+#need to continue working on it after making changes in orders_controller.rb
+    describe "sign in" do
+      it "signs in as a stranger" do
+        user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "stranger") ## uncomment if not using FactoryBot
+        sign_in user
+        get orders_path
+        expect(response).to redirect_to root_path
+      end
+    end
 end

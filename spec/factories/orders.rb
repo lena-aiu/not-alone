@@ -6,6 +6,7 @@ FactoryBot.define do
     # customer_id {FactoryBot.create(:customer).id}
     association :customer
     association :service
+    association :category
     description {"MyString"}
   end
 end

@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-# RSpec.configure do |config|
-#   config.include DeviseRequestSpecHelpers, type: :request
-# end #lo cambie a spec_helper.rb
+RSpec.configure do |config|
+  config.include DeviseRequestSpecHelpers, type: :request
+end
 
 RSpec.describe "Customers", type: :request do
   describe "sign in" do
     it "signs user in and out" do
       #user = User.create(email: 'admin@example.com', password: "password", password_confirmation: "password") ## uncomment if not using FactoryBot
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get root_path
       #expect(page).to include('test@icloud.com')
@@ -23,7 +23,7 @@ RSpec.describe "Customers", type: :request do
   describe "get customers_path" do
     it "renders the index view" do
       customer = FactoryBot.create_list(:customer, 10)
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       #sign_in user
       get customers_path
       expect(response.status).to eq(200)
@@ -33,7 +33,7 @@ RSpec.describe "Customers", type: :request do
   describe "get customer_path" do
     it "renders the :show template" do
       customer = FactoryBot.create(:customer)
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       #sign_in user
       #service GET    /services/:id(.:format)
       get customer_path(id: customer.id)
@@ -48,7 +48,7 @@ RSpec.describe "Customers", type: :request do
   describe "get new_customer_path" do
     it "renders the :new template" do
       customer = FactoryBot.create(:customer)
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get new_customer_path
       expect(response).to be_successful
@@ -59,7 +59,7 @@ RSpec.describe "Customers", type: :request do
   describe "get edit_service_path" do
     it "renders the :edit template" do
       customer = FactoryBot.create(:customer)
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get edit_customer_path(id: customer.id)
       expect(response.status).to eq(200)
@@ -72,7 +72,7 @@ RSpec.describe "Customers", type: :request do
 #POST       /services(.:format)
   describe "post customers_path with valid data" do
     it "saves a new entry and redirects to the show path for the entry" do
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer_attributes = FactoryBot.attributes_for(:customer)
       expect { post customers_path, params: {customer: customer_attributes}
@@ -95,7 +95,7 @@ RSpec.describe "Customers", type: :request do
 
   describe "put customer_path with valid data" do
     it "updates an entry and redirects to the show path for the customer" do
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer = FactoryBot.create(:customer) #create or build
       put customer_path(id: customer.id), params: {customer:{first_name: "new", last_name: "new", phone: "1234567890", email: "new@new.com", street: "1 New St 1 Apt", city: "New", state: "NY", zip: "10000"}}
@@ -107,7 +107,7 @@ RSpec.describe "Customers", type: :request do
 
   describe "put customer_path with invalid data" do
     it "updates an entry and redirects to the show path for the customer" do
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer = FactoryBot.create(:customer) #create or build
       put customer_path(id: customer.id), params: {customer: {first_name: "", last_name: "", phone: "", email: "", street: "", city: "", state: "", zip: ""}}
@@ -119,13 +119,11 @@ RSpec.describe "Customers", type: :request do
 
   describe "delete a customer record" do
     it "deletes a customer record" do
-      user = User.create(email: 'test@icloud.com', password: "password", password_confirmation: "password", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer = FactoryBot.create(:service)
       delete customer_path(id: customer.id), params: {customer:{first_name: "new", last_name: "new", phone: "1234567890", email: "new@new.com", street: "1 New St 1 Apt", city: "New", state: "NY", zip: "10000"}}
-#     #expect(response).to have_http_status(:success)
-      # expect { delete customers_path(id: customer.id).to eq("new")}
-      expect(response).to render_template(:index)
+      expect(response).to redirect_to customers_path
      end
   end
 end
