@@ -116,3 +116,37 @@ es:
     develop: Este cuestionario fue desarrollado por
     WA: Women's advocates (Organización)
     Submit: Enviar
+  
+  result:
+    score: Su puntaje se puede calcular dando un punto por cada respuesta No a las preguntas 1-4,
+            un punto por cada respuesta afirmativa a las preguntas 5-8,
+            y cinco puntos por cada respuesta afirmativa a las preguntas 9 y superiores.
+    finish: Terminar el cuestinario
+    h6a: Tu resultado es
+    h6b: (se calculó automáticamente).
+    back: Back to quiz
+    zero: 0 pts
+    one: 1-2 pts
+    three: 3-4 pts
+    five: 5 pts
+    success: ¿Tienes una puntuación de cero? No se preocupe, ¡es algo bueno! Parece que tu relación va por buen camino. 
+            Mantener relaciones saludables requiere algo de trabajo, ¡sigue así! Recuerda que mientras tu
+            puedes tener una relación sana, es posible que un amigo suyo no la tenga. Si conoces a alguien que está en
+            una relación abusiva, averigüe cómo puede ayudarlos visitando loveisrespect.org.
+    info: Si obtuvo uno o dos puntos, es posible que esté notando un par de cosas en su relación que no son
+            muy saludables, pero no significa necesariamente que sean señales de advertencia. Sigue siendo una buena idea estar atento
+            y asegúrese de que no se desarrolle un patrón nocivo.
+            Lo mejor que puedes hacer es hablar con tu pareja y hacerle saber lo que te gusta y lo que no. Invita a tu pareja
+            a hacer lo mismo. Recuerda que la comunicación siempre es importante para construir una relación saludable.
+            También es bueno estar informado para que pueda reconocer los diferentes tipos de abuso.
+    warning: Si obtuvo tres o cuatro puntos, parece que puede estar viendo algunas señales de advertencia de un abuso
+            en su relación. No ignore estas señales de alerta. Algo que empieza siendo pequeño puede empeorar mucho con el tiempo.
+            Ninguna relación es perfecta, ¡requiere esfuerzo! Pero en una relación sana no encontrará comportamientos abusivos.
+    danger: Si obtuvo cinco o más puntos, definitivamente está viendo señales de advertencia y puede estar en una relación abusiva.
+            Recuerde que lo más importante es su seguridad -- considere la posibilidad de elaborar un plan de seguridad.
+            No tienes que lidiar con esto solo. Nosotros podemos ayudarte. Puedes charlar con un defensor capacitado para conocer tus
+            diferentes opciones en
+    love: loveisrespect.org.
+
+
+

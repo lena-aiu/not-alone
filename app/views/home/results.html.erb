@@ -5,9 +5,7 @@
 <div class="container">
     <div class="p-3 mb-2 bg-secondary text-dark border border-dark rounded">
         <p class="text-white">
-            Your score can be computed by giving one point for each No answer to questions 1-4, 
-            one point for each Yes answer to questions 5-8,
-            and five points for each Yes answer to questions 9 and above.
+          <%= t ('result.score') %>
         </p>
     </div>
 </div>
@@ -16,60 +14,48 @@
     <% if health_result %>
         <h6><%= flash[:notice] %> </h6>
         <% #= button_to 'Finish the Quiz', home_health_path, :method => "get"%>
-        <button type="button" id="goback">Finish the Quiz</button>
+        <button type="button" id="goback"><%= t ('result.finish') %></button>
     <% else %>
     <div class="alert text-center border border-dark rounded">
-        <h6 class="text-dark">Your score is <%= @correct_answer %> (it was computed automatically).</h6>
+        <h6 class="text-dark"><%= t ('result.h6a') %> <%= @correct_answer %> <%= t ('result.h6b') %></h6>
     </div>    
-        <button type="button" id="goback">Back to quiz</button>
+        <button type="button" id="goback"> <%= t ('result.back') %></button>
     <% end %><br>
 </div><br>
 
 <div class="container">
     <div class="alert alert-success rounded">
-        <p class="btn btn-xs btn-success pull-right">0 pts</p>
+        <p class="btn btn-xs btn-success pull-right"> <%= t ('result.zero') %></p>
         <p>
-            You got a score of zero? Don’t worry -- it’s a good thing! It sounds like your relationship is on a pretty
-            healthy track. Maintaining healthy relationships takes some work -- keep it up! Remember that while you
-            may have a healthy relationship, it’s possible that a friend of yours does not. If you know someone who is in
-            an abusive relationship, find out how you can help them by visiting loveisrespect.org.
+            <%= t ('result.success') %>
+
         </p>
     </div>
 
     <div class="alert alert-info">
-        <p class="btn btn-xs btn-info pull-right">1-2 pts</p>
+        <p class="btn btn-xs btn-info pull-right"> <%= t ('result.one') %></p>
         <p>
-            If you scored one or two points, you might be noticing a couple of things in your relationship that are
-            unhealthy, but it doesn’t necessarily mean they are warning signs. It’s still a good idea to keep an eye out
-            and make sure there isn’t an unhealthy pattern developing.
-            The best thing to do is to talk to your partner and let them know what you like and don’t like. Encourage
-            them to do the same. Remember, communication is always important when building a healthy relationship.
-            It’s also good to be informed so you can recognize the different types of abuse.
+            <%= t ('result.info') %>
+            
         </p>
     </div>
 
     <div class="alert alert-warning">
-        <p class="btn btn-xs btn-warning pull-right">3-4 pts</p>
-        <p>
-            If you scored three or four points, it sounds like you may be seeing some warning signs of an abusive
-            relationship. Don’tignore these red flags. Something that starts small can grow much worse over time.
-            No relationship is perfect -- it takes work! But in a healthy relationship you won’t find abusive behaviors.
+        <p class="btn btn-xs btn-warning pull-right"> <%= t ('result.three') %></p>
+        <p> 
+            <%= t ('result.warning') %>
+            
         </p>
     </div>
     <div class="alert alert-danger">
-        <p class="btn btn-xs btn-danger pull-right">5 pts</p>
-        <p>
-            If you scored five or more points, you are definitely seeing warning signs and may be in an abusive relationship.
-            Remember the most important thing is your safety -- consider making a safety plan.
-            You don’t have to deal with this alone. We can help. Chat with a trained peer advocate to learn about your
-            different options at 
-            <a href="https://www.loveisrespect.org/" target="_blank" class="link">loveisrespect.org.</a>
+        <p class="btn btn-xs btn-danger pull-right"> <%= t ('result.five') %></p>
+        <p>  
+            <%= t ('result.danger') %>
+
+            <a href="https://www.loveisrespect.org/" target="_blank" class="link"><%= t ('result.love') %></a>
         </p>
     </div>
 </div>
-
-
-
 
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
