@@ -1,13 +1,9 @@
 require 'rails_helper'
 
-# RSpec.configure do |config|
-#   config.include DeviseRequestSpecHelpers, type: :request
-# end #lo cambie a spec_helper.rb
-
 RSpec.describe "Orders", type: :request do
   describe "sign in" do
     it "signs user in and out" do
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator") ## uncomment if not using FactoryBot
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get root_path
       expect(response).to render_template(:index)
@@ -27,18 +23,16 @@ RSpec.describe "Orders", type: :request do
     end
   end
 
-  # describe "get orders_path" do
-  #   it "renders the index view" do
-  #     # category = FactoryBot.create(:category)
-  #     # service = FactoryBot.create(:service)
-  #     # customer = FactoryBot.create(:customer)
-  #           category = FactoryBot.create_list(:category, 10)
-  #           service = FactoryBot.create_list(:service, 10)
-  #           customer = FactoryBot.create_list(:customer, 10)
-  #     user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
-  #     get orders_index1_path
-  #      expect(response.status).to eq(200)
-  #   end
-  # end
+  describe "get orders_path" do
+    it "renders the index view" do
+      category = FactoryBot.create_list(:category, 10)
+      service = FactoryBot.create_list(:service, 10)
+      customer = FactoryBot.create_list(:customer, 10)
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign_in user
+      get orders_path
+       expect(response.status).to render_template(:index1)
+    end
+  end
 
 end

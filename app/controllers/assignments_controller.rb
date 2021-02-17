@@ -6,19 +6,19 @@ class AssignmentsController < ApplicationController
   def index
     @assignments = Assignment.all
   end
-  
-  def show 
+
+  def show
   end
-    
+
   def new
     @customer = Customer.find params[:customer_id]
     @assignment = @customer.assignments.new
   end
-    
+
   def edit
     @assignment = Assignment.find(params[:id])
   end
-                                                          
+
   def create
     @customer = Customer.find params[:customer_id]
     @assignment = @customer.assignments.new(assignment_params)
@@ -27,10 +27,10 @@ class AssignmentsController < ApplicationController
       redirect_to @customer
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
-      render :new  
+      render :new
     end
   end
-  
+
   def update
     if @assignment.update(assignment_params)
       flash.notice = "The assignment record was updated successfully."
@@ -41,7 +41,7 @@ class AssignmentsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @assignment.destroy
     respond_to do |format|
@@ -51,10 +51,10 @@ class AssignmentsController < ApplicationController
   end
 
   private
-  def set_assignment 
+  def set_assignment
     @assignment = Assignment.find(params[:id])
   end
-  
+
   def assignment_params
     params.require(:assignment).permit(:customer_id, :user_id, :status)
   end

@@ -7,16 +7,16 @@ end
 RSpec.describe "Sessions", type: :request do
   describe "sign in" do
     it "signs user in" do
-      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator") ## uncomment if not using FactoryBot
+      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get orders_path
-      expect(response).to render_template('orders/index1') # add gem 'rails-controller-testing' to your Gemfile first.
+      expect(response).to render_template('orders/index1')
     end
   end
 
   describe "sign out" do
     it "signs user out" do
-      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator") ## uncomment if not using FactoryBot
+      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       sign_out user
       get orders_path
@@ -26,7 +26,7 @@ RSpec.describe "Sessions", type: :request do
 
   describe "sign in" do
     it "signs in as an intern" do
-      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "intern") ## uncomment if not using FactoryBot
+      user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "intern")
       sign_in user
       get orders_path
       expect(response).to render_template('orders/index1')
@@ -36,7 +36,7 @@ RSpec.describe "Sessions", type: :request do
 #need to continue working on it after making changes in orders_controller.rb
     describe "sign in" do
       it "signs in as a stranger" do
-        user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "stranger") ## uncomment if not using FactoryBot
+        user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "stranger")
         sign_in user
         get orders_path
         expect(response).to redirect_to root_path
