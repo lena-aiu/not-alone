@@ -44,7 +44,7 @@
     <table class="table table-hover">
         <% @customer.assignments.each do |assignment| %>
         <tr>
-            <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>    
+            <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
                 <td><%= assignment.user.email %></td>
                 <td><%= assignment.status %></td>
                 <td><%= link_to 'Show', assignment, :class => "btn btn-outline-primary btn-sm" %></td>
@@ -61,5 +61,10 @@
     </table> 
 </div>
 
-<%= link_to 'Edit', edit_customer_path(@customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-<%= link_to (t'customer.back'), customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
+    <%= link_to 'Edit', edit_customer_path(@customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+    <%= link_to (t'customer.back'), customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<% end %>
+<% if current_user.role.include?("volunteer") %>
+    <%= link_to (t'customer.back'), customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<% end %>

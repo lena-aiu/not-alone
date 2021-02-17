@@ -42,7 +42,11 @@
 </table>
 </div>
 <br>
-<%= link_to 'New Client', new_customer_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
+<% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
+  <%= link_to 'New Client', new_customer_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
+<% end %>
+<% if current_user.role.include?("volunteer") %>
+<% end %>
 <br><br>
 
 
