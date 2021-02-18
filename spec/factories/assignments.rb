@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :assignment do
-    user { nil }
-    customer { nil }
+    association :customer
+    association :user
     status { "MyString" }
   end
 end
