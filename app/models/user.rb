@@ -8,7 +8,8 @@ class User < ApplicationRecord
   validate :password_complexity
   validates :email, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, case_sensitive: false
+  
 
   def password_complexity
     if password.present? and not password.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,25}$/)
