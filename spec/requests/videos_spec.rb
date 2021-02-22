@@ -93,7 +93,7 @@ RSpec.describe "Videos", type: :request do
       video_attributes.delete(:title)
       expect { post videos_path, params: {video: video_attributes}
     }.to_not change(Video, :count)
-      expect(response.status).to eq(200)
+      expect(response.status).to render_template(:new)
     end
   end
 
