@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   scope "(:locale)", locale: /en|es/ do
-  
+
   root to: 'home#index'
   get 'home/index'
   get 'home/about'
   get 'assignments/index'
   get 'home/health'
   post 'home/results', to: 'home#results', as: 'results'
+  get 'home/results', to: 'home#results'
   #root to: 'customer/index'
   # devise_scope :user do
   #   root to: 'devise/sessions#new'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   #get 'order/index'
   #get '/orders', to: 'orders#index'
   #get 'home/index'
-  
+
 
   resources :services
   resources :videos

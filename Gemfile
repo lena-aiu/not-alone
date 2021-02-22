@@ -36,6 +36,9 @@ gem 'factory_bot_rails'
 gem 'faker', :require => false
 gem 'activeadmin'
 gem 'rails-controller-testing'
+gem "aws-sdk-s3", require: false
+gem "active_storage_validations"
+
 
 
 # Use ActiveStorage variant
