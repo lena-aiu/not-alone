@@ -4,7 +4,8 @@ class AssignmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @assignments = Assignment.all
+    @customer = Customer.find params[:customer_id]
+    @assignments = @customer.assignments 
   end
 
   def show
@@ -16,7 +17,6 @@ class AssignmentsController < ApplicationController
   end
 
   def edit
-    @assignment = Assignment.find(params[:id])
   end
 
   def create
@@ -24,10 +24,10 @@ class AssignmentsController < ApplicationController
     @assignment = @customer.assignments.new(assignment_params)
     if @assignment.save
       flash.notice = "The assignment record was created successfully."
-      redirect_to @customer
+      redirect_to @assignment 
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
-      render :new
+      render :edit
     end
   end
 
@@ -35,7 +35,6 @@ class AssignmentsController < ApplicationController
     if @assignment.update(assignment_params)
       flash.notice = "The assignment record was updated successfully."
       redirect_to assignment_path(@assignment)
-      # redirect_to @customer
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
       render :edit
@@ -43,15 +42,17 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
+    @customer_id = @assignment.customer_id
     @assignment.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Assignment was successfully destroyed.' }
+      format.html { redirect_to customer_assignments_path(customer_id: @customer_id), notice: 'Assignment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_assignment
+    @customer = nil #Customer.find params[:customer_id]
     @assignment = Assignment.find(params[:id])
   end
 
@@ -62,6 +63,10 @@ class AssignmentsController < ApplicationController
   def catch_not_found(e)
     Rails.logger.debug("We had a not found exception.")
     flash.alert = e.to_s
-    redirect_to assignments_path
+    if @customer.nil?
+      redirect_to customers_path 
+    else
+      redirect_to @customer
+    end
   end
 end

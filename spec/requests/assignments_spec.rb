@@ -35,7 +35,6 @@ RSpec.describe "Assignments", type: :request do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get assignment_path(id: 5000)
-      expect(response.status).to eq(404)
       expect(response).to redirect_to customers_path
     end
   end
@@ -48,14 +47,12 @@ RSpec.describe "Assignments", type: :request do
       get edit_assignment_path(id: assignment.id)
       expect(response.status).to eq(200)
     end
-    #bug in cards
     it "renders the :edit template - redirects to the index path if the assignment id is invalid" do
       assignment = FactoryBot.create(:assignment)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get assignment_path(id: 5000)
-      expect(response).to render_template(:index)
-      # expect(response).to redirect_to customers_path
+      expect(response).to redirect_to customers_path
     end
   end
 
@@ -66,7 +63,6 @@ RSpec.describe "Assignments", type: :request do
       customer = FactoryBot.create(:customer)
       expect { post customer_assignments_path(customer_id: customer.id), params: {assignment: {user_id: user.id, status: "new"}}
     }.to change(Assignment, :count)
-    #bug in cards
       expect(response).to redirect_to assignment_path(id: Assignment.last.id)
     end
   end
@@ -78,7 +74,7 @@ RSpec.describe "Assignments", type: :request do
       customer = FactoryBot.create(:customer)
       expect { post customer_assignments_path(customer_id: customer.id), params: {assignment: {status: "new"}}
     }.to_not change(Assignment, :count)
-      expect(response.status).to render_template(:new)
+      expect(response.status).to render_template(:edit)
     end
   end
 
@@ -103,7 +99,7 @@ RSpec.describe "Assignments", type: :request do
       sign_in user
       customer = FactoryBot.create(:customer)
       assignment = FactoryBot.create(:assignment)
-      put assignment_path(id: assignment.id), params: {assignment: {customer_id: nil, user_id: nil, status: ""}}
+      put assignment_path(id: assignment.id), params: {assignment: {user_id: nil, status: ""}}
       assignment.reload
       expect(assignment.customer_id).not_to eq(nil)
       expect(assignment.user_id).not_to eq(nil)
@@ -118,8 +114,9 @@ RSpec.describe "Assignments", type: :request do
       sign_in user
       customer = FactoryBot.create(:customer)
       assignment = FactoryBot.create(:assignment)
+      customer_id = assignment.customer_id
       delete assignment_path(id: assignment.id)
-      expect(response).to redirect_to customers_path
+      expect(response).to redirect_to customer_assignments_path(customer_id: customer_id)
      end
   end
 end
