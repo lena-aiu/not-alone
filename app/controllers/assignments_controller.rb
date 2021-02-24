@@ -42,18 +42,22 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
-    @customer_id = @assignment.customer_id
+    @customer = @assignment.customer
     @assignment.destroy
     respond_to do |format|
-      format.html { redirect_to customer_assignments_path(customer_id: @customer_id), notice: 'Assignment was successfully destroyed.' }
+      format.html { redirect_to @customer, notice: 'The assignment was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_assignment
-    @customer = nil #Customer.find params[:customer_id]
     @assignment = Assignment.find(params[:id])
+    if params[:customer_id].nil?
+      @customer=nil
+      else
+      @customer=Customer.find(params[:customer_id])
+    end
   end
 
   def assignment_params

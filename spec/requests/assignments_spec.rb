@@ -114,9 +114,9 @@ RSpec.describe "Assignments", type: :request do
       sign_in user
       customer = FactoryBot.create(:customer)
       assignment = FactoryBot.create(:assignment)
-      customer_id = assignment.customer_id
+      customer = assignment.customer
       delete assignment_path(id: assignment.id)
-      expect(response).to redirect_to customer_assignments_path(customer_id: customer_id)
+      expect(response).to redirect_to customer
      end
   end
 end
