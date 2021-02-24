@@ -86,14 +86,14 @@ RSpec.describe "Videos", type: :request do
   end
 
   describe "post videos_path with invalid data" do
-    it "does not save a new entry and redirects to the show path for the video" do
+    it "does not save a new entry and redirects to the new path for the video" do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       video_attributes = FactoryBot.attributes_for(:video)
       video_attributes.delete(:title)
       expect { post videos_path, params: {video: video_attributes}
     }.to_not change(Video, :count)
-      expect(response.status).to eq(200)
+      expect(response.status).to render_template(:new)
     end
   end
 
