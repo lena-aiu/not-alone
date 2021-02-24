@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
     validates :name, presence: true
+    validates :name, uniqueness: { case_sensitive: false }
     validates :description, presence: true
     validates :kind, presence: true
     validates :phone_number,  presence: true
