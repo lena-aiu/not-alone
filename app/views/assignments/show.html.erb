@@ -23,11 +23,9 @@
   </p>
   <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
     <%= link_to 'Edit', edit_assignment_path(@assignment), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-    <%= link_to 'Back to Assignments', customer_assignments_path(@assignment), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-    <%= link_to 'Back to Clients', customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+    <%= link_to 'Back', @assignment.customer, :class => "btn btn-primary btn-sm", :style => "color: white" %>
   <% end %>
   <% if current_user.role.include?("volunteer") %>
-    <%= link_to 'Back to Assignments', customer_assignments_path(@assignment), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-    <%= link_to 'Back to Clients', customers_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
+    <%= link_to 'Back', @assignment.customer, :class => "btn btn-primary btn-sm", :style => "color: white" %>
   <% end %>
     </div>
