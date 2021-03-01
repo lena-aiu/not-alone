@@ -3,11 +3,6 @@ class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  def index
-    @customer = Customer.find params[:customer_id]
-    @assignments = @customer.assignments 
-  end
-
   def show
   end
 
@@ -24,7 +19,7 @@ class AssignmentsController < ApplicationController
     @assignment = @customer.assignments.new(assignment_params)
     if @assignment.save
       flash.notice = "The assignment record was created successfully."
-      redirect_to @assignment 
+      redirect_to @assignment
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
       render :edit
@@ -68,7 +63,7 @@ class AssignmentsController < ApplicationController
     Rails.logger.debug("We had a not found exception.")
     flash.alert = e.to_s
     if @customer.nil?
-      redirect_to customers_path 
+      redirect_to customers_path
     else
       redirect_to @customer
     end
