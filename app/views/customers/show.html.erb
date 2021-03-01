@@ -26,14 +26,14 @@
             <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>    
                 <td><%= order.description %></td>
                 <td><%= order.service.name %></td>
-                <td><%= link_to (t'show'), customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to (t'edit'), edit_customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to (t'delete'), customer_order_path(@customer.id, order.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'show'), order, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'edit'), edit_order_path(order), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'delete'), order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
             <% end %>
             <% if current_user.role.include?("volunteer") %>
                 <td><%= order.description %></td>
                 <td><%= order.service.name %></td>
-                <td><%= link_to (t'show'), customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to (t'show'), order, :class => "btn btn-outline-primary btn-sm" %></td>
             <% end %>
         </tr>
         <% end %>
