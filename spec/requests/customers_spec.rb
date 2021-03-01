@@ -14,6 +14,7 @@ RSpec.describe "Customers", type: :request do
     it "renders the index view" do
       customer = FactoryBot.create_list(:customer, 10)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign_in user
       get customers_path
       expect(response.status).to render_template(:index)
     end
@@ -23,12 +24,14 @@ RSpec.describe "Customers", type: :request do
     it "renders the :show template" do
       customer = FactoryBot.create(:customer)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign_in user
       get customer_path(id: customer.id)
       expect(response.status).to render_template(:show)
     end
     it "renders the :show template - redirects to the index path if the customer id is invalid" do
       customer = FactoryBot.create(:customer)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign_in user
       get customer_path(id: 5000)
       expect(response).to redirect_to customers_path
     end
