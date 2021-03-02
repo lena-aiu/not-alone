@@ -81,9 +81,4 @@ class OrdersController < ApplicationController
         redirect_to customers_path
       end
     end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order1
-      @order = Order.find(params[:id])
-    end
 end

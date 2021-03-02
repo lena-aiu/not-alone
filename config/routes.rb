@@ -17,14 +17,6 @@ Rails.application.routes.draw do
     resources :services
     resources :videos
     resources :categories
-  # post 'customers/orders', to: 'customers/orders#create1', as: 'orders'
-  # get 'customers/orders', to: 'customers/orders#index1'
-  # get 'customers/order/new', to: 'customers/orders#new1', as: 'new_order'
-  # get 'customers/order/:id', to: 'customers/orders#show1', as:'order_test'
-  # put 'customers/order/:id', to: 'customers/orders#update1', as: 'update_order'
-  # patch 'customers/order/:id', to: 'customers/orders#update1', as: 'patch_order'
-  # delete 'customers/order/:id', to: 'customers/orders#destroy1', as: 'delete_order'
-  # get 'customers/order/edit/:id', to: 'customers/orders#edit'
   end
 end
   
