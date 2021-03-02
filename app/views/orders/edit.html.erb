@@ -2,6 +2,6 @@
 
 <%= render 'form', order: @order %>
  
-<%= link_to t('show'), [@customer,@order], :class => "btn btn-primary btn-sm", :style => "color: white" %> 
-<%= link_to t('back'), customer_path(@customer.id), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+<%= link_to t('show'), [@order], :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+<%= link_to t('back'), customer_path(@order.customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
 <%# <%= link_to 'Back', customer_orders_path(@customer), :class => "btn btn-primary btn-sm", :style => "color: white" %> 

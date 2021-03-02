@@ -1,170 +1,84 @@
 class OrdersController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-    #layout 'order_layout'
-    before_action :set_order, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!
-#ORDER1
-    rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found1
-    #layout 'order_layout1'
-    before_action :set_order1, only: [:show1, :edit1, :update1, :destroy1]
+  rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
-    # GET /orders
-    # GET /orders.json
-    def index
-      @customer = Customer.find params[:customer_id]
-      @orders = Order.all
-    end
-
-    def show
-    end
-
-    def new
-      @customer = Customer.find params[:customer_id]
-      @order = @customer.orders.new
-      #@order = @customer.orders.new order_params
-      #@order.save
-      #@order = Order.new
-    end
-
-
-    def edit
-
-      @order = Order.find(params[:id])
-    end
-
-    # POST /orders
-    # POST /orders.json
-# orders#create
-# new_customer_order GET    /customers/:customer_id/orders/new(.:format)
-# customers#index
-# POST   /customers(.:format)                                                                     customers#create
-# new_customer GET    /customers/new(.:format)                                                                 customers#new
-# edit_customer GET    /customers/:id/edit(.:format)
-    def create
-      @customer = Customer.find params[:customer_id]
-#      @order = @customer.orders.new order_params
-#      @order.save
-      @order = @customer.orders.new(order_params)
-      if @order.save
-        flash.notice = "The order record was created successfully."
-        redirect_to @customer
-      else
-        flash.now.alert = @order.errors.full_messages.to_sentence
-        render :new
-      end
-    end
-
-    # PATCH/PUT /customers/1
-    # PATCH/PUT /customers/1.json
-    def update
-
-      if @order.update(order_params)
-        flash.notice = "The order record was updated successfully."
-        redirect_to @customer
-      else
-        flash.now.alert = @order.errors.full_messages.to_sentence
-        render :edit
-      end
-    end
-
-    # DELETE /orders/1
-    # DELETE /orders/1.json
-    def destroy
-      @order.destroy
-      respond_to do |format|
-        format.html { redirect_to customers_url, notice: 'Order was successfully destroyed.' }
-        format.json { head :no_content }
-      end
-    end
-######ORDER1
-  # GET /customers
-  # GET /customers.json
-  def index1
-  #  byebug
+  # GET /orders
+  # GET /orders.json
+  def index
+    @customer = Customer.find params[:customer_id]
     @orders = Order.all
   end
 
-  # GET /customers/1
-  # GET /customers/1.json
-  def show1
+  def show
   end
 
-  # GET /orders/new
-  def new1
-    @order = Order.new
+  def new
+    @customer = Customer.find params[:customer_id]
+    @order = @customer.orders.new
   end
 
-  # GET /orders/1/edit
-  def edit1
+  def edit
+    @order = Order.find(params[:id])
   end
 
   # POST /orders
   # POST /orders.json
-  def create1
-    @order = Order.new(order_params)
+  def create
+    @customer = Customer.find params[:customer_id]
+    @order = @customer.orders.new(order_params)
     if @order.save
       flash.notice = "The order record was created successfully."
-      redirect_to @order
+      redirect_to @customer
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
-      render :new1
+      render :edit
     end
   end
 
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
-  def update1
+  def update
     if @order.update(order_params)
       flash.notice = "The order record was updated successfully."
-      redirect_to @order
+      redirect_to @order.customer
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
-      render :edit1
+      render :edit
     end
-
   end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.json
-  def destroy1
+  # DELETE /orders/1
+  # DELETE /orders/1.json
+  def destroy
+    @customer = @order.customer
     @order.destroy
-    respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to @customer, notice: "The order was successfully deleted."
   end
-  #########PRIVATE
-    private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_order
-        @customer = Customer.find params[:customer_id]
-        @order = Order.find(params[:id])
-      end
 
-      # Only allow a list of trusted parameters through.
-      def order_params
-        params.require(:order).permit(:description, :customer_id, :service_id, :category_id) 
-      end
-      def catch_not_found(e)
-        Rails.logger.debug("We had a not found exception.")
-        flash.alert = e.to_s
-        redirect_to orders_path
-      end
-
-#PRIVATE FOR ORDERS
+  private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order1
-      @order = Order.find(params[:id])
-
+    def set_order
+      if params[:customer_id].nil?
+        @customer=nil
+      else
+        @customer=Customer.find(params[:customer_id])
+      end
+        @order = Order.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def order_params1
-      params.require(:order).permit(:description, :customer_id, :service_id, :category_id)
+    def order_params
+      params.require(:order).permit(:description, :customer_id, :service_id, :category_id) 
     end
-    def catch_not_found1(e)
+
+    def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
-      redirect_to orders_path
+      if !@customer.nil?
+        redirect_to @customer
+      else
+        redirect_to customers_path
+      end
     end
 end

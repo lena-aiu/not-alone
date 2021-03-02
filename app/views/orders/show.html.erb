@@ -24,11 +24,11 @@
   <%= @order.description %>
 </p>
 <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
-  <%= link_to t('edit'), edit_customer_order_path(@customer.id, @order.id), :class => "btn btn-primary btn-sm", :style => "color: white" %>
-  <%= link_to t('back'), customer_path(@customer.id), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+  <%= link_to t('edit'), edit_order_path(@order), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+  <%= link_to t('back'), customer_path(@order.customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
 <% end %>
 <% if current_user.role.include?("volunteer") %>
-  <%= link_to t('back'), customer_path(@customer.id), :class => "btn btn-primary btn-sm", :style => "color: white" %>
+  <%= link_to t('back'), customer_path(@order.customer), :class => "btn btn-primary btn-sm", :style => "color: white" %>
 <% end %>
 
 
