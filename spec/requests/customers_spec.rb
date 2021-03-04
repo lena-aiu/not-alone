@@ -55,8 +55,8 @@ RSpec.describe "Customers", type: :request do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "stranger")
       sign_in user
       get new_customer_path
-      expect(response.status).to eq(404)
-      expect(response).to_not render_template(:new)
+      # expect(response.status).to eq(404)
+      expect(response).to redirect_to home_index_path
     end
   end
 
@@ -128,8 +128,8 @@ RSpec.describe "Customers", type: :request do
     it "deletes a customer record" do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
-      customer = FactoryBot.create(:service)
-      delete customer_path(id: customer.id), params: {customer:{first_name: "new", last_name: "new", phone: "1234567890", email: "new@new.com", street: "1 New St 1 Apt", city: "New", state: "NY", zip: "10000"}}
+      customer = FactoryBot.create(:customer)
+      expect {delete customer_path(id: customer.id)}.to change(Customer, :count)
       expect(response).to redirect_to customers_path
      end
   end
