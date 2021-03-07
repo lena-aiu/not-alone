@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'home/about'
     get 'assignments/index'
+    get 'orders/index'
     get 'home/health'
     post 'home/results', to: 'home#results', as: 'results'
     get 'home/results', to: 'home#results'
