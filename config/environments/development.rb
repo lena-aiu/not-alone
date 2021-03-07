@@ -30,9 +30,17 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
   #config.active_storage.service = :amazon
-  
+
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # Ignore bad email addresses and do not raise email delivery errors.
+# Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.action_mailer.delivery_method = :sendgrid_actionmailer
+  config.action_mailer.sendgrid_actionmailer_settings = {
+    api_key: Rails.application.credentials[:SENDGRID_API_KEY],
+    raise_delivery_errors: true
+  }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 

@@ -31,13 +31,11 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'social-share-button'
-gem 'rspec-rails'
-gem 'factory_bot_rails'
-gem 'faker', :require => false
 gem 'activeadmin'
-gem 'rails-controller-testing'
 gem 'aws-sdk-s3', require: false
 gem 'active_storage_validations'
+gem 'sendgrid-ruby'
+gem 'sendgrid-actionmailer'
 
 
 # Use ActiveStorage variant
@@ -70,6 +68,10 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   #gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker', :require => false
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
