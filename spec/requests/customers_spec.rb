@@ -60,7 +60,7 @@ RSpec.describe "Customers", type: :request do
     end
   end
 
-  describe "get edit_service_path" do
+  describe "get edit_customer_path" do
     it "renders the :edit template" do
       customer = FactoryBot.create(:customer)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")

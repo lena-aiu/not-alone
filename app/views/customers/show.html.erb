@@ -21,27 +21,67 @@
 <h2 class="title mb-5 display-4" style="text-align:center">Orders</h2>
 <div class="table-responsive card mb-5">
     <table class="table table-hover">
+      <thead class="cf">
+        <div class="row">
+          <tr>
+            <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;"><%= t ('Client') %></th>
+            <th class="h2" style="background:none;"><%= t ('Service Name') %></th>
+            <th class="h2" style="background:none;"><%= t ('Kind of Service') %></th>
+            <th class="h2" style="background:none;"><%= t ('Category') %></th>
+            <th class="h2" style="background:none;"><%= t ('Description') %></th>
+            <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+              <th colspan="3" style="background:none;"></th>
+            <% else %>
+                <th colspan="1"></th>
+            <% end %>
+          </tr>
+        </div>
+      </thead>
+      <tbody>
         <% @customer.orders.each do |order| %>
         <tr>
-            <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>    
-                <td><%= order.description %></td>
+            <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
+                <td><%= order.customer.full_name %></td>
                 <td><%= order.service.name %></td>
+                <td><%= order.service.kind %></td>
+                <td><%= order.category.name %></td>
+                <td><%= order.description %></td>
                 <td><%= link_to (t'show'), order, :class => "btn btn-outline-primary btn-sm" %></td>
                 <td><%= link_to (t'edit'), edit_order_path(order), :class => "btn btn-outline-primary btn-sm" %></td>
                 <td><%= link_to (t'delete'), order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
             <% end %>
             <% if current_user.role.include?("volunteer") %>
-                <td><%= order.description %></td>
-                <td><%= order.service.name %></td>
+            <td><%= order.customer.full_name %></td>
+            <td><%= order.service.name %></td>
+            <td><%= order.service.kind %></td>
+            <td><%= order.category.name %></td>
+            <td><%= order.description %></td>>
                 <td><%= link_to (t'show'), order, :class => "btn btn-outline-primary btn-sm" %></td>
             <% end %>
         </tr>
         <% end %>
+       </tbody>
     </table>
-</div> 
+</div>
 <h2 class="title mt-5 mb-5 display-4" style="text-align:center">Assignments</h2>
 <div class="table-responsive card mb-5">
     <table class="table table-hover">
+      <thead class="cf">
+        <div class="row">
+          <tr>
+            <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;"><%= t ('User Email') %></th>
+            <th class="h2" style="background:none;"><%= t ('Status') %></th>
+            <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+              <th colspan="3" style="background:none;"></th>
+            <% else %>
+                <th colspan="1"></th>
+            <% end %>
+          </tr>
+        </div>
+      </thead>
+      <tbody>
         <% @customer.assignments.each do |assignment| %>
         <tr>
             <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
@@ -58,7 +98,9 @@
             <% end %>
         </tr>
         <% end %>
-    </table> 
+
+      </tbody>
+    </table>
 </div>
 
 <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
