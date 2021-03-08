@@ -8,19 +8,6 @@ RSpec.describe "Orders", type: :request do
       get root_path
       expect(response).to render_template(:index)
     end
- end
-
-  describe "post orders_path with valid data (done)" do
-    it "saves a new entry and redirects to the show path for the order" do
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
-      sign_in user
-      service = FactoryBot.attributes_for(:service)
-      customer = FactoryBot.attributes_for(:customer)      
-      category = FactoryBot.attributes_for(:category)
-      expect { post customer_orders_path(@customer), params: {order: {user_id: user, service_id: service, category_id: category,  description: "new"}}
-    }.to change(Order, :count)
-      expect(response).to redirect_to customer_orders_path(id: Order.last.id)
-    end
   end
 
   describe "get order_path" do
@@ -29,7 +16,7 @@ RSpec.describe "Orders", type: :request do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get order_path(id: order.id)
-      expect(response).to not expect(response.status)
+      expect(response).to render_template(:show)
     end
 
     # it "renders the :show template - redirects to the index path if the order id is invalid" do
@@ -45,8 +32,8 @@ RSpec.describe "Orders", type: :request do
     it "renders the :edit template" do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
-      order = FactoryBot.attributes_for(:order)
-      get edit_order_path(id: 1)
+      order = FactoryBot.create(:order)
+      get edit_order_path(id: order.id)
       expect(response.status).to eq(200)
       expect(response).to render_template(:edit)
     end
@@ -59,16 +46,30 @@ RSpec.describe "Orders", type: :request do
     end
   end
 
+  describe "post orders_path with valid data" do
+    it "saves a new entry and redirects to the show path for the order" do
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign_in user
+      service = FactoryBot.create(:service)
+      customer = FactoryBot.create(:customer)
+      category = FactoryBot.create(:category)
+      expect { post customer_orders_path(customer_id: customer.id),
+        params: {order: {service_id: service.id, category_id: category.id,  description: "new"}}
+      }.to change(Order, :count)
+      expect(response).to redirect_to Order.last
+    end
+  end
+
   describe "post orders_path with invalid data (done)" do
     it "saves a new entry and redirects to the show path for the order" do
       user = User.create(email: 'test@icloud.com', password: "Password20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
-      service = FactoryBot.attributes_for(:service)
-      customer = FactoryBot.attributes_for(:customer)      
-      category = FactoryBot.attributes_for(:category)
-      expect { post customer_orders_path(@customer), params: {order: {user_id: user, service_id: service, category_id: category,  description: "new"}}
-    }.to change(Order, :count)
-      expect(response).to redirect_to customer_orders_path(id: Order.last.id)
+      service = FactoryBot.create(:service)
+      customer = FactoryBot.create(:customer)
+      expect { post customer_orders_path(customer_id: customer.id), params: {order: {
+        service_id: service.id, category_id: 5000,  description: "new"}}
+    }.not_to change(Order, :count)
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -76,31 +77,30 @@ RSpec.describe "Orders", type: :request do
     it "updates an entry and redirects to the show path for the order" do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
-      customer = FactoryBot.create(:customer)
       order = FactoryBot.create(:order)
-      service = FactoryBot.attributes_for(:service)
-      put order_path(id: service.id), params: {order: {user_id: user, service_id: service, category_id: category,  description: "new"}
-
-      
+      service = FactoryBot.create(:service)
+      category = FactoryBot.create(:category)
+      put order_path(id: order.id), params: {order: {
+        service_id: service.id, category_id: category.id,  description: "new"}}
       order.reload
-      expect(order.customer_id).to eq(customer.id)
-      expect(order.service_id).to eq(user.id)
-      expect(order.status).to eq("new")
+      expect(order.category_id).to eq(category.id)
+      expect(order.service_id).to eq(service.id)
+      expect(order.description).to eq("new")
       expect(response).to redirect_to order_path(id: order.id)
     end
   end
 
   describe "put order_path with invalid data" do
     it "updates an entry and redirects to the edit path for the order" do
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20",
+        password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
-      customer = FactoryBot.create(:customer)
       order = FactoryBot.create(:order)
-      put order_path(id: order.id), params: {order: {category_id: nil, status: ""}}
+      put order_path(id: order.id), params: {order: {category_id: nil, description: ""}}
       order.reload
       # expect(order.customer_id).not_to eq(nil)
       expect(order.category_id).not_to eq(nil)
-      expect(order.status).not_to eq("")
+      expect(order.description).not_to eq("")
       expect(response.status).to render_template(:edit)
     end
   end

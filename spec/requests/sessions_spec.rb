@@ -9,8 +9,8 @@ RSpec.describe "Sessions", type: :request do
     it "signs user in" do
       user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
-      get orders_path
-      expect(response).to render_template('orders/index1')
+      get customers_path
+      expect(response).to render_template('customers/index')
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe "Sessions", type: :request do
       user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       sign_out user
-      get orders_path
+      get customers_path
       expect(response).to redirect_to new_user_session_path
     end
   end
@@ -28,8 +28,8 @@ RSpec.describe "Sessions", type: :request do
     it "signs in as an intern" do
       user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "intern")
       sign_in user
-      get orders_path
-      expect(response).to render_template('orders/index1')
+      get customers_path
+      expect(response).to render_template('customers/index')
     end
   end
 
@@ -38,8 +38,8 @@ RSpec.describe "Sessions", type: :request do
       it "signs in as a stranger" do
         user = User.create(email: 'admin@example.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "stranger")
         sign_in user
-        get orders_path
-        expect(response).to redirect_to root_path
+        get customers_path
+        expect(response).to redirect_to home_index_path
       end
     end
 end
