@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     root to: 'home#index'
     get 'home/index'
     get 'home/about'
-    get 'assignments/index'
     get 'home/health'
     post 'home/results', to: 'home#results', as: 'results'
     get 'home/results', to: 'home#results'
@@ -19,5 +18,5 @@ Rails.application.routes.draw do
     resources :categories
   end
 end
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

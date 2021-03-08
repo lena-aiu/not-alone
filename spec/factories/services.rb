@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryBot.define do
   factory :service do
-    name { "MyString" }
+    name { Faker::Lorem.unique.word }
     description {"MyDesc"}
     kind {"any"}
     phone_number {1234567890}
