@@ -10,16 +10,16 @@ RSpec.describe "Assignments", type: :request do
     end
   end
 
-  describe "get assignments_index_path" do
-    it "renders the index view" do
-      customer = FactoryBot.create(:customer)
-      assignments = FactoryBot.create_list(:assignment, 10)
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
-      sign_in user
-      get customer_assignments_path(customer_id: customer.id)
-      expect(response.status).to render_template(:index)
-    end
-  end
+  # describe "get assignments_index_path" do
+  #   it "renders the index view" do
+  #     customer = FactoryBot.create(:customer)
+  #     assignments = FactoryBot.create_list(:assignment, 10)
+  #     user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+  #     sign_in user
+  #     get customer_assignments_path(customer_id: customer.id)
+  #     expect(response.status).to render_template(:index)
+  #   end
+  # end
 
   describe "get assignment_path" do
     it "renders the :show template" do
@@ -29,7 +29,6 @@ RSpec.describe "Assignments", type: :request do
       get assignment_path(id: assignment.id)
       expect(response.status).to render_template(:show)
     end
-    #bug in cards
     it "renders the :show template - redirects to the index path if the assignment id is invalid" do
       assignment = FactoryBot.create(:assignment)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
@@ -39,13 +38,38 @@ RSpec.describe "Assignments", type: :request do
     end
   end
 
+  describe "get new_customer_assignment_path" do
+    it "renders the :new template" do
+      customer = FactoryBot.create(:customer)
+      assignment = FactoryBot.create(:assignment)
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      sign_in user
+      get new_customer_assignments_path(customer_id: customer.id), params: {assignment: {status: "new"}}
+      # expect(response.status).to eq(404)
+      expect(response.status).to be_successful
+      expect(response).to render_template(:new)
+    end
+  end
+
+  describe "get new_customer_assignment_path" do
+    it "renders the :new template - redirects to the index path if the the user role is invalid" do
+      customer = FactoryBot.create(:customer)
+      assignment = FactoryBot.create(:assignment)
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "stranger")
+      sign_in user
+      get new_customer_assignments_path(customer_id: customer.id, assignment_id: assignment.id)
+      # expect(response.status).to eq(404)
+      expect(response).to redirect_to home_index_path
+    end
+  end
+
   describe "get edit_assignment_path" do
     it "renders the :edit template" do
       assignment = FactoryBot.create(:assignment)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get edit_assignment_path(id: assignment.id)
-      expect(response.status).to eq(200)
+      expect(response.status).to render_template(:edit)
     end
     it "renders the :edit template - redirects to the index path if the assignment id is invalid" do
       assignment = FactoryBot.create(:assignment)
@@ -72,9 +96,11 @@ RSpec.describe "Assignments", type: :request do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer = FactoryBot.create(:customer)
+      assignment = FactoryBot.create(:assignment)
+      assignment.delete(:user_id)
       expect { post customer_assignments_path(customer_id: customer.id), params: {assignment: {status: "new"}}
     }.to_not change(Assignment, :count)
-      expect(response.status).to render_template(:edit)
+      expect(response.status).to render_template(:new)
     end
   end
 
@@ -115,8 +141,10 @@ RSpec.describe "Assignments", type: :request do
       customer = FactoryBot.create(:customer)
       assignment = FactoryBot.create(:assignment)
       customer = assignment.customer
-      delete assignment_path(id: assignment.id)
-      expect(response).to redirect_to customer
+      # delete assignment_path(id: assignment.id)
+      # expect(response).to redirect_to customer
+      expect {delete customer_assignments_path(customer_id: customer.id, assignment_id: assignment.id)}.to change(Customer, :count)
+      expect(response).to redirect_to customers_path
      end
   end
 end
