@@ -38,6 +38,36 @@
   </div>
 
   <div class="form-group col">
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :street %>
+    <%= f.text_field :street, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :state %>
+    <%= f.text_field :state, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :zip %>
+    <%= f.text_field :zip, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group col">
     <%= f.label :picture %>
     <%= f.file_field :picture %>
   </div>

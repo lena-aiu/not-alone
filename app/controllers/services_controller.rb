@@ -13,8 +13,21 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    #byebug
+    if params[:search].present?
+      #services = Service.search_name(params[:query])
+      byebug
+      @services = Service.near(params[:search], 2, :order => :distance) 
+    else
+      byebug
+      @services = Service.all
+    end
+
     @services = Service.all
+    @hash = Gmaps4rails.build_markers(@services) do |service, marker|
+      marker.lat service.latitude
+      marker.lng service.longitude
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' targe='_blank'>#{service.name}</a>"
+    end
   end
 
   # GET /services/1
@@ -22,6 +35,11 @@ class ServicesController < ApplicationController
   def show
     #@picture = Service.find(params[:picture])
     #@picture = Service.find.params[:picture]
+    @hash = Gmaps4rails.build_markers(@service) do |service, marker|
+      marker.lat service.latitude
+      marker.lng service.longitude
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' targe='_blank'>#{service.name}</a>"
+    end
   end
 
   # GET /serivices/new
@@ -90,7 +108,7 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :description, :kind, :phone_number, :url, :picture)
+      params.require(:service).permit(:name, :description, :kind, :phone_number, :url, :picture, :latitude, :longitude, :street, :city, :state, :zip)
     end
 
     def catch_not_found(e)
