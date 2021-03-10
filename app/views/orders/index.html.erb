@@ -21,9 +21,15 @@
         <td><%= order.service.kind %></td>
         <td><%= order.category.name %></td>
         <td><%= order.description %></td>
-        <td><%= link_to t('show'), customer_order_path(@customer,order), :class => "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to t('edit'), edit_customer_order_path(@customer,order), :class => "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to t('delete'), [@customer,order], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+        <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
+          <td><%= link_to t('show'), customer_order_path(@customer,order), :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to t('edit'), edit_customer_order_path(@customer,order), :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to t('delete'), [@customer,order], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to t('New Client Order'), new_customer_order_path(@customer,order), :class => "btn btn-outline-primary btn-sm"  %></td>
+        <% end %>
+        <% if current_user.role.include?("volunteer") %>
+          <td><%= link_to 'Show', customer, :class => "btn btn-outline-primary btn-sm" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,10 +38,10 @@
 <br>
 <%= link_to t('new_order'), new_customer_order_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white"  %>
 <%# @order.id
-customer_order 
+customer_order
 customer_order_path(@customer.id, order.id)
 customer_orders_path(@customer.id) current
-customers_path 
+customers_path
 <%# edit_order_path(order) %>
 <%# edit_customer_order_path(@customer.id, order.id) %>
 <%# <%= link_to 'Edit', edit_customer_order_path(@customer.id, order.id), :class => "btn btn-outline-primary btn-sm" %>

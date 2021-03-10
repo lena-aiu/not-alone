@@ -31,7 +31,7 @@
           <td><%= link_to 'Edit', edit_customer_path(customer), :class => "btn btn-outline-primary btn-sm" %></td>
           <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
           <td><%= link_to 'New Client Assignment', new_customer_assignment_path(customer.id), :class => "btn btn-outline-primary btn-sm"  %></td>
-          <td><%= link_to 'New Client Order', new_customer_order_path(customer.id), :class => "btn btn-outline-primary btn-sm"  %></td>
+          <%# <!-- <td><%= link_to 'New Client Order', new_customer_order_path(customer.id), :class => "btn btn-outline-primary btn-sm"  %></td> --> %>
         <% end %>
         <% if current_user.role.include?("volunteer") %>
           <td><%= link_to 'Show', customer, :class => "btn btn-outline-primary btn-sm" %></td>
@@ -48,5 +48,3 @@
 <% if current_user.role.include?("volunteer") %>
 <% end %>
 <br><br>
-
-

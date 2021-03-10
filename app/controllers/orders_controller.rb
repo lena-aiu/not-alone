@@ -6,25 +6,94 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @customer = Customer.find params[:customer_id]
-    @orders = Order.all
+    # @customer = Customer.find params[:customer_id]
+    # @orders = Order.all
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @customer = Customer.find params[:customer_id]
+      @orders = Order.all
+    elsif current_user.role.include?("volunteer")
+      @customer = Customer.find params[:customer_id]
+      @orders = current_user.orders
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def show
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      render :show
+    elsif current_user.role.include?("volunteer")
+      if current_user.customers.include? @orders
+        render :show
+      else
+        flash.notice = "You are not authorized for that operation."
+        redirect_to home_index_path
+      end
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def new
-    @customer = Customer.find params[:customer_id]
-    @order = @customer.orders.new
+    # @customer = Customer.find params[:customer_id]
+    # @order = @customer.orders.new
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @customer = Customer.find params[:customer_id]
+      @order = @customer.orders.new
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def edit
-    @order = Order.find(params[:id])
+    # @order = Order.find(params[:id])
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @order = Order.find(params[:id])
+      render :edit
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   # POST /orders
   # POST /orders.json
   def create
+    # @customer = Customer.find params[:customer_id]
+    # @order = @customer.orders.new(order_params)
+    # if @order.save
+    #   flash.notice = "The order record was created successfully."
+    #   redirect_to @customer
+    # else
+    #   flash.now.alert = @order.errors.full_messages.to_sentence
+    #   render :edit
+    # end
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @customer = Customer.find params[:customer_id]
+      @order = @customer.orders.new(order_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
+
     @customer = Customer.find params[:customer_id]
     @order = @customer.orders.new(order_params)
     if @order.save
@@ -32,15 +101,25 @@ class OrdersController < ApplicationController
       redirect_to @customer
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
-      render :edit
+      render :new
     end
   end
 
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
   def update
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      # @customer = Customer.find params[:customer_id]
+      @order.update(order_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     if @order.update(order_params)
-      flash.notice = "The order record was updated successfully."
+      flash.notice = "The customer record was updated successfully."
       redirect_to @order.customer
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
@@ -51,9 +130,25 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    # @customer = @order.customer
+    # @order.destroy
+    # redirect_to @customer, notice: "The order was successfully deleted."
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @customer = @order.customer
+      @order.destroy
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @customer = @order.customer
     @order.destroy
-    redirect_to @customer, notice: "The order was successfully deleted."
+    respond_to do |format|
+      format.html { redirect_to @customer, notice: "The order was successfully deleted." }
+      format.json { head :no_content }
+    end
   end
 
   private
