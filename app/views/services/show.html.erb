@@ -37,6 +37,7 @@
       </figure>
     </p> 
     <%# Orders for this service %>
+    <% if admin? || intern? %>
     <h2 class="title mb-5 display-4" style="text-align:center">Orders</h2>
     <div class="table-responsive card mb-5">
     <table class="table table-hover">
@@ -62,7 +63,7 @@
       </tbody>
     </table>
     </div>
-
+    <% end %>
       <%# Nearby Locations 25m %>
     <h2>Nearby Services (25 miles) </h2>
     <ul>
