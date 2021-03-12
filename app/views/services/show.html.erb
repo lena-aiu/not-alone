@@ -38,13 +38,13 @@
     </p> 
     <%# Orders for this service %>
     <% if admin? || intern? %>
-    <h2 class="title mb-5 display-4" style="text-align:center">Orders</h2>
+    <h2 class="title mb-5 display-4" style="text-align:center"><%= t ("Orders")%></h2>
     <div class="table-responsive card mb-5">
     <table class="table table-hover">
       <thead class="cf">
         <div class="row">
           <tr>
-          <strong><th class="h2" style="background:none;"> <%= t ('Cient Name') %></th></strong>
+          <strong><th class="h2" style="background:none;"> <%= t ('Cient') %></th></strong>
           <strong><th class="h2" style="background:none;"> <%= t ('Service Kind') %></th></strong>
           <strong><th class="h2" style="background:none;"> <%= t ('Order Category') %></th></strong>
           <strong><th class="h2" style="background:none;"> <%= t ('Description') %></th></strong>
@@ -64,11 +64,11 @@
     </table>
     </div>
     <% end %>
-      <%# Nearby Locations 25m %>
-    <h2>Nearby Services (25 miles) </h2>
+    <%# Nearby Locations 25m %>
+    <h2><%= t ("nearby")%> </h2>
     <ul>
       <% for location in @service.nearbys(25) %>
-        <li>Service: <%= link_to location.name, location %>, Address: <%=location.address%> (<%= location.distance.round(2) %> miles) </li>
+        <li><strong><%= t ("service")%></strong> <%= link_to location.name, location %>, <strong><%= t ("address")%></strong> <%=location.address%> (<%= location.distance.round(2) %> <strong><%= t ("miles")%></strong>) </li>
       <% end %>
     </ul>
 
