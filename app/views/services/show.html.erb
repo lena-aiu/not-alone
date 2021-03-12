@@ -28,10 +28,7 @@
       <%= @service.state %><br>
       <strong><%= t ("Zip")%></strong>
       <%= @service.zip %><br>
-
     </p>
-    
-
     <p>
       <figure class="picture is-128x128">
         <% if @service.picture.attached? %>
@@ -39,27 +36,36 @@
         <% end %>
       </figure>
     </p> 
-    </div>
-    </div>
-    <%# <figure class="picture is-128x128">
-      <%= image_tag(url_for(@service.picture.attach(params[:picture]))) %>
-    <%# </figure> %> 
-    <%# property.pictures.first.image.url(:thumb) unless property.pictures.first.nil? %>
-    <%# <%= image_tag(url_for(@service.picture)) unless @service.picture.first.nil?%>
-    <%# <%= rails_blob_path(service.picture, disposition: "attachment") %> 
-    <%# <%= image_tag url_for(projet.images[0].variant(resize: "400x400")) if projet.images.length > 0 %>
-    <%# <%= image_tag(url_for(projet.images[0].variant(resize: "400x400")), class:"background") if projet.images.length > 0 %> 
+      <%# Nearby Locations 25m %>
+    <ul>
+      <% for location in @service.nearbys(25) %>
+        <li>Service: <%= link_to location.name, location %>, Address: <%=location.address%> (<%= location.distance.round(2) %> miles) </li>
+      <% end %>
+    </ul>
 
-
+  </div>
+  </div>
+  
   <div class="container">
   <h2><strong>Nearby Locations</strong></h2>
-     <ul>
-       <% for location in @service.nearbys(50) %>
-         <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles) </li> 
-       <% end %>
-     </ul>
-   </div>
+     <div style='width: 800px;'>
+       <div id="map" style='width: 800px; height: 400px;'></div>
+     </div>
+     <script type="text/javascript">
+       handler = Gmaps.build('Google');
+       handler.buildMap({
+       provider: {},
+       internal: {
+        id: 'map'
+        }
+       }, function () {
+          markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+     </script>
+   </div>
 
     <% if admin? || intern? %>
       <%= link_to t('edit'), edit_service_path(@service), :class => "btn btn-primary btn-sm", :style => "color: white" %>
@@ -69,4 +75,4 @@
     <% end %><br><br>
 
     <%= social_share_button_tag(@service.url)%>
-    </div>
+</div>

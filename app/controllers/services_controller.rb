@@ -1,7 +1,6 @@
 class ServicesController < ApplicationController
   include ApplicationHelper
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-  #layout 'service_layout'
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_user_authorized?, except: [:show, :index]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
@@ -13,15 +12,6 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    if params[:search].present?
-      #services = Service.search_name(params[:query])
-      byebug
-      @services = Service.near(params[:search], 2, :order => :distance) 
-    else
-      byebug
-      @services = Service.all
-    end
-
     @services = Service.all
     @hash = Gmaps4rails.build_markers(@services) do |service, marker|
       marker.lat service.latitude
@@ -33,8 +23,6 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    #@picture = Service.find(params[:picture])
-    #@picture = Service.find.params[:picture]
     @hash = Gmaps4rails.build_markers(@service) do |service, marker|
       marker.lat service.latitude
       marker.lng service.longitude
@@ -49,8 +37,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
-    #byebug
-    #@picture = Service.find(params[:picture])
+
   end
 
   # POST /services
@@ -60,7 +47,6 @@ class ServicesController < ApplicationController
     if @service.save
       if params[:service][:picture].present?
         @service.picture.attach(params[:service][:picture])
-        #@service.picture.attach(@picture)
       end
       flash.notice = "The service record was created successfully."
       redirect_to @service
@@ -74,16 +60,12 @@ class ServicesController < ApplicationController
   # PATCH/PUT /customers/1.json
   def update
     if @service.update(service_params)
-      # byebug
       if params[:service][:picture].present?
-        # byebug
         @service.picture.attach(params[:service][:picture])
-        #@service.picture.attach(@picture)
       end
       flash.notice = "The service record was updated successfully."
       redirect_to @service
     else
-      # byebug
       flash.now.alert = @service.errors.full_messages.to_sentence
       render :edit
     end
@@ -103,7 +85,6 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
-      #@picture = Service.find(params[:picture])
     end
 
     # Only allow a list of trusted parameters through.

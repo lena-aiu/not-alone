@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 <h1 class="title mt-5 mb-5 display-3" style="text-align: center;">Services</h1>
-
-<div class="table-responsive card mb-5">
-    <%= form_tag services_path, :method => :get do %>
-    <%byebug%>
-  <p>
-  <%= text_field_tag :search, params[:search] %>
-  <%byebug%>
-  <%= submit_tag "Search Near", :name => nil %>
-  </p>
-<% end %>
     <%# <h1>Services</h1> %>
     <div id="no-more-tables">
     <table class="table table-hover table-condensed cf">
@@ -21,8 +11,8 @@
             <th class="h2" style="background:none;"><%= t ('Description') %></th>
             <th class="h2" style="background:none;"><%= t ('Type') %></th>
             <th class="h2" style="background:none;"><%= t ('Phone') %></th>
-            <th class="h2" style="background:none;"><%= t ('Latitude') %></th>
-            <th class="h2" style="background:none;"><%= t ('Longitude') %></th>
+            <th class="h2" style="background:none;"><%= t ('Latitude')%></th> 
+            <th class="h2" style="background:none;"><%= t ('Longitude')%></th>
             <th class="h2" style="background:none;"><%= t ('Street') %></th>
             <th class="h2" style="background:none;"><%= t ('City') %></th>
             <th class="h2" style="background:none;"><%= t ('State') %></th>
@@ -41,7 +31,6 @@
         <% @services.each do |service| %>
           <div class="row">
             <tr>
-            
               <td><%= link_to service.name, service.url, :target => "_blank"  %></td>
               <td><%= service.description %></td>
               <td><%= service.kind %></td>
@@ -78,9 +67,10 @@
     <% if admin? || intern? %>
       <%= link_to (t'New Service'), new_service_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
     <% end %>
+<p></p>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="container" style='width=800px;'>
+  <div id="map" style='margin-left:10%; width: 800px; height: 400px;'></div>
 </div>
 
 <script type="text/javascript">
@@ -97,6 +87,8 @@
           handler.fitMapToBounds();
         });
 </script>
-
-
+<%# <script> %>
+    <%# markers = handler.addMarkers(<%=raw @hash.to_json %>
+    <%# ); %> 
+<%# </script> %>
 
