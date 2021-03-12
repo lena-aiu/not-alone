@@ -1,16 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Orders", type: :request do
-  describe "sign in" do
-    it "signs user in and out" do
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
-      sign_in user
-      get root_path
-      expect(response).to render_template(:index)
-    end
-  end
-
-  describe "get order_path" do
+  describe "get order_path for an administrator role" do
     it "renders the :show template" do
       order = FactoryBot.create(:order)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
@@ -18,14 +9,16 @@ RSpec.describe "Orders", type: :request do
       get order_path(id: order.id)
       expect(response).to render_template(:show)
     end
+  end
 
-    # it "renders the :show template - redirects to the index path if the order id is invalid" do
-    #   order = FactoryBot.create(:order)
-    #   user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
-    #   sign_in user
-    #   get order_path(id: 1000)
-    #   expect(response).to redirect_to customers_path
-    # end
+  describe "get order_path for a volunteer role" do
+    it "renders the customer path" do
+      order = FactoryBot.create(:order)
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "volunteer")
+      sign_in user
+      get order_path(id: order.id)
+      expect(response).to redirect_to customers_path
+    end
   end
 
   describe "get edit_order_path" do

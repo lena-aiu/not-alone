@@ -29,7 +29,8 @@ class AssignmentsController < ApplicationController
   def update
     if @assignment.update(assignment_params)
       flash.notice = "The assignment record was updated successfully."
-      redirect_to assignment_path(@assignment)
+      redirect_to @assignment.customer
+      # redirect_to assignment_path(@assignment)
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
       render :edit
@@ -47,12 +48,12 @@ class AssignmentsController < ApplicationController
 
   private
   def set_assignment
-    @assignment = Assignment.find(params[:id])
     if params[:customer_id].nil?
       @customer=nil
-      else
+    else
       @customer=Customer.find(params[:customer_id])
     end
+    @assignment = Assignment.find(params[:id])
   end
 
   def assignment_params
@@ -62,10 +63,10 @@ class AssignmentsController < ApplicationController
   def catch_not_found(e)
     Rails.logger.debug("We had a not found exception.")
     flash.alert = e.to_s
-    if @customer.nil?
-      redirect_to customers_path
-    else
+    if !@customer.nil?
       redirect_to @customer
+    else
+      redirect_to customer_path
     end
   end
 end
