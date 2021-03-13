@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
   def update
     if @order.update(order_params)
       flash.notice = "The order record was updated successfully."
-      redirect_to @order.customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit

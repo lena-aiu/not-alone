@@ -30,7 +30,7 @@ class AssignmentsController < ApplicationController
   def update
     if @assignment.update(assignment_params)
       flash.notice = "The assignment record was updated successfully."
-      redirect_to @assignment.customer
+      redirect_to @assignment
       # redirect_to assignment_path(@assignment)
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
