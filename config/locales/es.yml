@@ -2,7 +2,7 @@ es:
   en: English
   es: Spanish
   language: Lenguaje
-
+  
   log_in: Iniciar sesion
   #sign_up: Inscribirse
   log_out: Terminar sesion
@@ -23,7 +23,7 @@ es:
     models:
       user:
         one: 'Usuario'
-        other: 'Usuarios'
+        other: 'Usuarios'  
       customer:
         one: 'Cliente'
         other: 'Clientes'
@@ -39,7 +39,7 @@ es:
       category:
         one: 'Category'
         other: 'Categories'
-    attributes:
+    attributes:  
       user:
         login: 'Iniciar Sesión'
         email: 'Correo electrónico'
@@ -60,7 +60,7 @@ es:
         state: 'Estado'
         zip: 'Codigo postal'
         back: "Regresar"
-      order:
+      order: 
         description: 'Descripción'
       service:
         name: 'Nombre'
@@ -80,7 +80,7 @@ es:
         show: "Mostrar %{model}"
         edit: "Editar %{model}"
         update: "Actualizar %{model}"
-
+       
       service:
         create: "Crear %{model}"
         show: "Mostrar %{model}"
@@ -110,3 +110,14 @@ es:
     videos: Videos
     quizzes: Cuestionarios
     connect: Conéctate con nosotros
+    
+
+
+  
+
+
+
+ 
+
+  
+     

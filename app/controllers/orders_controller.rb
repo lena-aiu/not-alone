@@ -5,11 +5,6 @@ class OrdersController < ApplicationController
 
   # GET /orders
   # GET /orders.json
-  def index
-    @customer = Customer.find params[:customer_id]
-    @orders = Order.all
-  end
-
   def show
   end
 
