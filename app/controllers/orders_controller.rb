@@ -5,11 +5,6 @@ class OrdersController < ApplicationController
 
   # GET /orders
   # GET /orders.json
-  def index
-    @customer = Customer.find params[:customer_id]
-    @orders = Order.all
-  end
-
   def show
   end
 
@@ -29,7 +24,7 @@ class OrdersController < ApplicationController
     @order = @customer.orders.new(order_params)
     if @order.save
       flash.notice = "The order record was created successfully."
-      redirect_to @customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit
@@ -41,7 +36,7 @@ class OrdersController < ApplicationController
   def update
     if @order.update(order_params)
       flash.notice = "The order record was updated successfully."
-      redirect_to @order.customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit

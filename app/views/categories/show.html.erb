@@ -10,7 +10,7 @@
       <%= @category.description %>
     </p>
     
-    <% if admin? || intern? %>
+    <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
       <%= link_to 'edit', edit_category_path(@category), :class => "btn btn-primary btn-sm", :style => "color: white" %>
       <%= link_to 'back', categories_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
     <% else %>
