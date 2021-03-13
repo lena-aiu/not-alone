@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     @order = @customer.orders.new(order_params)
     if @order.save
       flash.notice = "The order record was created successfully."
-      redirect_to @customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit
