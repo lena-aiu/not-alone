@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
+  include ApplicationHelper
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :is_user_authorized_order?
 
   # GET /orders
   # GET /orders.json
@@ -75,5 +77,35 @@ class OrdersController < ApplicationController
       else
         redirect_to customers_path
       end
+    end
+
+    def admin?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("administrator")
+    end
+
+    def intern?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("intern")
+    end
+
+    def volunteer?
+      if current_user.nil?
+        return false
+      end
+      if current_user.role.nil?
+        return false
+      end
+      current_user.role.include?("volunteer")
     end
 end
