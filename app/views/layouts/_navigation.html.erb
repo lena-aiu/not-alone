@@ -21,11 +21,17 @@
                 <%= t('nav_links.services') %>
               <% end %>
             </li>
-            <li class='nav-item'>
-              <%= link_to customers_path, class: 'nav-link'  do %>
-                <%= t('nav_links.customers') %>
-              <% end %>
-            </li>
+            <%# <% <% if current_user.include?("administrator") || current_user.include?("intern") || current_user.include?("volunteer") %>
+           <% if current_user.nil? %>
+
+           <% else %>
+               <li class='nav-item'>
+                  <%= link_to customers_path, class: 'nav-link'  do %>
+                     <%= t('nav_links.customers') %>
+                  <% end %>
+               </li>
+
+             <% end %>
     			  <li class='nav-item'>
               <%= link_to videos_path, class: 'nav-link'  do %>
                 <%= t('nav_links.videos') %>
