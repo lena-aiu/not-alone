@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1 class="title mt-5 mb-5 display-3" style="text-align: center;">Services</h1>
-<div class="table-responsive card mb-5">
+<h1 class="title mt-5 mb-5 display-3" style="text-align: center;"><%= t ('Services') %></h1>
     <%# <h1>Services</h1> %>
     <div id="no-more-tables">
     <table class="table table-hover table-condensed cf">
@@ -12,6 +11,12 @@
             <th class="h2" style="background:none;"><%= t ('Description') %></th>
             <th class="h2" style="background:none;"><%= t ('Type') %></th>
             <th class="h2" style="background:none;"><%= t ('Phone') %></th>
+            <th class="h2" style="background:none;"><%= t ('Latitude')%></th> 
+            <th class="h2" style="background:none;"><%= t ('Longitude')%></th>
+            <th class="h2" style="background:none;"><%= t ('Street') %></th>
+            <th class="h2" style="background:none;"><%= t ('City') %></th>
+            <th class="h2" style="background:none;"><%= t ('State') %></th>
+            <th class="h2" style="background:none;"><%= t ('Zip') %></th>
             <th class="h2" style="background:none;"><%= t ('Picture') %></th>
             <% if admin? || intern? %>
               <th colspan="3" style="background:none;"></th>
@@ -26,11 +31,16 @@
         <% @services.each do |service| %>
           <div class="row">
             <tr>
-            
               <td><%= link_to service.name, service.url, :target => "_blank"  %></td>
               <td><%= service.description %></td>
               <td><%= service.kind %></td>
               <td><%= service.phone_number %></td>
+              <td><%= service.latitude %></td>
+              <td><%= service.longitude %></td>
+              <td><%= service.street %></td>
+              <td><%= service.city %></td>
+              <td><%= service.state %></td>
+              <td><%= service.zip %></td>
               <td>
                 <figure class="picture is-128x128">
                 <% if service.picture.attached? %>
@@ -51,10 +61,34 @@
       </tbody>
     </table>
     </div>
-    </div>
+</div>
     <br>
 
     <% if admin? || intern? %>
       <%= link_to (t'New Service'), new_service_path, :class => "btn btn-primary btn-lg", :style => "margin-left: 14px; color: white" %>
     <% end %>
+<p></p>
+
+<div class="container" style='width=800px;'>
+  <div id="map" style='margin-left:10%; width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+        handler = Gmaps.build('Google');
+        handler.buildMap({
+          provider: {},
+          internal: {
+            id: 'map'
+          }
+        }, function () {
+          markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+</script>
+<%# <script> %>
+    <%# markers = handler.addMarkers(<%=raw @hash.to_json %>
+    <%# ); %> 
+<%# </script> %>
 

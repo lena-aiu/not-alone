@@ -1,2 +1,2 @@
-json.extract! service, :id, :name, :description, :kind, :phone_number, :url, :picture, :created_at, :updated_at
+json.extract! service, :id, :name, :description, :kind, :phone_number, :url, :latitude, :longitude, :street, :city, :state, :zip, :picture, :created_at, :updated_at
 json.url customer_url(service, format: :json)

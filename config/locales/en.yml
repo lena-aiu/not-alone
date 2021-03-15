@@ -39,7 +39,7 @@ en:
   foot1: 2020 Domestic Violence Project
   foot2: Practicum by Code The Dream
   emergencia: Emergency(911)
-  hotline: Link to National Domestic Violence
+  hotline: Link to National Domestic Violence 
   connect: Connect with Us
   urlhotline: https://www.thehotline.org/
   other: Other Help
@@ -49,12 +49,7 @@ en:
   sexual: Sexual Assault & Domestic Violence
   grief: Coping with Grief and Loss
   substance: Substance Abuse Help
-  nav_links:
-    home: Home
-    about: About us
-    services: Services
-    customers: Clients
-    orders: Orders
-    videos: Videos
-    quizzes: Quizzes
-    connect: Connect with us
+
+
+
+  

@@ -5,24 +5,6 @@ class OrdersController < ApplicationController
 
   # GET /orders
   # GET /orders.json
-  def index
-    # @customer = Customer.find params[:customer_id]
-    # @orders = Order.all
-    if current_user.role.nil?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
-      @customer = Customer.find params[:customer_id]
-      @orders = Order.all
-    elsif current_user.role.include?("volunteer")
-      @customer = Customer.find params[:customer_id]
-      @orders = current_user.orders
-    else
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    end
-  end
-
   def show
     if current_user.role.nil?
       flash.notice = "You are not authorized for that operation."
@@ -98,7 +80,7 @@ class OrdersController < ApplicationController
     @order = @customer.orders.new(order_params)
     if @order.save
       flash.notice = "The order record was created successfully."
-      redirect_to @customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :new
@@ -119,8 +101,8 @@ class OrdersController < ApplicationController
       redirect_to home_index_path
     end
     if @order.update(order_params)
-      flash.notice = "The customer record was updated successfully."
-      redirect_to @order.customer
+      flash.notice = "The order record was updated successfully."
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit

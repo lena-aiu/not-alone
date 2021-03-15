@@ -36,6 +36,8 @@ gem 'aws-sdk-s3', require: false
 gem 'active_storage_validations'
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
+gem 'gmaps4rails'
+gem 'geocoder'
 
 
 # Use ActiveStorage variant
