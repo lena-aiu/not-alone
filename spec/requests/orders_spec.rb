@@ -17,11 +17,12 @@ RSpec.describe "Orders", type: :request do
     end
     it "renders the :show template for a volunteer role" do
       order = FactoryBot.create(:order)
+      customer = FactoryBot.create(:customer)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", 
         password_confirmation: "Pa$$word20", role: "volunteer")
       sign_in user
       get order_path(id: order.id)
-      expect(response).to render_template(:show)
+      expect(response).to redirect_to home_index_path
     end
     it "redirects to the customer index path if the order id is invalid" do
       order = FactoryBot.create(:order)
@@ -65,13 +66,13 @@ RSpec.describe "Orders", type: :request do
       expect(response.status).to eq(200)
       expect(response).to render_template(:edit)
     end
-    it "doesn't renders the :edit template for a nil role" do
+    it "doesn't render the :edit template for a nil role" do
       order = FactoryBot.create(:order)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", 
         password_confirmation: "Pa$$word20", role: nil)
       sign_in user
       get edit_order_path(id: order.id)
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to home_index_path
     end
     it "redirects to the new_user_session_path if a user is not logged in" do
       order = FactoryBot.create(:order)

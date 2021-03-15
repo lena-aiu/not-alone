@@ -67,7 +67,7 @@ class AssignmentsController < ApplicationController
     if !@customer.nil?
       redirect_to @customer
     else
-      redirect_to customer_path
+      redirect_to customers_path
     end
   end
 end

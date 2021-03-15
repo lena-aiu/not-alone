@@ -4,19 +4,17 @@ module ApplicationHelper
       if intern? || admin?
         return 
       else
-        flash[:error] = "You are not authorize for this operation."
+        flash[:error] = "You are not authorized for this operation."
         redirect_to services_path
       end
   end
 
-  def is_user_authorized_order?
+  def is_user_authorized_order
     if intern? || admin?
-      return 
-    elsif volunteer?
-      @customers = current_user.customers
+      return
     else
-      flash[:error] = "You are not authorize for this operation."
-      redirect_to new_user_session_path
+      flash[:error] = "You are not authorized for this operation."
+      redirect_to home_index_path
     end
   end
 

@@ -1,13 +1,20 @@
+require 'application_controller.rb'
+
 class OrdersController < ApplicationController
+  # include ApplicationController
   include ApplicationHelper
+
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :is_user_authorized_order?
+  before_action :is_user_authorized_order, except: [:show]
 
   # GET /orders
   # GET /orders.json
   def show
+
+    # logic to see if a user is an adm || intern then can see all 
+    # volunteer - only show for assigned customers
   end
 
   def new
@@ -77,35 +84,5 @@ class OrdersController < ApplicationController
       else
         redirect_to customers_path
       end
-    end
-
-    def admin?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("administrator")
-    end
-
-    def intern?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("intern")
-    end
-
-    def volunteer?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("volunteer")
     end
 end
