@@ -1,3 +1,5 @@
+require 'faker'
+
 FactoryBot.define do
   factory :assignment do
     association :customer
