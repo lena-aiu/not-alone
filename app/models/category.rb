@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
-  has_many :orders 
+  has_many :orders, dependent: :destroy
 end
