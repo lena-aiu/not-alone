@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def is_user_authorized?
       if intern? || admin?
-        return 
+        return
       else
         flash[:error] = "You are not authorized for this operation."
         redirect_to services_path
