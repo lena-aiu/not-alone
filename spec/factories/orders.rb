@@ -1,3 +1,5 @@
+require 'faker'
+
 FactoryBot.define do
   factory :order do
     # product_name { "MyString" }

@@ -10,4 +10,33 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  def admin?
+    if current_user.nil?
+      return false
+    end
+    if current_user.role.nil?
+      return false
+    end
+    current_user.role.include?("administrator")
+  end
+
+  def intern?
+    if current_user.nil?
+      return false
+    end
+    if current_user.role.nil?
+      return false
+    end
+    current_user.role.include?("intern")
+  end
+
+  def volunteer?
+    if current_user.nil?
+      return false
+    end
+    if current_user.role.nil?
+      return false
+    end
+    current_user.role.include?("volunteer")
+  end
 end

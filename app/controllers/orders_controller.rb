@@ -1,11 +1,20 @@
+require 'application_controller.rb'
+
 class OrdersController < ApplicationController
+  # include ApplicationController
+  include ApplicationHelper
+
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :is_user_authorized_order, except: [:show]
 
   # GET /orders
   # GET /orders.json
   def show
+
+    # logic to see if a user is an adm || intern then can see all 
+    # volunteer - only show for assigned customers
   end
 
   def new

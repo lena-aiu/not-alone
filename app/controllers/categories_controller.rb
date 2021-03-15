@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   include ApplicationHelper
+  
   before_action :authenticate_user!
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
