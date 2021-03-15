@@ -49,6 +49,7 @@
             <td><%= link_to (t'show'), order, :class => "btn btn-outline-primary btn-sm" %></td>
             <td><%= link_to (t'edit'), edit_order_path(order), :class => "btn btn-outline-primary btn-sm" %></td>
             <td><%= link_to (t'delete'), order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+            <td><%= link_to 'New Client Order', new_customer_order_path(@customer), :class => "btn btn-outline-primary btn-sm"  %></td>
           <% end %>
           <% if current_user.role.include?("volunteer") %>
             <td><%= order.customer.full_name %></td>
@@ -88,6 +89,7 @@
             <td><%= link_to 'Show', assignment, :class => "btn btn-outline-primary btn-sm" %></td>
             <td><%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-outline-primary btn-sm" %></td>
             <td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+            <td><%= link_to 'New Client Assignment', new_customer_assignment_path(@customer), :class => "btn btn-outline-primary btn-sm"  %></td>
           <% end %>
           <% if current_user.role.include?("volunteer") %>
             <td><%= assignment.user.email %></td>
