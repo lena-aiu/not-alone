@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<h1 class="title mt-5 mb-5 display-3" style="text-align: center;">User Rolles</h1>
+<div class="table-responsive card mb-5">
+    <table class="table table-hover">
+      <thead>
+        <div class="row">
+          <tr>
+            <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;">User</th> 
+            <th class="h2" style="background:none;">Admin</th>
+            <th class="h2" style="background:none;">Intern</th>
+            <th class="h2" style="background:none;">Volunteer</th>
+            <% if admin? || intern? %>
+              <th colspan="3" style="background:none;"></th>
+            <% else %>
+                <th colspan="1"></th>
+            <% end %>
+          </tr>
+        </div>
+      </thead>
+
+      <tbody>
+        <% @user_rolles.each do |user_rolle| %>
+          <div class="row">
+            <tr>
+            
+              <td><%= user_rolle.user %></td>
+              <td><%= user_rolle.admin %></td>
+              <td><%= user_rolle.intern %></td>
+              <td><%= user_rolle.volunteer %></td>
+              <% if admin? || intern? %>
+                <td><%= link_to 'edit', edit_user_rolle_path(user_rolle), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'delete', user_rolle, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+              <% end %>
+            </tr>
+          </div>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <br>
+
+    <% if admin? || intern? %>
+    <% end %>
