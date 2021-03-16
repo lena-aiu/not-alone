@@ -1,4 +1,4 @@
-require 'application_controller.rb'
+# require 'application_controller.rb'
 
 class OrdersController < ApplicationController
   # include ApplicationController
