@@ -1,41 +1,90 @@
 class CategoriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
+  include ApplicationHelper
   
-  helper_method :admin?
-  helper_method :intern?
+  before_action :authenticate_user!
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    if current_user.role.nil? || current_user.role.include?("volunteer")
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @categories = Category.all
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def show
+    if current_user.role.nil? || current_user.role.include?("volunteer")
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      render :show
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def new
-    @category = Category.new
-    #byebug
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @category = Category.new
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def edit
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      render :edit
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def create
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @category = Category.new(category_params) 
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @category = Category.new(category_params) 
     if @category.save
-      flash.notice = "The category record was created successfully."
-      redirect_to @category #check
+      flash.notice = "The customer record was created successfully."
+      redirect_to @category
     else
       flash.now.alert = @category.errors.full_messages.to_sentence
-      render :new
+      render :new  
     end
   end
 
   def update
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @category.update(category_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     if @category.update(category_params)
-      flash.notice = "The category record was updated successfully."
+      flash.notice = "The customer record was updated successfully."
       redirect_to @category
     else
       flash.now.alert = @category.errors.full_messages.to_sentence
@@ -44,6 +93,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @category.destroy
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @category.destroy
     respond_to do |format|
       format.html { redirect_to categories_path, notice: 'Category was successfully destroyed.' }
@@ -66,25 +124,5 @@ class CategoriesController < ApplicationController
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
       redirect_to categories_path
-    end
-
-    def admin?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("administrator")
-    end
-
-    def intern?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("intern")
     end
 end

@@ -1,16 +1,20 @@
+require 'application_controller.rb'
+
 class OrdersController < ApplicationController
+  # include ApplicationController
+  include ApplicationHelper
+
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :is_user_authorized_order, except: [:show]
 
   # GET /orders
   # GET /orders.json
-  def index
-    @customer = Customer.find params[:customer_id]
-    @orders = Order.all
-  end
-
   def show
+
+    # logic to see if a user is an adm || intern then can see all 
+    # volunteer - only show for assigned customers
   end
 
   def new
@@ -29,7 +33,7 @@ class OrdersController < ApplicationController
     @order = @customer.orders.new(order_params)
     if @order.save
       flash.notice = "The order record was created successfully."
-      redirect_to @customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit
@@ -41,7 +45,7 @@ class OrdersController < ApplicationController
   def update
     if @order.update(order_params)
       flash.notice = "The order record was updated successfully."
-      redirect_to @order.customer
+      redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit
