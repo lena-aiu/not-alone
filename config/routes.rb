@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     resources :services
     resources :videos
     resources :categories
+    resources :contacts, only: [:new, :create]
+    #get 'home/contacts', to: 'home#contacts', as: 'contacts'
+    #get 'home/contacts/new', to: 'home#contacts#new'
+    #post 'home/contacts', to: 'home#contacts', as: 'contacts'
+    #get 'home/contacts', to: 'home#contacts'
   end
 end
 

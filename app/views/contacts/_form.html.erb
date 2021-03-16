@@ -1,0 +1,45 @@
+<div class= "container-fluid">
+<%# <%= form_with(model: contact, local: true) do |f|  %> 
+<%= form_for(contact) do |f| %> 
+  <% if contact.errors.any? %>
+    <div id="error_explanation" class="my_alert">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited to send:</h2>
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group col">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, class: 'form-control' %>  
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :email %>
+    <%= f.text_field :email, required: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :message %>
+    <%= f.text_area :message, as: :text, class: 'form-text' %>
+  </div>
+
+  <div class="hidden">
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname, hint: 'leave this field blank' %>  
+  </div> 
+   
+  <div class="form-group col">
+    <div> 
+    <%# class="actions" %>
+      <%= f.submit 'Send Message', class: "button" %>
+    </div>
+  </div>
+
+<% end %>
+</div>
+
+
