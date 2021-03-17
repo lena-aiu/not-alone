@@ -1,5 +1,22 @@
-<h1>Contact Us</h1>
+<div class="container-fluid">
+  <br>
+  <br>
+  <div class="p-3 mb-2 border border-dark rounded">
+    <h1 class="text-black text-center"><%= t ('contact.thank') %></h1>
+    <h2 class="text-black text-center"><%= t ('contact.important') %></h2>
+    <h2 class="text-black text-center"><%= t ('contact.message') %></h2>    
+  </div>
+</div>
 <%= render 'form', contact: @contact %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const goback=document.getElementById('goback');
+    goback.addEventListener('click', (event2) => {
+      window.history.go(-1);
+    });
+  });
+</script>
 
 
 

@@ -1,6 +1,5 @@
 <div class= "container-fluid">
-<%# <%= form_with(model: contact, local: true) do |f|  %> 
-<%= form_for(contact) do |f| %> 
+<%= form_with(model: contact, local: true) do |f| %>
   <% if contact.errors.any? %>
     <div id="error_explanation" class="my_alert">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited to send:</h2>
@@ -34,7 +33,6 @@
    
   <div class="form-group col">
     <div> 
-    <%# class="actions" %>
       <%= f.submit 'Send Message', class: "button" %>
     </div>
   </div>
