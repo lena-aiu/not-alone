@@ -38,6 +38,7 @@ gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 
 # Use ActiveStorage variant

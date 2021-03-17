@@ -19,7 +19,7 @@ class ServicesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@services) do |service, marker|
       marker.lat service.latitude
       marker.lng service.longitude
-      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' targe='_blank'>#{service.name}</a>"
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
     end
   end
 
@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@service) do |service, marker|
       marker.lat service.latitude
       marker.lng service.longitude
-      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' targe='_blank'>#{service.name}</a>"
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
     end
   end
 
