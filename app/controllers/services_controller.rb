@@ -1,5 +1,8 @@
+require 'application_controller.rb'
+
 class ServicesController < ApplicationController
   include ApplicationHelper
+
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_user_authorized?, except: [:show, :index]
@@ -16,7 +19,7 @@ class ServicesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@services) do |service, marker|
       marker.lat service.latitude
       marker.lng service.longitude
-      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' targe='_blank'>#{service.name}</a>"
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
     end
   end
 
@@ -26,7 +29,7 @@ class ServicesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@service) do |service, marker|
       marker.lat service.latitude
       marker.lng service.longitude
-      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' targe='_blank'>#{service.name}</a>"
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
     end
   end
 
@@ -96,25 +99,5 @@ class ServicesController < ApplicationController
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
       redirect_to services_path
-    end
-
-    def admin?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("administrator")
-    end
-
-    def intern?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("intern")
     end
 end

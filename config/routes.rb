@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :services
     resources :videos
     resources :categories
+    resources :contacts, only: [:new, :create]
   end
 end
 
