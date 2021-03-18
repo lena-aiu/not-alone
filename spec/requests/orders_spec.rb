@@ -16,13 +16,14 @@ RSpec.describe "Orders", type: :request do
       expect(response).to render_template(:show)
     end
     it "renders the :show template for a volunteer role" do
-      order = FactoryBot.create(:order)
       customer = FactoryBot.create(:customer)
+      order = FactoryBot.create(:order, customer_id: customer.id)
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20", 
         password_confirmation: "Pa$$word20", role: "volunteer")
+      assignment = FactoryBot.create(:assignment, customer_id: customer.id, user_id: user.id)
       sign_in user
       get order_path(id: order.id)
-      expect(response).to redirect_to home_index_path
+      expect(response).to render_template(:show)
     end
     it "redirects to the customer index path if the order id is invalid" do
       order = FactoryBot.create(:order)

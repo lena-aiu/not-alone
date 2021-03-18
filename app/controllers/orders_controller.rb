@@ -12,9 +12,22 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def show
-
-    # logic to see if a user is an adm || intern then can see all 
-    # volunteer - only show for assigned customers
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      render :show
+    elsif current_user.role.include?("volunteer")
+      if current_user.customers.include? @order.customer
+        render :show
+      else
+        flash.notice = "You are not authorized for that operation."
+        redirect_to home_index_path
+      end
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def new
