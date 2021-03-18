@@ -1,5 +1,3 @@
-# require 'application_controller.rb'
-
 class ServicesController < ApplicationController
   include ApplicationHelper
 

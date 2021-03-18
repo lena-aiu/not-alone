@@ -1,5 +1,3 @@
-# require 'application_controller.rb'
-
 class OrdersController < ApplicationController
   # include ApplicationController
   include ApplicationHelper
