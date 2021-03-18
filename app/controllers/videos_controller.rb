@@ -1,4 +1,4 @@
-require 'application_controller.rb'
+# require 'application_controller.rb'
 
 class VideosController < InheritedResources::Base
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
