@@ -87,7 +87,7 @@ class OrdersController < ApplicationController
       redirect_to @order
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
-      render :new
+      render :edit
     end
   end
 
