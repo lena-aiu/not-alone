@@ -1,8 +1,12 @@
+# require 'application_controller.rb'
+
 class CategoriesController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   include ApplicationHelper
+
+  rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :authenticate_user!
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :is_user_authorized_category
 
   def index
     if current_user.role.nil? || current_user.role.include?("volunteer")

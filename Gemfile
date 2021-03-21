@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
@@ -38,6 +38,7 @@ gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 
 # Use ActiveStorage variant

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :videos
     resources :categories
     resources :user_rolles
+    resources :contacts, only: [:new, :create]
   end
 end
 

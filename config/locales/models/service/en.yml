@@ -5,6 +5,10 @@ en:
 
   edit_service: Editing Service
   new_service: New Service
+  show: Show
+  back: Back
+  edit: Update
+  destroy: Delete
   nearby: Nearby Services (25 miles)
   service: Service
   address: Address

@@ -1,6 +1,8 @@
 class VideosController < InheritedResources::Base
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   include ApplicationHelper
+
+
   #layout 'video_layout'
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_user_authorized?, except: [:show, :index]
@@ -104,25 +106,5 @@ class VideosController < InheritedResources::Base
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
       redirect_to videos_path
-    end
-
-    def admin?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("administrator")
-    end
-
-    def intern?
-      if current_user.nil?
-        return false
-      end
-      if current_user.role.nil?
-        return false
-      end
-      current_user.role.include?("intern")
     end
 end
