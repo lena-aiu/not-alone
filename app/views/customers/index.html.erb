@@ -27,9 +27,9 @@
         <td><%= customer.state %></td>
         <td><%= customer.zip %></td>
         <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
-          <td><%= link_to 'Show', customer, :class => "btn btn-outline-primary btn-sm" %></td>
-          <td><%= link_to 'Edit', edit_customer_path(customer), :class => "btn btn-outline-primary btn-sm" %></td>
-          <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to (t'show'), customer, :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to (t'edit'), edit_customer_path(customer), :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to (t'delete'), customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
         <% end %>
         <% if current_user.role.include?("volunteer") %>
           <td><%= link_to 'Show', customer, :class => "btn btn-outline-primary btn-sm" %></td>

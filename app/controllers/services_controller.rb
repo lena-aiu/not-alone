@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :is_user_authorized?, except: [:show, :index]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  
+
   helper_method :admin?
   helper_method :intern?
   helper_method :is_user_authorized?
@@ -53,7 +53,7 @@ class ServicesController < ApplicationController
       redirect_to @service
     else
       flash.now.alert = @service.errors.full_messages.to_sentence
-      render :new
+      render :edit
     end
   end
 
