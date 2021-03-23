@@ -69,10 +69,10 @@ es:
     h3: Propósito de esta Aplicación
     p1: La violencia doméstica es un patrón de conductas coercitivas que involucra abuso físico o la amenaza de abuso físico.
     p2: También puede incluir abuso psicológico repetido, agresión, aislamiento social progresivo, privación, intimidación o coacción económica.
-    p3: La violencia doméstica es perpetrada por adultos o adolescentes contra sus parejas íntimas en relaciones actuales o anteriores, casadas o en cohabitación de heterosexuales, gays y lesbianas, bisexuales y transexuales.
-    p4: Los casos de violencia doméstica han experimentado un aumento en la tasa con el refugio en el lugar.
-    p5: En esta aplicación podrás encontrar algunos recursos disponibles. Puedes descubrir nuevos recursos y voluntarios de personas de la comunidad que quieren ayudarte con cualquier situación que puedas estar enfrentando.
-    p6: No estás solo. Podrá encontrar recursos de agencias y algunos buenos samaritanos de la sociedad podrán registrarse como voluntarios.
+    p3: La violencia doméstica es perpetrada por adultos o adolescentes contra sus parejas íntimas en relaciones de heterosexuales, gays, lesbianas, bisexuales y transexuales.
+    p4: Los casos de violencia doméstica han experimentado un aumento en la tasa durante la pandemia(COVID-19).
+    p5: En esta aplicación podrás encontrar algunos recursos disponibles, así como personas de la comunidad (voluntarios) que te brindarán ayuda.
+    p6: Recuerda, no estas solo(a). Deseamos con estos recursos puedas buscar y encontrar ayuda. Nadie merece ser abusado.
     p7: Esta aplicación fue creada por
     p8: Estudiantes de Code The Dream 
     p9: con ayuda del mentor John McGarvey
@@ -80,7 +80,9 @@ es:
     l2: Adriana Cabrera (creador de la aplicación)
     l3: Natalia Markova
     l4: Oksana Weigand-Suminski
-      
+ 
+
+
   health:
     quizz: Cuestionario de relaciones saludables
     description: Todos merecen tener una relación sana y segura. ¿Sabes si tu relación es sana? Responda sí o no a las siguientes preguntas para averiguarlo. Asegurte de marcar las casillas para registrar tus respuestas. Al final, descubrirás el resultado de tu prueba de acuerdo a tus respuestas.
