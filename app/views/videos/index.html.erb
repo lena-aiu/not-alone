@@ -21,9 +21,9 @@
         <td><%= video.title %></td>
         <td><%= video.description %></td>
         <% if admin? || intern? %>
-          <td><%= link_to 'Show', video, :class => "btn btn-outline-primary btn-sm" %></td>
-          <td><%= link_to 'Edit', edit_video_path(video), :class => "btn btn-outline-primary btn-sm" %></td>
-          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to (t'show'), video, :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to (t'edit'), edit_video_path(video), :class => "btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to (t'delete'), video, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
         <% else %>
           <td><%= link_to 'Show', video, :class => "btn btn-outline-primary btn-sm" %></td>
         <% end %>

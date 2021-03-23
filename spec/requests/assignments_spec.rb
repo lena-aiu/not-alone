@@ -9,7 +9,7 @@ RSpec.describe "Assignments", type: :request do
     end
     it "renders the :show template for an administrator role" do
       assignment = FactoryBot.create(:assignment)
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", 
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20",
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       get assignment_path(id: assignment.id)
@@ -17,7 +17,7 @@ RSpec.describe "Assignments", type: :request do
     end
     it "renders the :show template for a volunteer" do
       assignment = FactoryBot.create(:assignment)
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", 
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20",
         password_confirmation: "Pa$$word20", role: "volunteer")
       sign_in user
       get assignment_path(id: assignment.id)
@@ -47,7 +47,7 @@ RSpec.describe "Assignments", type: :request do
     it "redirects to the new_user_session_path if a user is not logged in" do
       customer = FactoryBot.create(:customer)
       assignment = FactoryBot.create(:assignment)
-      get new_customer_assignment_path(customer_id: customer.id, 
+      get new_customer_assignment_path(customer_id: customer.id,
         assignment_id: assignment.id)
       expect(response).to redirect_to new_user_session_path
     end
@@ -84,7 +84,8 @@ RSpec.describe "Assignments", type: :request do
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer = FactoryBot.create(:customer)
-      expect { post customer_assignments_path(customer_id: customer.id), params: {assignment: {user_id: user.id, status: "new"}}
+      expect { post customer_assignments_path(customer_id: customer.id),
+        params: {assignment: {user_id: user.id, status: "new"}}
     }.to change(Assignment, :count)
       expect(response).to redirect_to assignment_path(id: Assignment.last.id)
     end
@@ -92,7 +93,8 @@ RSpec.describe "Assignments", type: :request do
 
   describe "post assignments_path with invalid data" do
     it "doesn't save a new entry and render an edit template for the assignment" do
-      user = User.create(email: 'test@icloud.com', password: "Pa$$word20", password_confirmation: "Pa$$word20", role: "administrator")
+      user = User.create(email: 'test@icloud.com', password: "Pa$$word20",
+        password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       customer = FactoryBot.create(:customer)
       expect { post customer_assignments_path(customer_id: customer.id), params: {assignment: {status: "new"}}
@@ -108,7 +110,8 @@ RSpec.describe "Assignments", type: :request do
       sign_in user
       customer = FactoryBot.create(:customer)
       assignment = FactoryBot.create(:assignment)
-      put assignment_path(id: assignment.id), params: {assignment: {customer_id: customer.id, user_id: user.id, status: "new"}}
+      put assignment_path(id: assignment.id), params: {assignment: {customer_id: customer.id,
+        user_id: user.id, status: "new"}}
       assignment.reload
       expect(assignment.customer_id).to eq(customer.id)
       expect(assignment.user_id).to eq(user.id)
