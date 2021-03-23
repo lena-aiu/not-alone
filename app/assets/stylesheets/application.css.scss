@@ -40,7 +40,9 @@ a.btn.callout-button:hover {
 	margin-top: 15px;
 	margin-bottom: 50px;
 }
-
+// .jumbo{
+// 	width: calc(100% - 15px);
+// }
 .jumbo .img {
 	max-height: 100px;
 	max-width: 150px;
@@ -87,60 +89,6 @@ form button:not(.disabled):hover {
 	background-color: #007bff;
 	background-image: none;
 }
-
-@media only screen and (max-width: 1000px) {
-	/* Force table to not be like tables anymore */
-	div.table-responsive.card.mb-5 div#no-more-tables table,
-	div.table-responsive.card.mb-5 div#no-more-tables thead,
-	div.table-responsive.card.mb-5 div#no-more-tables tbody,
-	div.table-responsive.card.mb-5 div#no-more-tables th,
-	div.table-responsive.card.mb-5 div#no-more-tables td,
-	div.table-responsive.card.mb-5 div#no-more-tables tr {
-		display: block;
-	}
-
-	/* Hide table headers (but not display: none;, for accessibility) */
-	div.table-responsive.card.mb-5 div#no-more-tables thead tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-
-	div.table-responsive.card.mb-5 div#no-more-tables tr {
-		border: 1px solid #ccc;
-	}
-
-	div.table-responsive.card.mb-5 div#no-more-tables td {
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee;
-		position: relative;
-		padding-left: 50%;
-		white-space: normal;
-		text-align: left;
-	}
-
-	div.table-responsive.card.mb-5 div#no-more-tables td:before {
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%;
-		padding-right: 10px;
-		white-space: nowrap;
-		text-align: left;
-		font-weight: bold;
-	}
-
-	/*
-Label the data
-*/
-	div.table-responsive.card.mb-5 div#no-more-tables td:before {
-		content: attr(data-title);
-	}
-}
-
 .line {
 	width: 100%;
 	box-sizing: border-box;
@@ -150,11 +98,80 @@ Label the data
 	margin: 0;
 	display: inline-block;
 }
-.myclass {
-	max-height: 300px;
-  max-width: 300px;
-  display:inline-table;
-}
 .hidden{
   display: none;
 }
+#carouselExampleIndicators{
+	height: 100%;
+	min-height: 450px; 
+	#carouselExampleSlidesOnly{
+		height: calc(100% - 65px);
+	}
+	.carousel-inner, .carousel-item, img {
+		height: 100%;
+	}
+	.carousel-item {
+		position: relative;
+	}
+	.carousel-item img {
+		object-fit: cover;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	
+}
+@media only screen and (max-width: 800px) {
+    
+    /* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#no-more-tables tr { border: 1px solid #ccc; }
+ 
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		white-space: normal;
+		text-align:left;
+	}
+ 
+	#no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	/*
+	Label the data
+	*/
+	#no-more-tables td:before { content: attr(data-title); }
+}
+

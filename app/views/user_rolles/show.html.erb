@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
     <p>
+    <strong>User Email</strong>
+    <%= @user_rolle.email%>
+    </p>
+    <p>
       <strong>User Role</strong>
       <%= @user_rolle.role %>
     </p>
@@ -28,11 +32,6 @@
                 <td><%= link_to 'Show', assignment, :class => "btn btn-outline-primary btn-sm" %></td>
                 <td><%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-outline-primary btn-sm" %></td>
                 <td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
-              <% end %>
-              <% if current_user.role.include?("volunteer") %>
-                <td><%= assignment.user.email %></td>
-                <td><%= assignment.status %></td>
-                <td><%= link_to 'Show', assignment, :class => "btn btn-outline-primary btn-sm" %></td>
               <% end %>
             </tr>
           <% end %>
