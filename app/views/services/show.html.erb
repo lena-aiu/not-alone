@@ -37,7 +37,7 @@
       </figure>
     </p>
    <%# Orders for this service %>
-    <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+    <% if admin? || intern? %>
     <h2 class="title mb-5 display-4" style="text-align:center"><%= t ("Orders")%></h2>
     <div class="table-responsive card mb-5">
     <table class="table table-hover">
@@ -101,7 +101,7 @@
      </script>
    </div>
 
-    <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+    <% if admin? || intern? %>
       <%= link_to t('edit'), edit_service_path(@service), :class => "btn btn-primary btn-sm", :style => "color: white" %>
       <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
     <% else %>
