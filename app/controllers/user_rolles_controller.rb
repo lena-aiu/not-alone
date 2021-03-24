@@ -80,7 +80,6 @@ class UserRollesController < ApplicationController
 
       @user_rolle.update(role: role)
       flash.notice = "The user record was updated successfully."
-      byebug 
       redirect_to user_rolle_path(id: @user_rolle.id)
     else
       flash.notice = "You are not authorized for that operation."
