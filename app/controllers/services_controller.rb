@@ -13,33 +13,33 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    if current_user.role.nil? || current_user.role.include?("volunteer")
-      # flash.notice = "You are not authorized for that operation."
-      # redirect_to home_index_path
-      @services = Service.all
-      @hash = Gmaps4rails.build_markers(@services) do |service, marker|
-        marker.lat service.latitude
-        marker.lng service.longitude
-        marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
-      end
-    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
-      @services = Service.all
-      @hash = Gmaps4rails.build_markers(@services) do |service, marker|
-        marker.lat service.latitude
-        marker.lng service.longitude
-        marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
-      end
-    else
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    end
-    # if current_user.role.nil? || current_user.role.include?("volunteer") || current_user.role.include?("administrator") || current_user.role.include?("intern")
+    # if current_user.role.nil? || current_user.role.include?("volunteer")
+    #   # flash.notice = "You are not authorized for that operation."
+    #   # redirect_to home_index_path
     #   @services = Service.all
     #   @hash = Gmaps4rails.build_markers(@services) do |service, marker|
     #     marker.lat service.latitude
     #     marker.lng service.longitude
     #     marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
     #   end
+    # elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+    #   @services = Service.all
+    #   @hash = Gmaps4rails.build_markers(@services) do |service, marker|
+    #     marker.lat service.latitude
+    #     marker.lng service.longitude
+    #     marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
+    #   end
+    # else
+    #   flash.notice = "You are not authorized for that operation."
+    #   redirect_to home_index_path
+    # end
+    # if current_user.role.nil? || current_user.role.include?("volunteer") || current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @services = Service.all
+      @hash = Gmaps4rails.build_markers(@services) do |service, marker|
+        marker.lat service.latitude
+        marker.lng service.longitude
+        marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
+      end
     # end
   end
 
