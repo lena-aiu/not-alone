@@ -22,10 +22,14 @@
     <%# </p> %>
     <%# <% end %>
 
-	  <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+	  <!-- <header>
+      <%# <%= render 'layouts/navigation' %> %>
+    </header> -->
     <div class="cont mx-4">
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+
   		<main role="main">
   		<%=  yield %>
 		  </main>
