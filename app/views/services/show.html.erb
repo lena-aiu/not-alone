@@ -32,12 +32,12 @@
     <p>
       <figure class="picture is-128x128">
         <% if @service.picture.attached? %>
-          <%= image_tag(url_for(@service.picture), size: 200) %>  
+          <%= image_tag(url_for(@service.picture), size: 200) %>
         <% end %>
       </figure>
-    </p> 
+    </p>
    <%# Orders for this service %>
-    <% if admin? || intern? %>
+    <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
     <h2 class="title mb-5 display-4" style="text-align:center"><%= t ("Orders")%></h2>
     <div class="table-responsive card mb-5">
     <table class="table table-hover">
@@ -51,13 +51,13 @@
           </tr>
         </div>
       </thead>
-      <tbody> 
+      <tbody>
         <tr>
         <% @service.orders.each do |order| %>
           <td><%= order.customer.full_name %></td>
           <td><%= order.service.kind %></td>
           <td><%= order.category.name %></td>
-          <td><%= order.description %></td> 
+          <td><%= order.description %></td>
         </tr>
         <% end %>
       </tbody>
@@ -67,7 +67,7 @@
     <%# Nearby Locations 25m %>
     <h2><%= t ("nearby")%> </h2>
     <ul>
-      <%# <%if @service.nearbys(25) != nil %> 
+      <%# <%if @service.nearbys(25) != nil %>
       <%if @service.geocoded? %>
         <% for location in @service.nearbys(25) %>
           <li><strong><%= t ("service")%></strong> <%= link_to location.name, location %>, <strong><%= t ("address")%></strong> <%=location.address%> (<%= location.distance.round(2) %> <strong><%= t ("miles")%></strong>) </li>
@@ -77,8 +77,8 @@
   </div>
   </div>
 
-  
-   
+
+
 
 
   <div class="container">
@@ -101,11 +101,11 @@
      </script>
    </div>
 
-    <% if admin? || intern? %>
+    <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
       <%= link_to t('edit'), edit_service_path(@service), :class => "btn btn-primary btn-sm", :style => "color: white" %>
       <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
     <% else %>
-      <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+      <%= link_to t('back'), services_path, :class => "btn btn-primary btn-sm", :style => "color: white" %>
     <% end %><br><br>
 
     <%= social_share_button_tag(@service.url)%>

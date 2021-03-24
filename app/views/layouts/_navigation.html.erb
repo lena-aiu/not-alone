@@ -27,7 +27,6 @@
                               <%= t('nav_links.customers') %>
                             <% end %>
                         </li>
-
                     <% end %>
     			  <li class='nav-item'>
               <%= link_to videos_path, class: 'nav-link'  do %>
@@ -35,7 +34,13 @@
               <% end %>
             </li>
             <li class="nav-item">
-                <%= link_to 'Categories', categories_path, class: 'nav-link' %>
+                <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern") || current_user.role&.include?("volunteer")) %>
+                    <li class='nav-item'>
+                        <%= link_to categories_path, class: 'nav-link'  do %>
+                          <%= t('nav_links.categories') %>
+                        <% end %>
+                    </li>
+                <% end %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
