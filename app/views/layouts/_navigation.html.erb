@@ -3,12 +3,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
 <div class="container-fluid ">
     <button type="button" class="navbar-toggler collapsed" data-toggle="collapse"
-    data-target="#navbarNavAltMarkup" aria-expanded="false">
+    data-target="#navbarNavAltMarkup" aria-expanded="true">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse w-100 order-1 order-lg-0" id="navbarNavAltMarkup">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse w-100 order-0" id="navbarNavAltMarkup">
+      <ul class="navbar-nav mr-auto ">
         <li class='nav-item text-nowrap'>
           <%= link_to home_index_path, class: 'nav-link'  do %>
             <%= t('nav_links.home') %>
@@ -70,7 +70,7 @@
       </ul>
  </div>
 
- <div class="collapse navbar-collapse w-100 order-2 order-lg-0" id="navbarNavAltMarkup">
+ <!-- <div class="collapse navbar-collapse w-100 order-2 order-lg-0" id="navbarNavAltMarkup"> -->
      <ul class="navbar-nav mr-auto">
        <li class="nav-item text-nowrap nav-link">
          <%= link_to_unless_current "English", locale: "en"%>
