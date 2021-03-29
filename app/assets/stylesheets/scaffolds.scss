@@ -74,6 +74,7 @@ pre {
 
  a.dropdown-item {
    background-color: #563d7c;
+   &:hover {color: #16181b !important;}
  }
 
  div.dropdown-menu {
@@ -85,6 +86,10 @@ li.nav-item {
   list-style-type: none;
   font-size: 18px;
   background-color: #563d7c;
+}
+
+.nav-link a {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 //

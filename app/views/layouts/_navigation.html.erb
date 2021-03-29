@@ -49,12 +49,12 @@
             <%# Other Help %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %></a>
-            <a class="dropdown-item" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/"><%= t ('clinic') %></a>
-            <a class="dropdown-item" href="https://sfmohcd.org/resources-domestic-violence-survivors"><%= t ('shelter') %></a>
-            <a class="dropdown-item" href="https://www.napanews.org/"><%= t ('sexual') %></a>
-            <a class="dropdown-item" href="https://kara-grief.org/"><%= t ('grief') %></a>
-            <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline"><%= t ('substance') %></a>
+            <a class="dropdown-item nav-link" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %></a>
+            <a class="dropdown-item nav-link" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/"><%= t ('clinic') %></a>
+            <a class="dropdown-item nav-link" href="https://sfmohcd.org/resources-domestic-violence-survivors"><%= t ('shelter') %></a>
+            <a class="dropdown-item nav-link" href="https://www.napanews.org/"><%= t ('sexual') %></a>
+            <a class="dropdown-item nav-link" href="https://kara-grief.org/"><%= t ('grief') %></a>
+            <a class="dropdown-item nav-link" href="https://www.samhsa.gov/find-help/national-helpline"><%= t ('substance') %></a>
           </div>
         </li>
         <li class='nav-item text-nowrap'>
@@ -78,22 +78,22 @@
        <li class="nav-item text-nowrap nav-link">
          <%= link_to_unless_current "Spanish", locale: "es" %>
        </li>
-       <li class="nav-item text-nowrap nav-link">
+       <li class="nav-item text-nowrap ">
            <% if user_signed_in? %>
               <a class="disabled"><%= current_user.email %>
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %></a>
             <%# <% (t'log_out') %>
         </li>
-        <li class="nav-item text-nowrap nav-link">
+        <li class="nav-item text-nowrap ">
                <% else %>
                   <a class="disabled">
-                     <%= link_to 'Sign In', new_user_session_path %></a>
+                     <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %></a>
                 <%# <% (t'log_in') %>
              <% end %>
           </li>
         </ul>
  </div>
-  </div> 
+  </div>
 </nav>
 
 <div class="container text-sm-center" role="group" aria-label="Callout buttons">
