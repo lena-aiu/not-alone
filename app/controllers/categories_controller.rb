@@ -8,17 +8,17 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :is_user_authorized_category
 
-  def index
-    if current_user.role.nil? || current_user.role.include?("volunteer")
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
-      @categories = Category.all
-    else
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    end
-  end
+  # def index
+  #   if current_user.role.nil? || current_user.role.include?("volunteer")
+  #     flash.notice = "You are not authorized for that operation."
+  #     redirect_to home_index_path
+  #   elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+  #     @categories = Category.all
+  #   else
+  #     flash.notice = "You are not authorized for that operation."
+  #     redirect_to home_index_path
+  #   end
+  # end
 
   def show
     if current_user.role.nil? || current_user.role.include?("volunteer")
@@ -61,18 +61,18 @@ class CategoriesController < ApplicationController
       flash.notice = "You are not authorized for that operation."
       redirect_to home_index_path
     elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
-      @category = Category.new(category_params) 
+      @category = Category.new(category_params)
     else
       flash.notice = "You are not authorized for that operation."
       redirect_to home_index_path
     end
-    @category = Category.new(category_params) 
+    @category = Category.new(category_params)
     if @category.save
       flash.notice = "The customer record was created successfully."
       redirect_to @category
     else
       flash.now.alert = @category.errors.full_messages.to_sentence
-      render :new  
+      render :new
     end
   end
 

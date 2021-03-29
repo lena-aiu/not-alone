@@ -92,6 +92,11 @@ li.nav-item {
   color: rgba(255, 255, 255, 0.5);
 }
 
+a.disabled {
+    color: #ffffff80;
+    padding: .5rem .5rem;
+}
+
 //
 // @media (min-width: 768px) {
 //   .navbar-nav {

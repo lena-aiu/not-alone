@@ -36,7 +36,7 @@
             <%= t('nav_links.videos') %>
           <% end %>
         </li>
-            <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern") || current_user.role&.include?("volunteer")) %>
+            <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern")) %>
                 <li class='nav-item text-nowrap'>
                     <%= link_to categories_path, class: 'nav-link'  do %>
                       <%= t('nav_links.categories') %>
@@ -71,7 +71,7 @@
  <!-- </div> -->
 
  <!-- <div class="collapse navbar-collapse w-100 order-2 order-lg-0" id="navbarNavAltMarkup"> -->
-     <ul class="navbar-nav mr-auto">
+     <ul class="navbar-nav mr">
        <li class="nav-item text-nowrap nav-link">
          <%= link_to_unless_current "English", locale: "en"%>
        </li>
