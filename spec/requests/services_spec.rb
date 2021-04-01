@@ -105,7 +105,7 @@ RSpec.describe "Services", type: :request do
       service_attributes.delete(:name)
       expect { post services_path, params: {service: service_attributes}
     }.to_not change(Service, :count)
-      expect(response).to render_template(:edit)
+      expect(response).to render_template(:new)
     end
   end
 

@@ -24,20 +24,11 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    if nil? || volunteer?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif admin? || intern?
       @hash = Gmaps4rails.build_markers(@service) do |service, marker|
         marker.lat service.latitude
         marker.lng service.longitude
         marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
       end
-      render :show
-    else
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    end
   end
 
   # GET /serivices/new
@@ -76,31 +67,17 @@ class ServicesController < ApplicationController
       redirect_to home_index_path
     elsif admin? || intern?
       @service = Service.new(service_params)
-      if @service.save
-        if params[:service][:picture].present?
-          @service.picture.attach(params[:service][:picture])
-        end
-        flash.notice = "The service record was created successfully."
-        redirect_to @service
-      else
-        flash.now.alert = @service.errors.full_messages.to_sentence
-        render :edit
-      end
-
     else
       flash.notice = "You are not authorized for that operation."
       redirect_to home_index_path
     end
     @service = Service.new(service_params)
     if @service.save
-      if params[:service][:picture].present?
-        @service.picture.attach(params[:service][:picture])
-      end
       flash.notice = "The service record was created successfully."
       redirect_to @service
     else
       flash.now.alert = @service.errors.full_messages.to_sentence
-      render :edit
+      render :new
     end
 
   end
@@ -112,27 +89,12 @@ class ServicesController < ApplicationController
       flash.notice = "You are not authorized for that operation."
       redirect_to home_index_path
     elsif admin? || intern?
-      # @category.update(category_params)
-      if @service.update(service_params)
-        if params[:service][:picture].present?
-          @service.picture.attach(params[:service][:picture])
-        end
-        flash.notice = "The service record was updated successfully."
-        redirect_to @service
-      else
-        flash.now.alert = @service.errors.full_messages.to_sentence
-        render :edit
-      end
-
+      @service.update(service_params)
     else
       flash.notice = "You are not authorized for that operation."
       redirect_to home_index_path
     end
-
     if @service.update(service_params)
-      if params[:service][:picture].present?
-        @service.picture.attach(params[:service][:picture])
-      end
       flash.notice = "The service record was updated successfully."
       redirect_to @service
     else
@@ -149,10 +111,6 @@ class ServicesController < ApplicationController
       redirect_to home_index_path
     elsif admin? || intern?
       @service.destroy
-      respond_to do |format|
-        format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
-        format.json { head :no_content }
-      end
     else
       flash.notice = "You are not authorized for that operation."
       redirect_to home_index_path
