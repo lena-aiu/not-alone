@@ -77,7 +77,7 @@ class ServicesController < ApplicationController
       redirect_to @service
     else
       flash.now.alert = @service.errors.full_messages.to_sentence
-      render :new
+      render :edit
     end
 
   end
