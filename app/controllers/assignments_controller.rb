@@ -4,18 +4,61 @@ class AssignmentsController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      render :show
+    elsif current_user.role.include?("volunteer")
+      if current_user.customers.include? @assignment.customer
+        render :show
+      else
+        flash.notice = "You are not authorized for that operation."
+        redirect_to home_index_path
+      end
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def new
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
     @customer = Customer.find params[:customer_id]
     @assignment = @customer.assignments.new
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to customers_path
+    end
   end
 
   def edit
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
     @assignment = Assignment.find(params[:id])
+    render :edit
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
   end
 
   def create
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @customer = Customer.find params[:customer_id]
+      @assignment = @customer.assignments.new(assignment_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @customer = Customer.find params[:customer_id]
     @assignment = @customer.assignments.new(assignment_params)
     if @assignment.save
@@ -28,10 +71,18 @@ class AssignmentsController < ApplicationController
   end
 
   def update
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @assignment.update(assignment_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     if @assignment.update(assignment_params)
       flash.notice = "The assignment record was updated successfully."
       redirect_to @assignment
-      # redirect_to assignment_path(@assignment)
     else
       flash.now.alert = @assignment.errors.full_messages.to_sentence
       render :edit
@@ -39,6 +90,16 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
+    if current_user.role.nil?
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    elsif current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @customer = @assignment.customer
+      @assignment.destroy
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @customer = @assignment.customer
     @assignment.destroy
     respond_to do |format|
@@ -54,7 +115,7 @@ class AssignmentsController < ApplicationController
     else
       @customer=Customer.find(params[:customer_id])
     end
-    @assignment = Assignment.find(params[:id])
+      @assignment = Assignment.find(params[:id])
   end
 
   def assignment_params
