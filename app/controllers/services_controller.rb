@@ -28,11 +28,7 @@ class ServicesController < ApplicationController
   end
 
   def new
-    # if  nil? || volunteer?
-    #   flash.notice = "You are not authorized for that operation."
-    #   redirect_to home_index_path
-    # elsif admin? || intern?
-    if admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service = Service.new
     else
       flash.notice = "You are not authorized for that operation."
@@ -42,11 +38,7 @@ class ServicesController < ApplicationController
   end
 
   def edit
-    # if  nil? || volunteer?
-    #   flash.notice = "You are not authorized for that operation."
-    #   redirect_to home_index_path
-    # elsif admin? || intern?
-    if admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       render :edit
     else
       flash.notice = "You are not authorized for that operation."
@@ -55,11 +47,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    # if  nil? || volunteer?
-    #   flash.notice = "You are not authorized for that operation."
-    #   redirect_to home_index_path
-    # elsif admin? || intern?
-    if admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service = Service.new(service_params)
     else
       flash.notice = "You are not authorized for that operation."
@@ -77,11 +65,7 @@ class ServicesController < ApplicationController
   end
 
   def update
-    # if  nil? || volunteer?
-    #   flash.notice = "You are not authorized for that operation."
-    #   redirect_to home_index_path
-    # elsif admin? || intern?
-    if admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service.update(service_params)
     else
       flash.notice = "You are not authorized for that operation."
@@ -97,11 +81,7 @@ class ServicesController < ApplicationController
   end
 
   def destroy
-    # if  nil? || volunteer?
-    #   flash.notice = "You are not authorized for that operation."
-    #   redirect_to home_index_path
-    # elsif admin? || intern?
-    if admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service.destroy
     else
       flash.notice = "You are not authorized for that operation."
