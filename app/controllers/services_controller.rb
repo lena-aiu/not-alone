@@ -10,60 +10,68 @@ class ServicesController < ApplicationController
   helper_method :intern?
   helper_method :is_user_authorized?
 
-  # GET /services
-  # GET /services.json
   def index
-    @services = Service.all
-    @hash = Gmaps4rails.build_markers(@services) do |service, marker|
-      marker.lat service.latitude
-      marker.lng service.longitude
-      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
-    end
+      @services = Service.all
+      @hash = Gmaps4rails.build_markers(@services) do |service, marker|
+        marker.lat service.latitude
+        marker.lng service.longitude
+        marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
+      end
   end
 
-  # GET /services/1
-  # GET /services/1.json
   def show
-    @hash = Gmaps4rails.build_markers(@service) do |service, marker|
-      marker.lat service.latitude
-      marker.lng service.longitude
-      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
+      @hash = Gmaps4rails.build_markers(@service) do |service, marker|
+        marker.lat service.latitude
+        marker.lng service.longitude
+        marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{service.address}' target='_blank'>#{service.name}</a>"
+      end
+  end
+
+  def new
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @service = Service.new
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
+
+  end
+
+  def edit
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
+      render :edit
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
     end
   end
 
-  # GET /serivices/new
-  def new
-    @service = Service.new
-  end
-
-  # GET /services/1/edit
-  def edit
-
-  end
-
-  # POST /services
-  # POST /services.json
   def create
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @service = Service.new(service_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @service = Service.new(service_params)
     if @service.save
-      if params[:service][:picture].present?
-        @service.picture.attach(params[:service][:picture])
-      end
       flash.notice = "The service record was created successfully."
       redirect_to @service
     else
       flash.now.alert = @service.errors.full_messages.to_sentence
       render :edit
     end
+
   end
 
-  # PATCH/PUT /customers/1
-  # PATCH/PUT /customers/1.json
   def update
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @service.update(service_params)
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     if @service.update(service_params)
-      if params[:service][:picture].present?
-        @service.picture.attach(params[:service][:picture])
-      end
       flash.notice = "The service record was updated successfully."
       redirect_to @service
     else
@@ -72,9 +80,13 @@ class ServicesController < ApplicationController
     end
   end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.json
   def destroy
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
+      @service.destroy
+    else
+      flash.notice = "You are not authorized for that operation."
+      redirect_to home_index_path
+    end
     @service.destroy
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
