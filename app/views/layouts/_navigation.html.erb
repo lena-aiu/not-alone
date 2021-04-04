@@ -1,103 +1,103 @@
 <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bd-navbar fixed-top">
-     <div class="container">
-    		<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-expanded="false">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
-            <li class='nav-item'>
-              <%= link_to home_index_path, class: 'nav-link'  do %>
-                <%= t('nav_links.home') %>
-              <% end %>
-            </li>
-            <li class='nav-item'>
-              <%= link_to home_about_path, class: 'nav-link'  do %>
-                <%= t('nav_links.about') %>
-              <% end %>
-            </li>
-            <li class='nav-item'>
-              <%= link_to services_path, class: 'nav-link'  do %>
-                <%= t('nav_links.services') %>
-              <% end %>
-            </li>
-                    <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern") || current_user.role&.include?("volunteer")) %>
-                        <li class='nav-item'>
-                            <%= link_to customers_path, class: 'nav-link'  do %>
-                              <%= t('nav_links.customers') %>
-                            <% end %>
-                        </li>
-                    <% end %>
-    			  <li class='nav-item'>
-              <%= link_to videos_path, class: 'nav-link'  do %>
-                <%= t('nav_links.videos') %>
-              <% end %>
-            </li>
-            <li class="nav-item">
-                <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern") || current_user.role&.include?("volunteer")) %>
-                    <li class='nav-item'>
-                        <%= link_to categories_path, class: 'nav-link'  do %>
-                          <%= t('nav_links.categories') %>
-                        <% end %>
-                    </li>
-                <% end %>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= t ('other') %>
-                <%# Other Help %>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %></a>
-                <a class="dropdown-item" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/"><%= t ('clinic') %></a>
-                <a class="dropdown-item" href="https://sfmohcd.org/resources-domestic-violence-survivors"><%= t ('shelter') %></a>
-                <a class="dropdown-item" href="https://www.napanews.org/"><%= t ('sexual') %></a>
-                <a class="dropdown-item" href="https://kara-grief.org/"><%= t ('grief') %></a>
-                <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline"><%= t ('substance') %></a>
-              </div>
-            </li>
-            <%# <li class="nav-item">
-                <a class="disabled"><%= link_to 'Questionnaire', home_health_path, class: 'nav-link' %>
-                <%# </a> %>
-            <%# </li>  %>
-            <li class='nav-item'>
-              <%= link_to home_health_path, class: 'nav-link'  do %>
-                <%= t('nav_links.quizzes') %>
-              <% end %>
-            </li>
 
-            <li class="nav-item">
-                <%= link_to new_contact_path, class: 'nav-link  text-nowrap' do %>
-                <%= t('connect') %>
-                <% end %>
-            </li>
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+<div class="container-fluid ">
+    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse"
+    data-target="#navbarNavAltMarkup" aria-expanded="true">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <li class="language">
-              <%= link_to_unless_current "English", locale: "en" %>
-            </li>
-            <li class="language">
-              <%= link_to_unless_current "Spanish", locale: "es" %>
-            </li>
-        </ul>
-      </div>
-      <ul class="navbar-nav ml-md-auto">
-        <li><% if user_signed_in? %>
-              <a class="disabled"><%= current_user.email %>  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link text-nowrap' %></a>
-            <%# (t'log_out') %>
+    <div class="collapse navbar-collapse w-100 order-0" id="navbarNavAltMarkup">
+      <ul class="navbar-nav mr-auto ">
+        <li class='nav-item text-nowrap'>
+          <%= link_to home_index_path, class: 'nav-link'  do %>
+            <%= t('nav_links.home') %>
+          <% end %>
         </li>
-        <li>
-                <% else %>
-                  <a class="disabled"><%= link_to 'Sign In', new_user_session_path, class: 'nav-link text-nowrap' %></a>
-                <%# (t'log_in') %>
+        <li class='nav-item text-nowrap'>
+          <%= link_to home_about_path, class: 'nav-link'  do %>
+            <%= t('nav_links.about') %>
+          <% end %>
+        </li>
+        <li class='nav-item text-nowrap'>
+          <%= link_to services_path, class: 'nav-link'  do %>
+            <%= t('nav_links.services') %>
+          <% end %>
+        </li>
+            <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern") || current_user.role&.include?("volunteer")) %>
+                <li class='nav-item text-nowrap'>
+                    <%= link_to customers_path, class: 'nav-link'  do %>
+                      <%= t('nav_links.customers') %>
+                    <% end %>
+                </li>
             <% end %>
+        <li class='nav-item text-nowrap'>
+          <%= link_to videos_path, class: 'nav-link'  do %>
+            <%= t('nav_links.videos') %>
+          <% end %>
+        </li>
+            <% if !current_user.nil? && (current_user.role&.include?("administrator") || current_user.role&.include?("intern")) %>
+                <li class='nav-item text-nowrap'>
+                    <%= link_to categories_path, class: 'nav-link'  do %>
+                      <%= t('nav_links.categories') %>
+                    <% end %>
+                </li>
+            <% end %>
+        <li class="nav-item dropdown text-nowrap">
+          <a class="nav-link dropdown-toggle text-nowrap" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= t ('other') %>
+            <%# Other Help %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item nav-link" href="https://suicidepreventionlifeline.org/"><%= t ('suicide') %></a>
+            <a class="dropdown-item nav-link" href="https://baylegal.org/what-we-do/safety/domestic-violence-prevention/"><%= t ('clinic') %></a>
+            <a class="dropdown-item nav-link" href="https://sfmohcd.org/resources-domestic-violence-survivors"><%= t ('shelter') %></a>
+            <a class="dropdown-item nav-link" href="https://www.napanews.org/"><%= t ('sexual') %></a>
+            <a class="dropdown-item nav-link" href="https://kara-grief.org/"><%= t ('grief') %></a>
+            <a class="dropdown-item nav-link" href="https://www.samhsa.gov/find-help/national-helpline"><%= t ('substance') %></a>
+          </div>
+        </li>
+        <li class='nav-item text-nowrap'>
+          <%= link_to home_health_path, class: 'nav-link'  do %>
+            <%= t('nav_links.quizzes') %>
+          <% end %>
+        </li>
+        <li class="nav-item text-nowrap">
+            <%= link_to new_contact_path, class: 'nav-link' do %>
+            <%= t('connect') %>
+            <% end %>
+        </li>
+      </ul>
+ <!-- </div> -->
+
+ <!-- <div class="collapse navbar-collapse w-100 order-2 order-lg-0" id="navbarNavAltMarkup"> -->
+     <ul class="navbar-nav mr">
+       <li class="nav-item text-nowrap nav-link">
+         <%= link_to_unless_current "English", locale: "en"%>
+       </li>
+       <li class="nav-item text-nowrap nav-link">
+         <%= link_to_unless_current "Spanish", locale: "es" %>
+       </li>
+       <li class="nav-item text-nowrap ">
+           <% if user_signed_in? %>
+              <a class="disabled"><%= current_user.email %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %></a>
+            <%# <% (t'log_out') %>
+        </li>
+        <li class="nav-item text-nowrap ">
+               <% else %>
+                  <a class="disabled">
+                     <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %></a>
+                <%# <% (t'log_in') %>
+             <% end %>
           </li>
         </ul>
-      </div>
-    </nav><!-- /navbar -->
+ </div>
+  </div>
+</nav>
 
 <div class="container text-sm-center" role="group" aria-label="Callout buttons">
   <a class="btn callout-button btn-lg" href="tel:911"><%= t ("emergencia")%> </a>
   <a class="btn callout-button btn-lg" href=<%= t ("urlhotline")%>><%= t ("hotline")%> </a>
-
 </div>
  <!-- /navbar -->
