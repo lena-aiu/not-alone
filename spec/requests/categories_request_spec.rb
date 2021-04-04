@@ -142,7 +142,7 @@ RSpec.describe "Categories", type: :request do
   end
 
   describe "post categories_path with an invalid data" do
-    it "does not save a new entry and redirects to the show path for the category" do
+    it "does not save a new entry and redirects to the edit path for the category" do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20",
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
