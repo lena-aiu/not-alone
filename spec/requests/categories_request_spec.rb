@@ -150,7 +150,7 @@ RSpec.describe "Categories", type: :request do
       category_attributes.delete(:name)
       expect { post categories_path, params: {category: category_attributes}
     }.to_not change(Category, :count)
-      expect(response.status).to render_template(:new)
+      expect(response.status).to render_template(:edit)
     end
   end
 
@@ -160,7 +160,7 @@ RSpec.describe "Categories", type: :request do
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       category = FactoryBot.create(:category)
-      put category_path(id: category.id), params: 
+      put category_path(id: category.id), params:
         {category: {name: "new", description: "new", text: "new"}}
       category.reload
       expect(category.name).to eq("new")
@@ -174,7 +174,7 @@ RSpec.describe "Categories", type: :request do
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       category = FactoryBot.create(:category)
-      put category_path(id: category.id), params: {category: 
+      put category_path(id: category.id), params: {category:
         {name: "", description: ""}}
       category.reload
       expect(category.name).to_not eq("nil")
@@ -188,7 +188,7 @@ RSpec.describe "Categories", type: :request do
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user
       category = FactoryBot.create(:category)
-      delete category_path(id: category.id), params: {category: 
+      delete category_path(id: category.id), params: {category:
         {name: "new", description: "new"}}
       expect(response).to redirect_to categories_path
       end
