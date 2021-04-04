@@ -1,0 +1,27 @@
+<div class= "container-fluid">
+<h3> Roles for <%= @user_rolle.email %> </h3>
+ <%= form_with url: user_rolle_path, method: "put" do |f| %>
+ <% if @user_rolle.role.include?("volunteer") %>
+ <%= f.check_box :volunteer, checked: true %>
+<% else %>
+<%= f.check_box :volunteer %>
+<% end %>
+<%= f.label :volunteer, "Volunteer" %>
+<br>
+<% if @user_rolle.role.include?("intern") %>
+<%= f.check_box :intern, checked: true  %>
+ <% else %>
+ <%= f.check_box :intern %>
+<% end %>
+<%= f.label :intern, "Intern" %>
+<br>
+<% if @user_rolle.role.include?("administrator") %>
+<%= f.check_box :administrator, checked: true  %>
+ <% else %>
+ <%= f.check_box :administrator %>
+ <% end %>
+ <%= f.label :administrator, "Administrator" %>
+ <br>
+ <%= f.submit %>
+ <% end %>
+</div>

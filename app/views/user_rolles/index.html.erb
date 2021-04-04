@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<h1 class="title mt-5 mb-5 display-3" style="text-align: center;">User Roles</h1>
+<div id="no-more-tables" class="table-responsive card mb-5">
+    <table class="table table-hover">
+      <thead>
+          <tr>
+            <%# <th>(t'New Service')</th> %>
+            <th class="h2" style="background:none;">User</th> 
+            <th class="h2" style="background:none;">Role</th>
+            <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+              <th colspan="3" style="background:none;"></th>
+            <% else %>
+                <th colspan="1"></th>
+            <% end %>
+          </tr>
+      </thead>
+
+      <tbody>
+        <% @user_rolles.each do |user| %>
+            <tr>
+            
+              <td data-title="User"><%= user.email %></td>
+              <td data-title="Role"><%= user.role %></td>
+              <td><%= link_to 'show', user_rolle_path(user.id), :class => "btn btn-outline-primary btn-sm" %></td>
+              <% if current_user.role.include?("administrator") %>
+              <td><%= link_to 'edit', edit_user_rolle_path(user.id), :class => "btn btn-outline-primary btn-sm" %></td>
+              <td><%= link_to 'delete', user_rolle_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td> 
+              <% end %>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <br>
+
+    <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+    <% end %>

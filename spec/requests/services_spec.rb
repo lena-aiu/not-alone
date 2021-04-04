@@ -97,7 +97,7 @@ RSpec.describe "Services", type: :request do
   end
 
   describe "post services_path with invalid data" do
-    it "doesn't save a new entry and redirects to the new path for the service" do
+    it "doesn't save a new entry and redirects to the edit path for the service" do
       user = User.create(email: 'test@icloud.com', password: "Pa$$word20",
         password_confirmation: "Pa$$word20", role: "administrator")
       sign_in user

@@ -72,7 +72,7 @@ class CategoriesController < ApplicationController
       redirect_to @category
     else
       flash.now.alert = @category.errors.full_messages.to_sentence
-      render :new
+      render :edit
     end
   end
 
