@@ -10,8 +10,6 @@ class ServicesController < ApplicationController
   helper_method :intern?
   helper_method :is_user_authorized?
 
-  # GET /services
-  # GET /services.json
   def index
       @services = Service.all
       @hash = Gmaps4rails.build_markers(@services) do |service, marker|
@@ -21,8 +19,6 @@ class ServicesController < ApplicationController
       end
   end
 
-  # GET /services/1
-  # GET /services/1.json
   def show
       @hash = Gmaps4rails.build_markers(@service) do |service, marker|
         marker.lat service.latitude
@@ -31,13 +27,8 @@ class ServicesController < ApplicationController
       end
   end
 
-  # GET /serivices/new
   def new
-    # @service = Service.new
-    if  nil? || volunteer?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service = Service.new
     else
       flash.notice = "You are not authorized for that operation."
@@ -46,12 +37,8 @@ class ServicesController < ApplicationController
 
   end
 
-  # GET /services/1/edit
   def edit
-    if  nil? || volunteer?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       render :edit
     else
       flash.notice = "You are not authorized for that operation."
@@ -59,13 +46,8 @@ class ServicesController < ApplicationController
     end
   end
 
-  # POST /services
-  # POST /services.json
   def create
-    if  nil? || volunteer?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service = Service.new(service_params)
     else
       flash.notice = "You are not authorized for that operation."
@@ -82,13 +64,8 @@ class ServicesController < ApplicationController
 
   end
 
-  # PATCH/PUT /customers/1
-  # PATCH/PUT /customers/1.json
   def update
-    if  nil? || volunteer?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service.update(service_params)
     else
       flash.notice = "You are not authorized for that operation."
@@ -103,13 +80,8 @@ class ServicesController < ApplicationController
     end
   end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.json
   def destroy
-    if  nil? || volunteer?
-      flash.notice = "You are not authorized for that operation."
-      redirect_to home_index_path
-    elsif admin? || intern?
+    if  current_user.role.include?("administrator") || current_user.role.include?("intern")
       @service.destroy
     else
       flash.notice = "You are not authorized for that operation."

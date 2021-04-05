@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+    <p>
+    <strong>User Email</strong>
+    <%= @user_rolle.email%>
+    </p>
+    <p>
+      <strong>User Role</strong>
+      <%= @user_rolle.role %>
+    </p>
+    <h2 class="title mt-5 mb-5 display-4" style="text-align:center">Assignments</h2>
+    <div class="table-responsive card mb-5">
+      <table class="table table-hover">
+        <thead class="cf">
+          <div class="row">
+            <tr>
+              <th class="h2" style="background:none;"><%= t ('Client Name') %></th>
+              <th class="h2" style="background:none;"><%= t ('Status') %></th>
+              <% if current_user.role.include?("administrator") || current_user.role.include?("intern") %>
+                <th colspan="3" style="background:none;"></th>
+              <% else %>
+                <th colspan="1" style="background:none;></th>
+              <% end %>
+            </tr>
+          </div>
+        </thead>
+        <tbody>
+          <% @user_rolle.assignments.each do |assignment| %>
+            <tr>
+              <% if current_user.role.include?("administrator") || current_user.role.include?("intern")%>
+                <td><%= assignment.customer.first_name  %>
+                <%= assignment.customer.last_name  %></td>
+                <td><%= assignment.status %></td>
+                <td><%= link_to 'Show', assignment, :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'Edit', edit_assignment_path(assignment), :class => "btn btn-outline-primary btn-sm" %></td>
+                <td><%= link_to 'Delete', assignment, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-primary btn-sm" %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to 'back', user_rolles_path, :class => "btn btn-primary btn-sm", :style => "color: white" %> 
+    

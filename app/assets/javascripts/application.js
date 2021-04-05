@@ -17,4 +17,3 @@
 //= require social-share-button
 //= require underscore
 //= require gmaps/google
-
