@@ -82,10 +82,19 @@ pre {
       background-color: #563d7c !important;
  }
 
-li.nav-item {
+ul.navbar-nav.mr {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
   list-style-type: none;
   font-size: 18px;
   background-color: #563d7c;
+}
+
+.working {
+    order: -1;
+    flex: 1 0 100%;
 }
 
 .nav-link a {
@@ -93,6 +102,7 @@ li.nav-item {
 }
 
 a.disabled {
+    display: initial;
     color: #ffffff80;
     padding: .5rem .5rem;
 }
